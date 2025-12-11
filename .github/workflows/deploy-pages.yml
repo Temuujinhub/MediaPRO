@@ -25,6 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        working-directory: MediaPRO_website
 
       - name: Print environment
         run: |
@@ -32,17 +33,19 @@ jobs:
           npm -v
           pwd
           ls -la
+        working-directory: MediaPRO_website
 
       - name: Build (capture log)
         run: |
           npm run build --if-present 2>&1 | tee build.log
+        working-directory: MediaPRO_website
 
       - name: Upload build log
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-log
-          path: build.log
+          path: MediaPRO_website/build.log
 
       - name: Show build log in step output
         if: always()
@@ -55,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: site-dist
-          path: ./dist
+          path: MediaPRO_website/dist
 
   deploy:
     needs: build
