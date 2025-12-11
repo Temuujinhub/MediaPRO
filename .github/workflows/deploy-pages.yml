@@ -51,18 +51,21 @@ jobs:
           if [ -f build.log ]; then cat build.log; else echo 'build.log not found'; fi
           echo '===== build.log end ====='
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: site-dist
           path: ./dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: ./dist
       - name: Deploy to GitHub Pages (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v3
         with:
