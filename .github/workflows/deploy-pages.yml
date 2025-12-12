@@ -73,5 +73,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           # Uses a short-lived PAT stored as a repository secret. Create a secret named GH_PAGES_PAT.
-          github_token: ${{ secrets.GH_PAGES_PAT }}
+          # peaceiris/actions-gh-pages expects `personal_token` (or `deploy_key`) for pushing.
+          personal_token: ${{ secrets.GH_PAGES_PAT }}
           publish_dir: ./dist
