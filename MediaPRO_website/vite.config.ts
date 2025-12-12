@@ -207,6 +207,10 @@ function cdnPrefixImages(): Plugin {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
+    // Base path for production builds. When publishing to GitHub Pages under
+    // https://<user>.github.io/<repo>/ we must set the base to `/<repo>/` so
+    // asset URLs (css/js) are emitted with the correct prefix.
+    base: '/MediaPRO/',
     server: {
       host: "::",
       port: 8080,
