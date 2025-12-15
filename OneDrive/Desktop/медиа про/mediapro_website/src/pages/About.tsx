@@ -299,7 +299,7 @@ const About = () => {
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                   <img 
-                    src="https://static-us-img.skywork.ai/prod/nexus/1765427669/cropped_image_10_1765427669699482775.jpg" 
+                    src="./images/senior_backend_munkhat_20251211_044000.png" 
                     alt="Senior Backend Munkhat.M" 
                     className="w-full h-full object-cover"
                   />
@@ -346,7 +346,7 @@ const About = () => {
               <CardContent className="p-4 text-center">
                 <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-gray-200">
                   <img 
-                    src="https://static-us-img.skywork.ai/prod/nexus/1765427669/cropped_image_9_1765427669696294215.jpg" 
+                    src="./images/frontend_mandakhzaya_20251211_044001.png" 
                     alt="Frontend Mandakhzaya.B" 
                     className="w-full h-full object-cover"
                   />
@@ -365,7 +365,7 @@ const About = () => {
               <CardContent className="p-4 text-center">
                 <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-gray-200">
                   <img 
-                    src="https://static-us-img.skywork.ai/prod/nexus/1765427669/cropped_image_16_1765427669708711991.jpg" 
+                    src="./images/frontend_baasandulam_20251211_044002.png" 
                     alt="Frontend Baasandulam.Ts" 
                     className="w-full h-full object-cover"
                   />
@@ -384,7 +384,7 @@ const About = () => {
               <CardContent className="p-4 text-center">
                 <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-gray-200">
                   <img 
-                    src="https://static-us-img.skywork.ai/prod/nexus/1765427669/cropped_image_20_1765427669716862016.jpg" 
+                    src="./images/frontend_khuslenzaya_20251211_044004.png" 
                     alt="Frontend Khuslenzaya.M" 
                     className="w-full h-full object-cover"
                   />
@@ -403,7 +403,7 @@ const About = () => {
               <CardContent className="p-4 text-center">
                 <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-gray-200">
                   <img 
-                    src="https://static-us-img.skywork.ai/prod/nexus/1765427669/cropped_image_22_1765427669720745603.jpg" 
+                    src="./images/frontend_mendbayar_20251211_044005.png" 
                     alt="Frontend Mendbayar.U" 
                     className="w-full h-full object-cover"
                   />
@@ -420,12 +420,8 @@ const About = () => {
             {/* Frontend - Munkh-Orgil */}
             <Card className="corporate-shadow hover:shadow-xl transition-shadow duration-300">
               <CardContent className="p-4 text-center">
-                <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-gray-200">
-                  <img 
-                    src="https://static-us-img.skywork.ai/prod/nexus/1765427669/cropped_image_24_1765427669724518672.jpg" 
-                    alt="Frontend Munkh-Orgil.E" 
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                  <span className="text-gray-400 text-2xl">👤</span>
                 </div>
                 <h4 className="text-base font-bold text-gray-900 mb-1">
                   Munkh-Orgil.E
@@ -449,7 +445,7 @@ const About = () => {
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                   <img 
-                    src="https://static-us-img.skywork.ai/prod/nexus/1765427669/cropped_image_20_1765427669716862016.jpg" 
+                    src="./images/backend_enkhtushig_20251211_044003.png" 
                     alt="Backend Enkhtushig.T" 
                     className="w-full h-full object-cover"
                   />
