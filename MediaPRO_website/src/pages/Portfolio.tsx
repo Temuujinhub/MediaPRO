@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Building, Truck, ShoppingCart, Bot, Car, MapPin } from 'lucide-react';
+import { Building, Truck, ShoppingCart, Bot, Car } from 'lucide-react';
 
 const Portfolio = () => {
   const projects = [
@@ -74,21 +74,6 @@ const Portfolio = () => {
         'Time-based Pricing: Dynamic pricing based on duration and peak hours'
       ],
       tags: ['Smart City', 'IoT', 'Payment Integration', 'Parking Management']
-    },
-    {
-      id: 6,
-      title: 'CLIX GPS Tracking System (www.clix.mn)',
-      client: 'Fleet Management Platform',
-      domain: 'GPS Tracking & Fleet Management',
-      icon: <MapPin className="h-8 w-8" />,
-      description: 'A comprehensive GPS tracking and fleet management platform serving 20+ organizations with 2,800+ vehicles across Mongolia. Built on cloud infrastructure with Teltonika GPS devices for enterprise-grade tracking and real-time monitoring.',
-      keyImpacts: [
-        'Large-Scale Operations: Monitors 2,800+ vehicles across 20+ organizations with real-time GPS tracking',
-        'Teltonika Integration: Industry-leading GPS hardware with fuel monitoring and theft prevention',
-        'Cloud Video Streaming: Real-time video surveillance with instant playback capabilities',
-        'Multi-Industry Deployment: Customized solutions for mining, logistics, taxi, and government sectors'
-      ],
-      tags: ['GPS Tracking', 'Fleet Management', 'Teltonika', 'Cloud Platform']
     }
   ];
 
