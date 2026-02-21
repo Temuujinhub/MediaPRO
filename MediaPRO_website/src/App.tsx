@@ -12,7 +12,7 @@ import NotFound from '@/pages/NotFound';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/MediaPRO">
       <div className="min-h-screen bg-background">
         <Navigation />
         <main>
