@@ -33,12 +33,12 @@ const Contact = () => {
     {
       icon: <Mail className="h-6 w-6" />,
       title: 'Email',
-      details: ['info@meguun.mn']
+      details: ['info@mediapro.mn']
     },
     {
       icon: <Globe className="h-6 w-6" />,
       title: 'Website',
-      details: ['www.meguun.mn']
+      details: ['www.mediapro.mn']
     }
   ];
 
@@ -272,7 +272,7 @@ const Contact = () => {
               </Button>
               <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50">
                 <Mail className="mr-2 h-5 w-5" />
-                Email: info@meguun.mn
+                Email: info@mediapro.mn
               </Button>
             </div>
           </div>

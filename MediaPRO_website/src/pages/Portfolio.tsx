@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Building, Truck, ShoppingCart, Bot, Car } from 'lucide-react';
+import { Building, Truck, ShoppingCart, Bot, Car, MapPin } from 'lucide-react';
 
 const Portfolio = () => {
   const projects = [
@@ -74,6 +74,22 @@ const Portfolio = () => {
         'Time-based Pricing: Dynamic pricing based on duration and peak hours'
       ],
       tags: ['Smart City', 'IoT', 'Payment Integration', 'Parking Management']
+    },
+    {
+      id: 6,
+      title: 'CLIX.mn',
+      client: 'Fleet Management Platform',
+      domain: 'GPS Tracking & Fleet Management',
+      icon: <MapPin className="h-8 w-8" />,
+      description: 'Comprehensive GPS-based vehicle tracking and fleet management system serving over 20 organizations with 2,800+ registered vehicles. Provides real-time monitoring, route optimization, and comprehensive reporting for transportation and logistics operations.',
+      keyImpacts: [
+        'Large-Scale Deployment: Managing 2,800+ vehicles across 20+ organizations with continuous service',
+        'Real-time GPS Tracking: Live vehicle location monitoring and route tracking',
+        'Fleet Analytics: Comprehensive reporting on fuel consumption, driver behavior, and vehicle utilization',
+        'Maintenance Scheduling: Automated alerts for vehicle servicing and maintenance requirements',
+        'Multi-Organization Support: Segregated access and reporting for different client organizations'
+      ],
+      tags: ['GPS Tracking', 'Fleet Management', 'IoT', 'Real-time Monitoring', 'Enterprise']
     }
   ];
 
