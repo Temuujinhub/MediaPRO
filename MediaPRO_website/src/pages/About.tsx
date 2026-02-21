@@ -16,9 +16,9 @@ const About = () => {
   const milestones = [
     { year: '2013', event: 'Mediapro LLC founded' },
     { year: '2015', event: 'First enterprise client onboarded' },
+    { year: '2016', event: 'Chatbot.mn AI platform deployed' },
     { year: '2018', event: 'Rio Tinto partnership established' },
     { year: '2020', event: 'OnlineHR.mn SaaS platform launched' },
-    { year: '2022', event: 'Chatbot.mn AI platform deployed' },
     { year: '2024', event: 'Expanded to comprehensive holding company' }
   ];
 
