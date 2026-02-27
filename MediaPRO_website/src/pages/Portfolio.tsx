@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Building, Truck, ShoppingCart, Bot, Car, MapPin } from 'lucide-react';
+import { Building, Truck, ShoppingCart, Bot, Car, MapPin, Database } from 'lucide-react';
 
 const Portfolio = () => {
   const projects = [
@@ -90,6 +90,22 @@ const Portfolio = () => {
         'Multi-Organization Support: Segregated access and reporting for different client organizations'
       ],
       tags: ['GPS Tracking', 'Fleet Management', 'IoT', 'Real-time Monitoring', 'Enterprise']
+    },
+    {
+      id: 7,
+      title: 'INTELLEXI: Enterprise Data Analytics & AI Assistant',
+      client: 'intellexitech.online (MNTech)',
+      domain: 'Data Lakehouse / CRM / AI Analytics',
+      icon: <Database className="h-8 w-8" />,
+      description: 'An integrated enterprise data analytics platform combining Data Lakehouse, CRM, and AI Assistant capabilities. INTELLEXI consolidates data from multiple sources (CRM, ERP, Web, Social, POS) into a unified data warehouse, enabling real-time reporting, deep customer segmentation with 9-tier classification, and AI-powered business decision-making.',
+      keyImpacts: [
+        'Data Lakehouse Architecture: Bronze-Silver-Gold layered data processing with ETL pipeline for structured, semi-structured, and unstructured data ingestion',
+        'AI-Powered CRM: 9-tier customer segmentation based on behavior, purchases, activity, and value — enabling precision marketing and sales strategies',
+        'Mass Mail & Message System: AI-driven personalized messaging across Email, SMS, and Push notifications from a single platform, reducing marketing costs while increasing conversion rates',
+        'Enterprise Security: JWT Authentication, Row Level Security, Organization Isolation, and Edge Function security ensuring complete data protection with no external training data leakage',
+        'Real-time Analytics Dashboard: Comprehensive business intelligence with live monitoring, custom reports, and AI chat assistant for instant data insights'
+      ],
+      tags: ['Data Lakehouse', 'AI', 'CRM', 'Analytics', 'Enterprise Security', 'Real-time']
     }
   ];
 
