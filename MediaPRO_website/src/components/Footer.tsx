@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
+
 const Footer = () => (
   <footer className="bg-slate-900 text-white">
     <div className="container-custom px-4 sm:px-6 lg:px-8 py-14">
@@ -60,9 +61,8 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="border-t border-slate-800 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <div className="border-t border-slate-800 mt-12 pt-6 text-center text-xs text-slate-500">
         <span>© 2024 Mediapro LLC. All rights reserved.</span>
-        <Link to="/admin" className="hover:text-slate-400 transition-colors">Admin</Link>
       </div>
     </div>
   </footer>
