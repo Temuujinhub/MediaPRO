@@ -5,12 +5,12 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 
 const navItems = [
-  { name: 'Нүүр', path: '/' },
-  { name: 'Портфолио', path: '/portfolio' },
-  { name: 'Шийдлүүд', path: '/solutions' },
-  { name: 'Бидний тухай', path: '/about' },
-  { name: 'Ажлын байр', path: '/careers' },
-  { name: 'Холбоо барих', path: '/contact' },
+  { name: 'Home', path: '/' },
+  { name: 'Portfolio', path: '/portfolio' },
+  { name: 'Solutions', path: '/solutions' },
+  { name: 'About', path: '/about' },
+  { name: 'Careers', path: '/careers' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 const Navigation = () => {
@@ -69,7 +69,7 @@ const Navigation = () => {
           <div className="flex items-center gap-3">
             <Link to="/contact" className="hidden md:inline-flex">
               <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-5">
-                Холбоо барих
+                Contact Us
               </Button>
             </Link>
 
@@ -103,7 +103,7 @@ const Navigation = () => {
                   </div>
                   <div className="p-4 border-t">
                     <Link to="/contact" onClick={() => setIsOpen(false)}>
-                      <Button className="w-full bg-blue-600 hover:bg-blue-700">Холбоо барих</Button>
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700">Contact Us</Button>
                     </Link>
                   </div>
                 </div>
