@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Badge } from '@/components/ui/badge';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -24,11 +23,11 @@ const projects: Project[] = [
     client: 'Oyu Tolgoi (Rio Tinto)',
     domain: 'Workforce Logistics & Accommodation',
     description:
-      '24,000 гаруй ажилчны ирц, нисэх, байрны менежментийг нэгтгэсэн mission-critical систем. Roster, нислэгийн хуваарь, байрны захиалгыг нэг платформоор шийдвэрлэнэ.',
+      'A mission-critical system integrating attendance, flight scheduling, and accommodation management for 24,000+ workers. Roster planning, flight schedules, and room bookings all handled in one platform.',
     keyImpacts: [
-      'Double-booking-г бүрэн устгасан дэвшилтэд захиалгын алгоритм',
-      '24/7 тасралтгүй ажиллагаа — хуваарь, тээвэр, байр бүгдийг нэгтгэсэн',
-      'Бодит цагийн өгөгдөлд суурилсан өрөө, суудлын оновчтой хуваарилалт',
+      'Advanced booking algorithm that fully eliminates double-booking',
+      '24/7 uninterrupted operations — scheduling, transport, and accommodation unified',
+      'Real-time data-driven room and seat allocation optimization',
     ],
     tags: ['Enterprise', 'Logistics', 'Real-time', '24/7'],
     category: 'Enterprise',
@@ -40,10 +39,10 @@ const projects: Project[] = [
     client: 'Oyu Tolgoi — oasis.ot.mn',
     domain: 'Procurement Flow Management',
     description:
-      'Томоохон уул уурхайн төслийн худалдан авалтын ажиллагааг автоматжуулсан систем. Зөвшөөрлийн урсгал, нийлүүлэгчтэй харилцах, аудитын хяналтыг цахимжуулсан.',
+      'A system automating procurement operations for a major mining project. Digitizes approval workflows, supplier communication, and audit controls.',
     keyImpacts: [
-      'Нарийн төвөгтэй худалдан авалтын workflow-г цахимжуулж, ил тод, хурдтай болгосон',
-      'Корпорацийн аудитын стандартыг бүрэн хангасан compliance систем',
+      'Digitized complex procurement workflows for full transparency and speed',
+      'Compliance system fully meeting corporate audit standards',
     ],
     tags: ['Procurement', 'Automation', 'Compliance'],
     category: 'Enterprise',
@@ -56,10 +55,10 @@ const projects: Project[] = [
     client: 'SaaS Platform',
     domain: 'HR Tech (SaaS)',
     description:
-      'Олон салбарын байгууллагуудад зориулсан цогц HR менежментийн экосистем. Нүүрний таних технологи болон хурууны хээний уншигчтай нэгдсэн цаг бүртгэл, цалин хөлсний автоматжуулалт.',
+      'A comprehensive HR management ecosystem for multi-branch organizations. Biometric-integrated time tracking and fully automated payroll.',
     keyImpacts: [
-      'Биометрийн төхөөрөмжтэй интеграц (FaceID/Fingerprint) — цаг бүртгэл автомат',
-      'Элсүүлэлтээс тэтгэвэрт гарах хүртэлх HR workflow-г бүрэн хамарсан',
+      'Biometric device integration (FaceID/Fingerprint) — automated time tracking',
+      'End-to-end HR workflows from recruitment to retirement',
     ],
     tags: ['SaaS', 'HR Tech', 'Biometric', 'Cloud'],
     category: 'SaaS',
@@ -72,12 +71,12 @@ const projects: Project[] = [
     client: 'AI Automation Platform',
     domain: 'AI & Social Commerce Automation',
     description:
-      'Хиймэл оюун ухаанд суурилсан 24/7 харилцагчийн үйлчилгээ болон нийгмийн сүлжээн дэх худалдааны платформ. Facebook Messenger, Telegram, веб чатыг нэгтгэсэн.',
+      'An AI-powered 24/7 customer service and social commerce platform. Integrates Facebook Messenger, Telegram, and web chat into one unified system.',
     keyImpacts: [
-      '24/7 автомат AI харилцагчийн үйлчилгээ — NLP технологитой',
-      'Нийгмийн сүлжээн дэх шууд борлуулалтын интеграц',
-      'Facebook Messenger, Telegram, веб чат дээр нэгэн зэрэг ажилладаг',
-      'Бодит цагийн analytics болон хэрэглэгчийн зан үйлийн шинжилгээ',
+      '24/7 automated AI customer service with NLP technology',
+      'Direct social commerce integration for in-chat purchasing',
+      'Simultaneous operation across Facebook Messenger, Telegram, and web chat',
+      'Real-time analytics and user behavior insights',
     ],
     tags: ['AI', 'Chatbot', 'Social Commerce', 'NLP'],
     category: 'AI',
@@ -90,11 +89,11 @@ const projects: Project[] = [
     client: 'Smart City Solutions',
     domain: 'Smart Parking & Payment',
     description:
-      'QPay/SocialPay төлбөрийн системтэй нэгдсэн ухаалаг зогсоолын шийдэл. QR кодоор захиалга, IoT-д суурилсан хаалга удирдлага, бодит цагийн байрны мэдээлэл.',
+      'A smart parking solution integrated with QPay/SocialPay payment systems. QR-based booking, IoT-powered gate management, and real-time availability.',
     keyImpacts: [
-      'QR кодоор зогсоол захиалах, төлбөр хийх — шуурхай, хялбар',
-      'QPay, SocialPay болон бусад орон нутгийн төлбөрийн арга хэрэгсэлтэй нэгдсэн',
-      'IoT хаалганы автомат удирдлага — оролт, гаралтын бүрэн хяналт',
+      'QR code parking reservation and payment — fast and seamless',
+      'Integrated with QPay, SocialPay, and other local payment methods',
+      'Automated IoT gate control — full entry/exit monitoring',
     ],
     tags: ['Smart City', 'IoT', 'Payment', 'QR'],
     category: 'IoT',
@@ -107,11 +106,11 @@ const projects: Project[] = [
     client: 'Fleet Management Platform',
     domain: 'GPS Tracking & Fleet Management',
     description:
-      '20 гаруй байгууллагын 2,800+ тээврийн хэрэгслийг бодит цагт хянадаг флотийн менежментийн систем. Маршрутын оновчлол, хэрэглэгдэх шатахууны тайлан, засвар арчлалтын мэдэгдэл.',
+      'A real-time fleet management system tracking 2,800+ vehicles across 20+ organizations. Route optimization, fuel reporting, and maintenance alerts.',
     keyImpacts: [
-      '20+ байгууллагын 2,800+ тээврийн хэрэгслийг тасралтгүй хянана',
-      'GPS-д суурилсан бодит цагийн байрлал, маршрутын мониторинг',
-      'Шатахуун зарцуулалт, жолоочийн зан үйл, ашиглалтын цогц тайлан',
+      'Continuous tracking of 2,800+ vehicles across 20+ organizations',
+      'GPS-based real-time location and route monitoring',
+      'Comprehensive reports on fuel usage, driver behavior, and utilization',
     ],
     tags: ['GPS', 'Fleet', 'IoT', 'Real-time', 'Enterprise'],
     category: 'Enterprise',
@@ -124,12 +123,12 @@ const projects: Project[] = [
     client: 'intellexitech.online (MNTech)',
     domain: 'Data Lakehouse / CRM / AI Analytics',
     description:
-      'Data Lakehouse, CRM болон AI туслах системүүдийг нэгтгэсэн корпорат дата аналитикийн платформ. Олон эх сурвалжийн өгөгдлийг нэгтгэж, 9 түвшний харилцагч сегментчилэл хийнэ.',
+      'Enterprise data analytics platform combining Data Lakehouse, CRM, and AI assistant systems. Unifies multi-source data with 9-tier customer segmentation.',
     keyImpacts: [
-      'Bronze-Silver-Gold давхаргат өгөгдөл боловсруулах архитектур, ETL pipeline',
-      '9 түвшний харилцагч сегментчилэл — зан үйл, худалдаа, идэвх, үнэ цэнд суурилсан',
-      'AI-д суурилсан Email, SMS, Push мессежийн системд нэгдсэн масс маркетинг',
-      'JWT, Row Level Security, байгууллагын тусгаарлалт бүхий аюулгүй байдлын систем',
+      'Bronze-Silver-Gold layered data processing architecture with ETL pipeline',
+      '9-tier customer segmentation based on behavior, purchases, activity, and value',
+      'AI-powered mass marketing integrated with Email, SMS, and Push notification systems',
+      'JWT, Row Level Security, and organizational isolation for enterprise-grade security',
     ],
     tags: ['Data Lakehouse', 'AI', 'CRM', 'Analytics', 'Security'],
     category: 'AI',
@@ -137,20 +136,20 @@ const projects: Project[] = [
   },
 ];
 
-const categories = ['Бүгд', 'Enterprise', 'SaaS', 'AI', 'IoT'];
+const categories = ['All', 'Enterprise', 'SaaS', 'AI', 'IoT'];
 
 const accentMap = {
-  blue: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-100', dot: 'bg-blue-500' },
-  green: { bg: 'bg-emerald-50', text: 'text-emerald-600', border: 'border-emerald-100', dot: 'bg-emerald-500' },
-  purple: { bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-100', dot: 'bg-purple-500' },
-  orange: { bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-100', dot: 'bg-orange-500' },
+  blue:   { bg: 'bg-blue-50',    text: 'text-blue-600',    border: 'border-blue-100',    dot: 'bg-blue-500' },
+  green:  { bg: 'bg-emerald-50', text: 'text-emerald-600', border: 'border-emerald-100', dot: 'bg-emerald-500' },
+  purple: { bg: 'bg-purple-50',  text: 'text-purple-600',  border: 'border-purple-100',  dot: 'bg-purple-500' },
+  orange: { bg: 'bg-orange-50',  text: 'text-orange-600',  border: 'border-orange-100',  dot: 'bg-orange-500' },
 };
 
 const Portfolio = () => {
-  const [activeCategory, setActiveCategory] = useState('Бүгд');
+  const [activeCategory, setActiveCategory] = useState('All');
   const [expanded, setExpanded] = useState<number | null>(null);
 
-  const filtered = activeCategory === 'Бүгд'
+  const filtered = activeCategory === 'All'
     ? projects
     : projects.filter((p) => p.category === activeCategory);
 
@@ -160,19 +159,16 @@ const Portfolio = () => {
       <section className="bg-slate-900 section-padding text-white">
         <div className="container-custom">
           <div className="max-w-3xl">
-            <div className="section-label text-blue-400">
-              <span>Бидний ажлууд</span>
-            </div>
+            <div className="section-label text-blue-400"><span>Our Work</span></div>
             <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight">
-              Томоохон компаниудтай{' '}
+              Built together with{' '}
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                хамтран бүтээсэн
+                industry leaders
               </span>
             </h1>
             <p className="text-slate-400 text-lg leading-relaxed">
-              Rio Tinto зэрэг аж үйлдвэрийн гигантуудаас эхлээд хэрэглэгчийн
-              AI платформ хүртэлх манай portfoliо нь mission-critical системүүдэд
-              тулгуурласан туршлагыг харуулна.
+              From industry giants like Rio Tinto to consumer AI platforms — our portfolio
+              demonstrates deep expertise in mission-critical systems.
             </p>
           </div>
         </div>
@@ -181,17 +177,10 @@ const Portfolio = () => {
       {/* Filter tabs */}
       <div className="sticky top-16 z-40 bg-white border-b border-gray-100">
         <div className="container-custom">
-          <div className="flex gap-1 py-3 overflow-x-auto scrollbar-hide">
+          <div className="flex gap-1 py-3 overflow-x-auto">
             {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`shrink-0 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                  activeCategory === cat
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
-                }`}
-              >
+              <button key={cat} onClick={() => setActiveCategory(cat)}
+                className={`shrink-0 px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeCategory === cat ? 'bg-blue-600 text-white' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>
                 {cat}
               </button>
             ))}
@@ -207,13 +196,8 @@ const Portfolio = () => {
               const accent = accentMap[project.accentColor as keyof typeof accentMap] || accentMap.blue;
               const isExpanded = expanded === project.id;
               return (
-                <div
-                  key={project.id}
-                  className={`bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${
-                    isExpanded ? 'shadow-xl' : 'shadow-sm hover:shadow-md'
-                  }`}
-                >
-                  {/* Screenshot placeholder / header */}
+                <div key={project.id}
+                  className={`bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${isExpanded ? 'shadow-xl' : 'shadow-sm hover:shadow-md'}`}>
                   {project.screenshot ? (
                     <div className="screenshot-container">
                       <img src={project.screenshot} alt={project.title} />
@@ -226,23 +210,15 @@ const Portfolio = () => {
                           <p className="text-gray-500 text-sm">{project.domain}</p>
                         </div>
                         {project.url && (
-                          <a
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`${accent.text} opacity-60 hover:opacity-100 transition-opacity`}
-                          >
+                          <a href={project.url} target="_blank" rel="noopener noreferrer"
+                            className={`${accent.text} opacity-60 hover:opacity-100 transition-opacity`}>
                             <ExternalLink className="h-4 w-4" />
                           </a>
                         )}
                       </div>
-                      {/* Tags */}
                       <div className="flex flex-wrap gap-1.5">
                         {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${accent.text} bg-white/70 border ${accent.border}`}
-                          >
+                          <span key={tag} className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${accent.text} bg-white/70 border ${accent.border}`}>
                             {tag}
                           </span>
                         ))}
@@ -250,19 +226,16 @@ const Portfolio = () => {
                     </div>
                   )}
 
-                  {/* Content */}
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
                       <span className={`w-2 h-2 rounded-full ${accent.dot}`}></span>
                       <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{project.client}</span>
                     </div>
-
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">{project.description}</p>
 
-                    {/* Impacts — collapsible */}
                     {isExpanded && (
                       <div className="mt-4 space-y-2.5">
-                        <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Гол үр дүн</div>
+                        <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Key Impacts</div>
                         {project.keyImpacts.map((impact, i) => (
                           <div key={i} className="flex items-start gap-3">
                             <span className={`w-1.5 h-1.5 rounded-full ${accent.dot} mt-1.5 shrink-0`}></span>
@@ -272,11 +245,9 @@ const Portfolio = () => {
                       </div>
                     )}
 
-                    <button
-                      onClick={() => setExpanded(isExpanded ? null : project.id)}
-                      className={`mt-4 text-sm font-semibold flex items-center gap-1 transition-all ${accent.text} hover:gap-2`}
-                    >
-                      {isExpanded ? 'Хураах' : 'Дэлгэрэнгүй'}
+                    <button onClick={() => setExpanded(isExpanded ? null : project.id)}
+                      className={`mt-4 text-sm font-semibold flex items-center gap-1 transition-all ${accent.text} hover:gap-2`}>
+                      {isExpanded ? 'Show less' : 'View details'}
                       <ArrowRight className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
                     </button>
                   </div>
@@ -291,16 +262,11 @@ const Portfolio = () => {
       <section className="section-padding bg-slate-900 text-white">
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Таны дараагийн том төслийг хамтдаа хийцгэе
-            </h2>
-            <p className="text-slate-400 text-lg mb-8">
-              Mission-critical системд туршлагатай багтай хамтран ажиллана уу.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's build your next big project together</h2>
+            <p className="text-slate-400 text-lg mb-8">Work with a team experienced in mission-critical systems.</p>
             <Link to="/contact">
               <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-3 rounded-xl transition-colors">
-                Төсөл эхлүүлэх
-                <ArrowRight className="h-4 w-4" />
+                Start a Project <ArrowRight className="h-4 w-4" />
               </button>
             </Link>
           </div>
