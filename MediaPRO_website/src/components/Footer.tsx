@@ -1,73 +1,90 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
-const Footer = () => {
-  return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <img 
-                src="./images/media PRO logo NOTEXT.png" 
-                alt="Mediapro Logo" 
-                className="h-8 w-auto brightness-0 invert"
-              />
-              <span className="text-xl font-bold">Mediapro LLC</span>
-            </div>
-            <p className="text-gray-300 mb-4 max-w-md">
-              Since 2013, delivering high-availability software systems, strategic marketing, 
-              and workforce automation. Ensuring operational continuity for your business.
-            </p>
-            <div className="space-y-2">
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-blue-400" />
-                <span className="text-sm text-gray-300">
-                  #204, Arig Center, Building 10 Jamyan Gun Street 5/2, Ulaanbaatar, Mongolia
-                </span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-blue-400" />
-                <span className="text-sm text-gray-300">+976 99091911</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-blue-400" />
-                <span className="text-sm text-gray-300">info@mediapro.mn</span>
-              </div>
-            </div>
+const Footer = () => (
+  <footer className="bg-slate-900 text-white">
+    <div className="container-custom px-4 sm:px-6 lg:px-8 py-14">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        {/* Brand */}
+        <div className="col-span-1 md:col-span-2">
+          <div className="flex items-center gap-2.5 mb-5">
+            <img
+              src="./images/media PRO logo NOTEXT.png"
+              alt="MediaPRO"
+              className="h-8 w-auto brightness-0 invert"
+            />
+            <span className="text-xl font-bold">
+              Media<span className="text-blue-400">PRO</span>
+            </span>
           </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors">Portfolio</Link></li>
-              <li><Link to="/solutions" className="text-gray-300 hover:text-white transition-colors">Solutions</Link></li>
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
-            </ul>
-          </div>
-
-          {/* Our Companies */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Our Companies</h3>
-            <ul className="space-y-2">
-              <li className="text-gray-300">Megun Media</li>
-              <li className="text-gray-300">Chatbot.mn</li>
-              <li className="text-gray-300">OnlineHR.mn</li>
-            </ul>
+          <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
+            2013 оноос хойш өндөр ачааллын програм хангамжийн систем, стратегийн
+            маркетинг болон ажлын хүч автоматжуулалтыг хүргэдэг.
+          </p>
+          <div className="space-y-3">
+            <div className="flex items-start gap-2.5 text-sm text-slate-400">
+              <MapPin className="h-4 w-4 text-blue-400 mt-0.5 shrink-0" />
+              <span>#204, Arig Center, Байр 10, Жамьян Гүн гудамж 5/2, УБ</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-sm text-slate-400">
+              <Phone className="h-4 w-4 text-blue-400 shrink-0" />
+              <span>+976 99091911</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-sm text-slate-400">
+              <Mail className="h-4 w-4 text-blue-400 shrink-0" />
+              <span>info@mediapro.mn</span>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400 text-sm">
-            © 2024 Mediapro LLC. All rights reserved.
-          </p>
+        {/* Nav */}
+        <div>
+          <h3 className="text-sm font-semibold text-white mb-4">Хурдан холбоос</h3>
+          <ul className="space-y-3">
+            {[
+              { label: 'Нүүр', to: '/' },
+              { label: 'Портфолио', to: '/portfolio' },
+              { label: 'Шийдлүүд', to: '/solutions' },
+              { label: 'Бидний тухай', to: '/about' },
+              { label: 'Ажлын байр', to: '/careers' },
+            ].map((item) => (
+              <li key={item.to}>
+                <Link to={item.to} className="text-slate-400 hover:text-white text-sm transition-colors">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Companies */}
+        <div>
+          <h3 className="text-sm font-semibold text-white mb-4">Манай компаниуд</h3>
+          <ul className="space-y-3 text-slate-400 text-sm">
+            <li className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+              Megun Media
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+              Chatbot.mn
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
+              OnlineHR.mn
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
-  );
-};
+
+      <div className="border-t border-slate-800 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <span>© 2024 Mediapro LLC. Бүх эрх хуулиар хамгаалагдсан.</span>
+        <Link to="/admin" className="hover:text-slate-400 transition-colors">
+          Admin
+        </Link>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;
