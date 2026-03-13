@@ -273,7 +273,7 @@ const About = () => (
             Apply over a decade of experience to your most critical operations
             and digital transformation initiatives.
           </p>
-          <a href="/contact" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition-colors">
+          <a href="/#/contact" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition-colors">
             Start a Conversation
           </a>
         </div>
