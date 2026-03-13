@@ -35,15 +35,15 @@ const Navigation = () => {
       }`}
     >
       <div className="container-custom">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-18 py-2">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0">
+          <Link to="/" className="flex items-center gap-3 shrink-0">
             <img
               src="./images/media PRO logo NOTEXT.png"
               alt="Mediapro"
-              className="h-9 w-auto"
+              className="h-12 w-auto"
             />
-            <span className="text-lg font-bold text-gray-900 tracking-tight">
+            <span className="text-2xl font-bold text-gray-900 tracking-tight">
               Media<span className="text-blue-600">PRO</span>
             </span>
           </Link>
@@ -81,9 +81,9 @@ const Navigation = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] p-0">
                 <div className="flex flex-col h-full">
-                  <div className="flex items-center gap-2.5 px-5 py-4 border-b">
-                    <img src="./images/media PRO logo NOTEXT.png" alt="Mediapro" className="h-8 w-auto" />
-                    <span className="font-bold text-gray-900">Media<span className="text-blue-600">PRO</span></span>
+                  <div className="flex items-center gap-3 px-5 py-4 border-b">
+                    <img src="./images/media PRO logo NOTEXT.png" alt="Mediapro" className="h-10 w-auto" />
+                    <span className="text-xl font-bold text-gray-900">Media<span className="text-blue-600">PRO</span></span>
                   </div>
                   <div className="flex flex-col gap-1 p-4 flex-1">
                     {navItems.map((item) => (
