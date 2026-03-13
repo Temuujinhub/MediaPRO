@@ -1,13 +1,14 @@
+import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Globe, 
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Globe,
   Clock,
   Building2,
   Users,
@@ -15,6 +16,23 @@ import {
 } from 'lucide-react';
 
 const Contact = () => {
+  const [form, setForm] = useState({ firstName: '', lastName: '', email: '', company: '', phone: '', subject: '', message: '' });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  };
+
+  const handleSend = () => {
+    const body = `Name: ${form.firstName} ${form.lastName}
+Company: ${form.company}
+Phone: ${form.phone}
+Email: ${form.email}
+
+${form.message}`;
+    const subject = form.subject || 'Project Inquiry';
+    window.location.href = `mailto:info@mediapro.mn?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   const contactInfo = [
     {
       icon: <MapPin className="h-6 w-6" />,
@@ -76,7 +94,7 @@ const Contact = () => {
               Let's Discuss Your Next Project
             </h1>
             <p className="text-xl text-gray-600">
-              Ready to optimize your operations? Contact our team today to explore 
+              Ready to optimize your operations? Contact our team today to explore
               how we can deliver mission-critical solutions for your business.
             </p>
           </div>
@@ -101,44 +119,46 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="John" />
+                    <Input id="firstName" placeholder="John" value={form.firstName} onChange={handleChange} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Doe" />
+                    <Input id="lastName" placeholder="Doe" value={form.lastName} onChange={handleChange} />
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="email">Email Address</Label>
-                  <Input id="email" type="email" placeholder="john.doe@company.com" />
+                  <Input id="email" type="email" placeholder="john.doe@company.com" value={form.email} onChange={handleChange} />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="company">Company</Label>
-                  <Input id="company" placeholder="Your Company Name" />
+                  <Input id="company" placeholder="Your Company Name" value={form.company} onChange={handleChange} />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" placeholder="+976 99091911" />
+                  <Input id="phone" placeholder="+976 99091911" value={form.phone} onChange={handleChange} />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="Project Inquiry" />
+                  <Input id="subject" placeholder="Project Inquiry" value={form.subject} onChange={handleChange} />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
-                  <Textarea 
-                    id="message" 
+                  <Textarea
+                    id="message"
                     placeholder="Tell us about your project requirements, timeline, and any specific challenges you're facing..."
                     rows={6}
+                    value={form.message}
+                    onChange={handleChange}
                   />
                 </div>
-                
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-3">
+
+                <Button onClick={handleSend} className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-3">
                   Send Message
                 </Button>
               </CardContent>
@@ -235,7 +255,7 @@ const Contact = () => {
               Located in the heart of Ulaanbaatar's business district
             </p>
           </div>
-          
+
           <Card className="corporate-shadow overflow-hidden">
             <div className="bg-gray-200 h-96 flex items-center justify-center">
               <div className="text-center">
@@ -262,18 +282,22 @@ const Contact = () => {
               Ready to Get Started?
             </h2>
             <p className="text-xl mb-8 text-blue-100">
-              Join industry leaders like Rio Tinto who trust us with their 
+              Join industry leaders like Rio Tinto who trust us with their
               mission-critical systems. Let's discuss your project today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-900">
-                <Phone className="mr-2 h-5 w-5" />
-                Call Now: +976 99091911
-              </Button>
-              <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50">
-                <Mail className="mr-2 h-5 w-5" />
-                Email: info@mediapro.mn
-              </Button>
+              <a href="tel:+97699091911">
+                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-900">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Call Now: +976 99091911
+                </Button>
+              </a>
+              <a href="mailto:info@mediapro.mn">
+                <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50">
+                  <Mail className="mr-2 h-5 w-5" />
+                  Email: info@mediapro.mn
+                </Button>
+              </a>
             </div>
           </div>
         </div>

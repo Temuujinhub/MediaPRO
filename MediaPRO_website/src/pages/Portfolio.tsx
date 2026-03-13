@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowRight, ExternalLink, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { supabase } from '@/lib/supabase';
 
 type Project = {
-  id: number;
+  id: string;
   title: string;
   client: string;
   domain: string;
@@ -12,18 +13,18 @@ type Project = {
   tags: string[];
   category: string;
   accentColor: string;
-  screenshot?: string;
-  url?: string;
+  screenshot?: string | null;
+  url?: string | null;
 };
 
-const projects: Project[] = [
+// Fallback hardcoded data (shown when Supabase is not configured)
+const FALLBACK_PROJECTS: Project[] = [
   {
-    id: 1,
+    id: '1',
     title: 'MACTR',
     client: 'Oyu Tolgoi (Rio Tinto)',
     domain: 'Workforce Logistics & Accommodation',
-    description:
-      'A mission-critical system integrating attendance, flight scheduling, and accommodation management for 24,000+ workers. Roster planning, flight schedules, and room bookings all handled in one platform.',
+    description: 'A mission-critical system integrating attendance, flight scheduling, and accommodation management for 24,000+ workers.',
     keyImpacts: [
       'Advanced booking algorithm that fully eliminates double-booking',
       '24/7 uninterrupted operations — scheduling, transport, and accommodation unified',
@@ -34,12 +35,11 @@ const projects: Project[] = [
     accentColor: 'blue',
   },
   {
-    id: 2,
+    id: '2',
     title: 'Oasis',
     client: 'Oyu Tolgoi — oasis.ot.mn',
     domain: 'Procurement Flow Management',
-    description:
-      'A system automating procurement operations for a major mining project. Digitizes approval workflows, supplier communication, and audit controls.',
+    description: 'A system automating procurement operations for a major mining project. Digitizes approval workflows, supplier communication, and audit controls.',
     keyImpacts: [
       'Digitized complex procurement workflows for full transparency and speed',
       'Compliance system fully meeting corporate audit standards',
@@ -50,12 +50,11 @@ const projects: Project[] = [
     url: 'https://oasis.ot.mn',
   },
   {
-    id: 3,
+    id: '3',
     title: 'OnlineHR.mn',
     client: 'SaaS Platform',
     domain: 'HR Tech (SaaS)',
-    description:
-      'A comprehensive HR management ecosystem for multi-branch organizations. Biometric-integrated time tracking and fully automated payroll.',
+    description: 'A comprehensive HR management ecosystem for multi-branch organizations. Biometric-integrated time tracking and fully automated payroll.',
     keyImpacts: [
       'Biometric device integration (FaceID/Fingerprint) — automated time tracking',
       'End-to-end HR workflows from recruitment to retirement',
@@ -66,12 +65,11 @@ const projects: Project[] = [
     url: 'https://onlinehr.mn',
   },
   {
-    id: 4,
+    id: '4',
     title: 'Chatbot.mn',
     client: 'AI Automation Platform',
     domain: 'AI & Social Commerce Automation',
-    description:
-      'An AI-powered 24/7 customer service and social commerce platform. Integrates Facebook Messenger, Telegram, and web chat into one unified system.',
+    description: 'An AI-powered 24/7 customer service and social commerce platform integrating Facebook Messenger, Telegram, and web chat.',
     keyImpacts: [
       '24/7 automated AI customer service with NLP technology',
       'Direct social commerce integration for in-chat purchasing',
@@ -84,12 +82,11 @@ const projects: Project[] = [
     url: 'https://chatbot.mn',
   },
   {
-    id: 5,
+    id: '5',
     title: 'Easy Parking',
     client: 'Smart City Solutions',
     domain: 'Smart Parking & Payment',
-    description:
-      'A smart parking solution integrated with QPay/SocialPay payment systems. QR-based booking, IoT-powered gate management, and real-time availability.',
+    description: 'A smart parking solution integrated with QPay/SocialPay. QR-based booking, IoT-powered gate management, and real-time availability.',
     keyImpacts: [
       'QR code parking reservation and payment — fast and seamless',
       'Integrated with QPay, SocialPay, and other local payment methods',
@@ -98,15 +95,13 @@ const projects: Project[] = [
     tags: ['Smart City', 'IoT', 'Payment', 'QR'],
     category: 'IoT',
     accentColor: 'green',
-    url: 'https://easy-parking.mn',
   },
   {
-    id: 6,
+    id: '6',
     title: 'CLIX.mn',
     client: 'Fleet Management Platform',
     domain: 'GPS Tracking & Fleet Management',
-    description:
-      'A real-time fleet management system tracking 2,800+ vehicles across 20+ organizations. Route optimization, fuel reporting, and maintenance alerts.',
+    description: 'A real-time fleet management system tracking 2,800+ vehicles across 20+ organizations.',
     keyImpacts: [
       'Continuous tracking of 2,800+ vehicles across 20+ organizations',
       'GPS-based real-time location and route monitoring',
@@ -118,17 +113,16 @@ const projects: Project[] = [
     url: 'https://clix.mn',
   },
   {
-    id: 7,
+    id: '7',
     title: 'INTELLEXI',
     client: 'intellexitech.online (MNTech)',
     domain: 'Data Lakehouse / CRM / AI Analytics',
-    description:
-      'Enterprise data analytics platform combining Data Lakehouse, CRM, and AI assistant systems. Unifies multi-source data with 9-tier customer segmentation.',
+    description: 'Enterprise data analytics platform combining Data Lakehouse, CRM, and AI assistant systems with 9-tier customer segmentation.',
     keyImpacts: [
       'Bronze-Silver-Gold layered data processing architecture with ETL pipeline',
       '9-tier customer segmentation based on behavior, purchases, activity, and value',
-      'AI-powered mass marketing integrated with Email, SMS, and Push notification systems',
-      'JWT, Row Level Security, and organizational isolation for enterprise-grade security',
+      'AI-powered mass marketing with Email, SMS, and Push notifications',
+      'JWT, Row Level Security, and organizational isolation',
     ],
     tags: ['Data Lakehouse', 'AI', 'CRM', 'Analytics', 'Security'],
     category: 'AI',
@@ -147,7 +141,42 @@ const accentMap = {
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [expanded, setExpanded] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState<string | null>(null);
+  const [projects, setProjects] = useState<Project[]>(FALLBACK_PROJECTS);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('portfolio_items')
+          .select('*')
+          .order('order_index', { ascending: true });
+
+        if (!error && data && data.length > 0) {
+          setProjects(data.map((item) => ({
+            id: item.id,
+            title: item.title,
+            client: item.client,
+            domain: item.domain,
+            description: item.description,
+            keyImpacts: item.key_impacts ?? [],
+            tags: item.tags ?? [],
+            category: item.category,
+            accentColor: item.accent_color,
+            screenshot: item.screenshot_url,
+            url: item.url,
+          })));
+        }
+        // If error or no data, keep FALLBACK_PROJECTS
+      } catch {
+        // Keep fallback data silently
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, []);
 
   const filtered = activeCategory === 'All'
     ? projects
@@ -191,70 +220,77 @@ const Portfolio = () => {
       {/* Projects grid */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filtered.map((project) => {
-              const accent = accentMap[project.accentColor as keyof typeof accentMap] || accentMap.blue;
-              const isExpanded = expanded === project.id;
-              return (
-                <div key={project.id}
-                  className={`bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${isExpanded ? 'shadow-xl' : 'shadow-sm hover:shadow-md'}`}>
-                  {project.screenshot ? (
-                    <div className="screenshot-container">
-                      <img src={project.screenshot} alt={project.title} />
-                    </div>
-                  ) : (
-                    <div className={`${accent.bg} px-6 pt-6 pb-4`}>
-                      <div className="flex items-start justify-between mb-3">
-                        <div>
-                          <h3 className={`text-2xl font-bold ${accent.text} mb-1`}>{project.title}</h3>
-                          <p className="text-gray-500 text-sm">{project.domain}</p>
-                        </div>
-                        {project.url && (
-                          <a href={project.url} target="_blank" rel="noopener noreferrer"
-                            className={`${accent.text} opacity-60 hover:opacity-100 transition-opacity`}>
-                            <ExternalLink className="h-4 w-4" />
-                          </a>
-                        )}
-                      </div>
-                      <div className="flex flex-wrap gap-1.5">
-                        {project.tags.map((tag) => (
-                          <span key={tag} className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${accent.text} bg-white/70 border ${accent.border}`}>
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+          {loading ? (
+            <div className="flex justify-center py-20">
+              <Loader2 className="h-8 w-8 animate-spin text-blue-400" />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filtered.map((project) => {
+                const accent = accentMap[project.accentColor as keyof typeof accentMap] || accentMap.blue;
+                const isExpanded = expanded === project.id;
+                return (
+                  <div key={project.id}
+                    className={`bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${isExpanded ? 'shadow-xl' : 'shadow-sm hover:shadow-md'}`}>
 
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className={`w-2 h-2 rounded-full ${accent.dot}`}></span>
-                      <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{project.client}</span>
-                    </div>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">{project.description}</p>
-
-                    {isExpanded && (
-                      <div className="mt-4 space-y-2.5">
-                        <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Key Impacts</div>
-                        {project.keyImpacts.map((impact, i) => (
-                          <div key={i} className="flex items-start gap-3">
-                            <span className={`w-1.5 h-1.5 rounded-full ${accent.dot} mt-1.5 shrink-0`}></span>
-                            <span className="text-sm text-gray-600">{impact}</span>
+                    {project.screenshot ? (
+                      <div className="screenshot-container">
+                        <img src={project.screenshot} alt={project.title} />
+                      </div>
+                    ) : (
+                      <div className={`${accent.bg} px-6 pt-6 pb-4`}>
+                        <div className="flex items-start justify-between mb-3">
+                          <div>
+                            <h3 className={`text-2xl font-bold ${accent.text} mb-1`}>{project.title}</h3>
+                            <p className="text-gray-500 text-sm">{project.domain}</p>
                           </div>
-                        ))}
+                          {project.url && (
+                            <a href={project.url} target="_blank" rel="noopener noreferrer"
+                              className={`${accent.text} opacity-60 hover:opacity-100 transition-opacity`}>
+                              <ExternalLink className="h-4 w-4" />
+                            </a>
+                          )}
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.tags.map((tag) => (
+                            <span key={tag} className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${accent.text} bg-white/70 border ${accent.border}`}>
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     )}
 
-                    <button onClick={() => setExpanded(isExpanded ? null : project.id)}
-                      className={`mt-4 text-sm font-semibold flex items-center gap-1 transition-all ${accent.text} hover:gap-2`}>
-                      {isExpanded ? 'Show less' : 'View details'}
-                      <ArrowRight className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
-                    </button>
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className={`w-2 h-2 rounded-full ${accent.dot}`}></span>
+                        <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{project.client}</span>
+                      </div>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">{project.description}</p>
+
+                      {isExpanded && (
+                        <div className="mt-4 space-y-2.5">
+                          <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Key Impacts</div>
+                          {project.keyImpacts.map((impact, i) => (
+                            <div key={i} className="flex items-start gap-3">
+                              <span className={`w-1.5 h-1.5 rounded-full ${accent.dot} mt-1.5 shrink-0`}></span>
+                              <span className="text-sm text-gray-600">{impact}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      <button onClick={() => setExpanded(isExpanded ? null : project.id)}
+                        className={`mt-4 text-sm font-semibold flex items-center gap-1 transition-all ${accent.text} hover:gap-2`}>
+                        {isExpanded ? 'Show less' : 'View details'}
+                        <ArrowRight className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+                      </button>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
