@@ -24,13 +24,15 @@ const FALLBACK_PROJECTS: Project[] = [
     title: 'MACTR',
     client: 'Oyu Tolgoi (Rio Tinto)',
     domain: 'Workforce Logistics & Accommodation',
-    description: 'A mission-critical system integrating attendance, flight scheduling, and accommodation management for 24,000+ workers.',
+    description: 'A mission-critical enterprise platform powering the complete workforce lifecycle at one of the world\'s largest copper mines. Unifies flight scheduling, bus routing, accommodation booking, and attendance tracking for 24,000+ workers across multiple camps — operating without interruption 24/7, 365 days a year.',
     keyImpacts: [
-      'Advanced booking algorithm that fully eliminates double-booking',
-      '24/7 uninterrupted operations — scheduling, transport, and accommodation unified',
-      'Real-time data-driven room and seat allocation optimization',
+      'Intelligent multi-constraint booking engine eliminates double-booking across flights, buses, and accommodation rooms simultaneously',
+      '24/7 uninterrupted operations — flight scheduling, surface transport, and camp accommodation managed from a single unified platform',
+      'Real-time seat and room allocation driven by live attendance data, shift rosters, and flight manifests',
+      'Supports complex rotational workforce patterns — FIFO/DIDO scheduling for underground and open-pit operations',
+      'Integrated reporting dashboard giving HR, logistics, and operations teams full visibility across all workforce movements',
     ],
-    tags: ['Enterprise', 'Logistics', 'Real-time', '24/7'],
+    tags: ['Enterprise', 'Logistics', 'Real-time', '24/7', 'Mining'],
     category: 'Enterprise',
     accentColor: 'blue',
   },
@@ -39,12 +41,15 @@ const FALLBACK_PROJECTS: Project[] = [
     title: 'Oasis',
     client: 'Oyu Tolgoi — oasis.ot.mn',
     domain: 'Procurement Flow Management',
-    description: 'A system automating procurement operations for a major mining project. Digitizes approval workflows, supplier communication, and audit controls.',
+    description: 'A fully digitized procurement automation platform built for one of the world\'s largest copper mining operations. Replaces paper-based approval chains with structured digital workflows — covering purchase requisitions, supplier communication, multi-level authorizations, and audit-ready record keeping — all conforming to Rio Tinto\'s global compliance standards.',
     keyImpacts: [
-      'Digitized complex procurement workflows for full transparency and speed',
-      'Compliance system fully meeting corporate audit standards',
+      'End-to-end digital procurement: from requisition creation to supplier approval and purchase order issuance',
+      'Multi-level authorization workflows with role-based access control and delegation management',
+      'Full audit trail on every procurement action — meeting Rio Tinto\'s global corporate governance standards',
+      'Supplier portal for bid submission, document exchange, and status tracking in real time',
+      'Automated compliance reporting reducing audit preparation time from weeks to hours',
     ],
-    tags: ['Procurement', 'Automation', 'Compliance'],
+    tags: ['Procurement', 'Automation', 'Compliance', 'Mining', 'Enterprise'],
     category: 'Enterprise',
     accentColor: 'green',
     url: 'https://oasis.ot.mn',
@@ -52,14 +57,18 @@ const FALLBACK_PROJECTS: Project[] = [
   {
     id: '3',
     title: 'OnlineHR.mn',
-    client: 'SaaS Platform',
+    client: 'SaaS Platform — onlinehr.mn',
     domain: 'HR Tech (SaaS)',
-    description: 'A comprehensive HR management ecosystem for multi-branch organizations. Biometric-integrated time tracking and fully automated payroll.',
+    description: 'Mongolia\'s comprehensive cloud-based HR management platform serving multi-branch organizations across industries. OnlineHR.mn automates the full employee lifecycle — from recruitment and onboarding to attendance tracking, payroll calculation, and offboarding — with deep biometric device integration and Mongolian labor law compliance built in.',
     keyImpacts: [
-      'Biometric device integration (FaceID/Fingerprint) — automated time tracking',
-      'End-to-end HR workflows from recruitment to retirement',
+      'Native biometric device integration — FaceID and fingerprint terminals sync automatically for real-time attendance and time tracking',
+      'Fully automated payroll engine — calculates salary, tax, social insurance deductions, and overtime based on attendance data',
+      'Complete employee lifecycle management: recruitment → onboarding → performance → payroll → offboarding',
+      'Multi-branch and multi-organization architecture — centralized HR management across all departments and locations',
+      'Employee self-service portal — staff can view payslips, submit leave requests, and track attendance from any device',
+      'Built-in Mongolian labor law compliance — automated social insurance, income tax, and statutory reporting',
     ],
-    tags: ['SaaS', 'HR Tech', 'Biometric', 'Cloud'],
+    tags: ['SaaS', 'HR Tech', 'Biometric', 'Cloud', 'Payroll'],
     category: 'SaaS',
     accentColor: 'purple',
     url: 'https://onlinehr.mn',
@@ -67,16 +76,19 @@ const FALLBACK_PROJECTS: Project[] = [
   {
     id: '4',
     title: 'Chatbot.mn',
-    client: 'AI Automation Platform',
+    client: 'AI Automation Platform — chatbot.mn',
     domain: 'AI & Social Commerce Automation',
-    description: 'An AI-powered 24/7 customer service and social commerce platform integrating Facebook Messenger, Telegram, and web chat.',
+    description: 'Mongolia\'s leading AI-powered business automation platform, trusted by 3,500+ organizations across the public and private sectors. Chatbot.mn enables businesses to automate customer service, run in-chat online stores, and manage orders — all through Facebook Messenger, Telegram, and web chat — without writing a single line of code.',
     keyImpacts: [
-      '24/7 automated AI customer service with NLP technology',
-      'Direct social commerce integration for in-chat purchasing',
-      'Simultaneous operation across Facebook Messenger, Telegram, and web chat',
-      'Real-time analytics and user behavior insights',
+      '3,500+ organizations across Mongolia rely on Chatbot.mn for daily customer service, marketing, and sales automation',
+      'Built-in Mongolian NLP — understands and responds naturally in Mongolian language, developed in partnership with computational linguists',
+      'Integrated in-chat online store — businesses can list products by category, manage inventory, and accept orders directly within Messenger',
+      'Native QPay and SocialPay integration — customers complete purchases without leaving the chat conversation',
+      'Simultaneous deployment across Facebook Messenger, Telegram, and web chat from a single management dashboard',
+      'Real-time analytics dashboard — track conversation volume, user behavior, conversion rates, and sales performance',
+      'No-code chatbot builder — marketing teams can update flows, add products, and launch campaigns independently',
     ],
-    tags: ['AI', 'Chatbot', 'Social Commerce', 'NLP'],
+    tags: ['AI', 'Chatbot', 'Social Commerce', 'NLP', 'No-Code'],
     category: 'AI',
     accentColor: 'orange',
     url: 'https://chatbot.mn',
@@ -85,27 +97,33 @@ const FALLBACK_PROJECTS: Project[] = [
     id: '5',
     title: 'Easy Parking',
     client: 'Smart City Solutions',
-    domain: 'Smart Parking & Payment',
-    description: 'A smart parking solution integrated with QPay/SocialPay. QR-based booking, IoT-powered gate management, and real-time availability.',
+    domain: 'Smart Parking & IoT Gate Management',
+    description: 'A next-generation smart parking platform transforming urban parking infrastructure with IoT-connected gate systems, QR-based reservations, and seamless digital payments. Drivers can find, book, and pay for parking — all from their phone — while operators gain full real-time control over entry, exit, and occupancy.',
     keyImpacts: [
-      'QR code parking reservation and payment — fast and seamless',
-      'Integrated with QPay, SocialPay, and other local payment methods',
-      'Automated IoT gate control — full entry/exit monitoring',
+      'QR code-based parking reservation — drivers scan to reserve a spot in advance and arrive to an open gate',
+      'Fully integrated with QPay, SocialPay, and major Mongolian bank payment methods for instant contactless payment',
+      'IoT-powered gate automation — barriers open and close automatically based on verified booking and payment status',
+      'Real-time occupancy monitoring — operators track available, occupied, and reserved spaces from a live dashboard',
+      'Supports both pre-booking and walk-in modes — flexible for mixed parking environments',
+      'Digital receipts, usage history, and reporting for parking operators and enterprise fleet managers',
     ],
-    tags: ['Smart City', 'IoT', 'Payment', 'QR'],
+    tags: ['Smart City', 'IoT', 'Payment', 'QR', 'Infrastructure'],
     category: 'IoT',
     accentColor: 'green',
   },
   {
     id: '6',
     title: 'CLIX.mn',
-    client: 'Fleet Management Platform',
+    client: 'Fleet Management Platform — clix.mn',
     domain: 'GPS Tracking & Fleet Management',
-    description: 'A real-time fleet management system tracking 2,800+ vehicles across 20+ organizations.',
+    description: 'A full-scale real-time fleet intelligence platform monitoring 2,800+ vehicles across 20+ organizations in Mongolia. CLIX.mn gives fleet managers complete visibility into vehicle location, driver behavior, fuel consumption, and route efficiency — enabling data-driven decisions that reduce costs and improve operational safety.',
     keyImpacts: [
-      'Continuous tracking of 2,800+ vehicles across 20+ organizations',
-      'GPS-based real-time location and route monitoring',
-      'Comprehensive reports on fuel usage, driver behavior, and utilization',
+      'Live GPS tracking of 2,800+ active vehicles across 20+ organizations — all visible on a single real-time map',
+      'Continuous route monitoring with geofencing alerts — instant notifications when vehicles deviate from assigned routes or enter restricted zones',
+      'Driver behavior analytics — scoring system tracking harsh braking, rapid acceleration, speeding, and idle time',
+      'Automated fuel consumption reports — identify inefficiencies, detect fuel theft, and benchmark consumption across fleet',
+      'Scheduled maintenance alerts based on mileage and engine hours — reducing unexpected breakdowns and downtime',
+      'Multi-organization architecture — each client manages their own fleet independently with role-based access control',
     ],
     tags: ['GPS', 'Fleet', 'IoT', 'Real-time', 'Enterprise'],
     category: 'Enterprise',
@@ -117,12 +135,14 @@ const FALLBACK_PROJECTS: Project[] = [
     title: 'INTELLEXI',
     client: 'intellexitech.online (MNTech)',
     domain: 'Data Lakehouse / CRM / AI Analytics',
-    description: 'Enterprise data analytics platform combining Data Lakehouse, CRM, and AI assistant systems with 9-tier customer segmentation.',
+    description: 'An enterprise-grade data intelligence platform combining a Medallion Data Lakehouse architecture, CRM, and AI-powered analytics into a unified system. INTELLEXI transforms raw business data into actionable intelligence — enabling organizations to understand customers deeply, automate targeted marketing, and make decisions backed by real data.',
     keyImpacts: [
-      'Bronze-Silver-Gold layered data processing architecture with ETL pipeline',
-      '9-tier customer segmentation based on behavior, purchases, activity, and value',
-      'AI-powered mass marketing with Email, SMS, and Push notifications',
-      'JWT, Row Level Security, and organizational isolation',
+      'Medallion architecture (Bronze → Silver → Gold) with automated ETL pipelines — raw data transformed into clean, analytics-ready datasets',
+      '9-tier customer segmentation engine — classifies customers by purchase behavior, activity frequency, lifetime value, and engagement signals',
+      'AI-powered mass marketing campaigns — personalized Email, SMS, and Push notifications triggered by customer segment and behavior',
+      'Unified CRM layer — full customer profile with interaction history, purchase records, and predictive lifetime value scoring',
+      'Row Level Security and JWT-based authentication — strict organizational data isolation ensuring multi-tenant data privacy',
+      'Interactive analytics dashboards — business teams can explore KPIs, cohort trends, and segment performance without SQL knowledge',
     ],
     tags: ['Data Lakehouse', 'AI', 'CRM', 'Analytics', 'Security'],
     category: 'AI',
@@ -196,8 +216,9 @@ const Portfolio = () => {
               </span>
             </h1>
             <p className="text-slate-400 text-lg leading-relaxed">
-              From industry giants like Rio Tinto to consumer AI platforms — our portfolio
-              demonstrates deep expertise in mission-critical systems.
+              From powering Rio Tinto's 24,000-strong mine workforce to serving 3,500+ businesses
+              with AI automation — our portfolio proves what's possible when deep engineering
+              meets real-world complexity.
             </p>
           </div>
         </div>
@@ -299,7 +320,7 @@ const Portfolio = () => {
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's build your next big project together</h2>
-            <p className="text-slate-400 text-lg mb-8">Work with a team experienced in mission-critical systems.</p>
+            <p className="text-slate-400 text-lg mb-8">From 24,000-worker logistics systems to AI platforms powering 3,500+ businesses — we engineer solutions that scale with your ambitions.</p>
             <Link to="/contact">
               <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-3 rounded-xl transition-colors">
                 Start a Project <ArrowRight className="h-4 w-4" />
