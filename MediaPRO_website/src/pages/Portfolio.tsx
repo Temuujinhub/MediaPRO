@@ -174,19 +174,44 @@ const Portfolio = () => {
           .order('order_index', { ascending: true });
 
         if (!error && data && data.length > 0) {
-          setProjects(data.map((item) => ({
-            id: item.id,
-            title: item.title,
-            client: item.client,
-            domain: item.domain,
-            description: item.description,
-            keyImpacts: item.key_impacts ?? [],
-            tags: item.tags ?? [],
-            category: item.category,
-            accentColor: item.accent_color,
-            screenshot: item.screenshot_url,
-            url: item.url,
-          })));
+          // Merge: hardcoded projects are the primary source of rich content.
+          // Supabase only contributes screenshots, URLs, and any brand-new projects
+          // added via the admin panel that don't exist in the hardcoded list.
+          const merged = FALLBACK_PROJECTS.map((fallback) => {
+            const db = data.find((d) => d.title === fallback.title);
+            if (!db) return fallback;
+            return {
+              ...fallback,
+              // Only override description/impacts if the DB version is richer
+              description: db.description && db.description.length > fallback.description.length
+                ? db.description
+                : fallback.description,
+              keyImpacts: db.key_impacts && db.key_impacts.length > 0 && db.key_impacts[0].length > fallback.keyImpacts[0]?.length
+                ? db.key_impacts
+                : fallback.keyImpacts,
+              tags: db.tags && db.tags.length >= fallback.tags.length ? db.tags : fallback.tags,
+              // Always take screenshot and URL from DB if available
+              screenshot: db.screenshot_url || fallback.screenshot,
+              url: db.url || fallback.url,
+            };
+          });
+          // Append any new projects from DB that aren't in the hardcoded list
+          const newProjects = data
+            .filter((d) => !FALLBACK_PROJECTS.find((f) => f.title === d.title))
+            .map((item) => ({
+              id: item.id,
+              title: item.title,
+              client: item.client,
+              domain: item.domain,
+              description: item.description,
+              keyImpacts: item.key_impacts ?? [],
+              tags: item.tags ?? [],
+              category: item.category,
+              accentColor: item.accent_color,
+              screenshot: item.screenshot_url,
+              url: item.url,
+            }));
+          setProjects([...merged, ...newProjects]);
         }
         // If error or no data, keep FALLBACK_PROJECTS
       } catch {
