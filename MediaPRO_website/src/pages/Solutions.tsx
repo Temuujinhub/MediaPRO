@@ -17,65 +17,69 @@ const Solutions = () => {
     {
       id: 1,
       title: 'Enterprise Resource Planning (ERP) & Custom Development',
-      description: 'We build bespoke, high-availability systems for complex industries. From Workforce Logistics (MACTR) to Procurement Automation (Oasis), we engineer solutions that handle massive data loads and critical workflows.',
+      description: 'We engineer bespoke, mission-critical systems for industries where failure is not an option. Our enterprise platforms handle massive concurrent data loads, complex multi-party workflows, and 24/7 operational demands — as proven by MACTR for Rio Tinto\'s 24,000-worker mine and Oasis for enterprise-wide procurement automation.',
       icon: <Server className="h-8 w-8" />,
       features: [
-        'Mission-critical system architecture',
-        'High-availability infrastructure (99.9% uptime)',
-        'Massive data processing capabilities',
-        'Real-time workflow automation',
-        'Enterprise-grade security',
-        'Scalable cloud solutions'
+        'Mission-critical architecture with 99.9% uptime SLA',
+        'High-concurrency data processing for tens of thousands of simultaneous users',
+        'Real-time workflow automation with multi-level role-based approval chains',
+        'Complex scheduling engines — multi-constraint optimization for logistics and resources',
+        'Enterprise-grade security: JWT, Row Level Security, organizational data isolation',
+        'Scalable cloud-native infrastructure built for growth',
+        'Full audit trail and compliance reporting out of the box'
       ],
-      examples: ['MACTR - 24,000+ employee logistics', 'Oasis - Enterprise procurement flows'],
+      examples: ['MACTR — 24,000+ worker workforce logistics at Oyu Tolgoi (Rio Tinto)', 'Oasis — End-to-end procurement automation with audit compliance'],
       color: 'blue'
     },
     {
       id: 2,
       title: 'HR Technology',
-      description: 'Digitize your workforce with our OnlineHR ecosystem—automating attendance, payroll, and compliance while integrating seamlessly with biometric systems.',
+      description: 'Eliminate manual HR work with our OnlineHR.mn ecosystem — Mongolia\'s comprehensive cloud HR platform. From biometric attendance to automated payroll and full Mongolian labor law compliance, OnlineHR.mn handles the complete employee lifecycle for multi-branch organizations of any size.',
       icon: <Users className="h-8 w-8" />,
       features: [
-        'Biometric integration (FaceID/Fingerprint)',
-        'Automated time-tracking',
-        'Payroll processing automation',
-        'Compliance management',
-        'Employee self-service portals',
-        'Advanced reporting & analytics'
+        'Native biometric integration — FaceID and fingerprint devices sync in real time',
+        'Automated payroll engine — salary, tax, and social insurance calculated from attendance data',
+        'Full employee lifecycle: recruitment, onboarding, performance, payroll, offboarding',
+        'Multi-branch, multi-organization architecture with centralized HR control',
+        'Employee self-service portal — payslips, leave requests, and attendance on any device',
+        'Built-in Mongolian labor law compliance — income tax and social insurance reporting automated',
+        'Advanced HR analytics — headcount trends, turnover rates, and cost-per-employee insights'
       ],
-      examples: ['OnlineHR.mn - Multi-industry SaaS platform'],
+      examples: ['OnlineHR.mn — Cloud HR SaaS serving multi-industry organizations across Mongolia'],
       color: 'green'
     },
     {
       id: 3,
       title: 'AI & Social Commerce',
-      description: 'Intelligent automation for customer service and sales via Chatbot.mn. Revolutionary 24/7 AI-driven solutions that enhance customer engagement and drive conversions.',
+      description: 'Transform your customer interactions with Chatbot.mn — Mongolia\'s leading AI automation platform trusted by 3,500+ organizations. Launch a 24/7 AI-powered storefront inside Facebook Messenger, automate customer support in Mongolian, accept payments via QPay and SocialPay, and manage it all without a single line of code.',
       icon: <Bot className="h-8 w-8" />,
       features: [
-        '24/7 AI customer service',
-        'Social commerce integration',
-        'Multi-platform chatbot deployment',
-        'Natural language processing',
-        'Automated sales funnels',
-        'Customer behavior analytics'
+        'Mongolian-language NLP — AI understands and responds naturally in Mongolian',
+        '24/7 automated customer service across Facebook Messenger, Telegram, and web chat',
+        'In-chat online store — product catalog, inventory management, and order processing within Messenger',
+        'Native QPay and SocialPay integration — customers pay without leaving the conversation',
+        'No-code chatbot builder — marketing teams manage flows and campaigns independently',
+        'Automated sales funnels — lead capture, qualification, and follow-up on autopilot',
+        'Real-time analytics: conversation volume, conversion rates, sales performance, and user behavior'
       ],
-      examples: ['Chatbot.mn - AI automation platform', 'Easy Parking - Smart payment integration'],
+      examples: ['Chatbot.mn — 3,500+ organizations powered by AI automation across Mongolia', 'Easy Parking — Smart payment and IoT integration for urban infrastructure'],
       color: 'purple'
     },
     {
       id: 4,
-      title: 'Strategic Consulting',
-      description: 'Powered by Megun Media, we provide digital transformation strategy and brand management. Comprehensive consulting that bridges technology and business objectives.',
+      title: 'Strategic Consulting & Data Intelligence',
+      description: 'Powered by Megun Media and our INTELLEXI data platform, we deliver digital transformation strategy, brand management, and AI-driven analytics. We bridge technology and business objectives — helping organizations move from instinct-based decisions to data-driven growth strategies.',
       icon: <TrendingUp className="h-8 w-8" />,
       features: [
-        'Digital transformation roadmaps',
-        'Technology strategy consulting',
-        'Brand positioning & management',
-        'Market analysis & insights',
-        'Change management support',
-        'ROI optimization strategies'
+        'Digital transformation roadmaps — phased strategy from assessment to full implementation',
+        'Data Lakehouse architecture — Medallion (Bronze → Silver → Gold) ETL pipelines for clean analytics',
+        'AI-powered customer segmentation — 9-tier behavioral and value-based classification',
+        'Omnichannel marketing automation — personalized Email, SMS, and Push campaigns at scale',
+        'Brand positioning and digital PR strategy powered by Megun Media',
+        'Market analysis, competitive intelligence, and go-to-market consulting',
+        'ROI measurement frameworks and executive-level reporting dashboards'
       ],
-      examples: ['Strategic PR & Marketing solutions', 'Digital transformation consulting'],
+      examples: ['INTELLEXI — Enterprise data lakehouse, CRM, and AI analytics platform', 'Megun Media — Strategic digital PR and brand transformation consulting'],
       color: 'orange'
     }
   ];
@@ -122,11 +126,12 @@ const Solutions = () => {
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Comprehensive Technology Solutions
+              Digital Innovation & Technologies
             </h1>
             <p className="text-xl text-gray-600">
-              From enterprise systems to AI automation, we deliver end-to-end solutions 
-              that transform how businesses operate in the digital age.
+              MediaPRO is at the leading edge of digital immersion — from enterprise systems
+              powering the world's largest copper mines to AI platforms serving 3,500+ businesses.
+              We help our customers achieve their best performance through technology that actually works.
             </p>
           </div>
         </div>
@@ -238,11 +243,11 @@ const Solutions = () => {
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Modernize Your Operations?
+              Ready to Build Something Mission-Critical?
             </h2>
             <p className="text-xl mb-8 text-blue-100">
-              Let's discuss how our proven solutions can transform your business 
-              processes and drive operational excellence.
+              We've built systems that power mines, automate HR for hundreds of companies,
+              and run AI for 3,500+ organizations. Let's talk about what we can build for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/portfolio">
