@@ -113,22 +113,43 @@ const FALLBACK_PROJECTS: Project[] = [
   },
   {
     id: '6',
-    title: 'CLIX.mn',
-    client: 'Fleet Management Platform — clix.mn',
-    domain: 'GPS Tracking & Fleet Management',
-    description: 'A full-scale real-time fleet intelligence platform monitoring 2,800+ vehicles across 20+ organizations in Mongolia. CLIX.mn gives fleet managers complete visibility into vehicle location, driver behavior, fuel consumption, and route efficiency — enabling data-driven decisions that reduce costs and improve operational safety.',
+    title: 'Fleex.mn',
+    client: 'Fleet Flexibility — fleex.mn',
+    domain: 'Next-Generation Fleet Management & Telematics',
+    description: 'A next-generation fleet intelligence platform engineered for Mongolia\'s vast territory and demanding operational environments. Fleex.mn (Fleet Flexibility) gives enterprise fleet operators full real-time visibility over their vehicles, drivers, fuel consumption, and route efficiency — purpose-built to handle the high-load, high-availability demands of national-scale mining, logistics, and transport operations.',
     keyImpacts: [
-      'Live GPS tracking of 2,800+ active vehicles across 20+ organizations — all visible on a single real-time map',
-      'Continuous route monitoring with geofencing alerts — instant notifications when vehicles deviate from assigned routes or enter restricted zones',
-      'Driver behavior analytics — scoring system tracking harsh braking, rapid acceleration, speeding, and idle time',
-      'Automated fuel consumption reports — identify inefficiencies, detect fuel theft, and benchmark consumption across fleet',
-      'Scheduled maintenance alerts based on mileage and engine hours — reducing unexpected breakdowns and downtime',
-      'Multi-organization architecture — each client manages their own fleet independently with role-based access control',
+      'Live GPS tracking across thousands of active vehicles — visualized on a single mission-critical real-time map',
+      'Geofencing and route deviation alerts — instant notifications for restricted-zone entry or off-route incidents',
+      'AI-assisted driver behavior analytics — scoring harsh braking, rapid acceleration, speeding, and idle time',
+      'Fuel consumption intelligence — benchmark efficiency, detect anomalies, and integrate seamlessly with Flux.mn fuel data',
+      'Predictive maintenance — mileage and engine-hour driven alerts that prevent unplanned downtime',
+      'Multi-organization architecture — enterprise groups manage subsidiaries independently with role-based access control',
+      'Designed to scale across Mongolia\'s mining, telecom, and multi-sector enterprise environments',
     ],
-    tags: ['GPS', 'Fleet', 'IoT', 'Real-time', 'Enterprise'],
+    tags: ['Fleet', 'Telematics', 'GPS', 'IoT', 'Enterprise'],
     category: 'Enterprise',
     accentColor: 'blue',
-    url: 'https://clix.mn',
+    url: 'https://fleex.mn',
+  },
+  {
+    id: '8',
+    title: 'Flux.mn',
+    client: 'Fuel Flux — flux.mn',
+    domain: 'Fuel Distribution & Station Management',
+    description: 'A comprehensive digital ecosystem for fuel distribution stations across Mongolia — covering end-to-end fuel flow from supply to dispenser. Flux.mn ("Fuel Flux") unifies station operations, real-time inventory monitoring, transaction processing, and corporate fuel-card programs into a single mission-critical platform engineered for Mongolia\'s energy and transport sectors.',
+    keyImpacts: [
+      'Real-time fuel inventory monitoring across multi-station networks — tank levels, dispensing flow, and reconciliation',
+      'Integrated transaction processing — cash, card, QPay, SocialPay, and corporate fuel-card payments at the pump',
+      'Corporate fleet fuel-card program — issue, manage, and audit fuel cards for enterprise customers with granular controls',
+      'Anomaly detection — automated alerts for unusual dispensing patterns, tank discrepancies, and potential losses',
+      'Native integration with Fleex.mn — fleet operators see fuel-consumption and station data inside one unified dashboard',
+      'High-availability architecture — designed to operate 24/7 across distributed station networks',
+      'Regulatory and tax compliance reporting built for the Mongolian energy sector',
+    ],
+    tags: ['Energy', 'Fuel', 'POS', 'IoT', 'Enterprise'],
+    category: 'IoT',
+    accentColor: 'orange',
+    url: 'https://flux.mn',
   },
   {
     id: '7',
@@ -230,21 +251,51 @@ const Portfolio = () => {
   return (
     <div className="bg-white min-h-screen">
       {/* Header */}
-      <section className="bg-slate-900 section-padding text-white">
-        <div className="container-custom">
+      <section className="bg-slate-900 section-padding text-white relative overflow-hidden">
+        {/* Abstract decorative pattern */}
+        <div className="absolute inset-0 opacity-[0.07] pointer-events-none" aria-hidden="true">
+          <svg className="w-full h-full" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="portfolio-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+                <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" strokeWidth="0.5" />
+              </pattern>
+              <radialGradient id="portfolio-glow" cx="80%" cy="20%" r="60%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#portfolio-grid)" />
+            <rect width="100%" height="100%" fill="url(#portfolio-glow)" />
+          </svg>
+        </div>
+        <div className="container-custom relative z-10">
           <div className="max-w-3xl">
-            <div className="section-label text-blue-400"><span>Our Work</span></div>
+            <div className="section-label text-blue-400"><span>Our Work · Mission-Critical Portfolio</span></div>
             <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight">
-              Built together with{' '}
+              Powering Mongolia's{' '}
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                industry leaders
+                most critical digital infrastructure
               </span>
             </h1>
-            <p className="text-slate-400 text-lg leading-relaxed">
-              From powering Rio Tinto's 24,000-strong mine workforce to serving 3,500+ businesses
-              with AI automation — our portfolio proves what's possible when deep engineering
-              meets real-world complexity.
+            <p className="text-slate-300 text-lg leading-relaxed mb-6">
+              From national airlines and railways to the country's largest telecom, mining, and
+              multi-sector enterprises — we design, build, and maintain high-load systems that
+              keep mission-critical services online <strong className="text-white">24/7, 365 days a year</strong>.
             </p>
+            <div className="flex flex-wrap gap-2.5">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-500/10 border border-blue-400/30 text-blue-300">
+                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full" /> 10+ Years
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-400/30 text-emerald-300">
+                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" /> 30+ Specialists
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-purple-500/10 border border-purple-400/30 text-purple-300">
+                <span className="w-1.5 h-1.5 bg-purple-400 rounded-full" /> 99.9% Uptime
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-orange-500/10 border border-orange-400/30 text-orange-300">
+                <span className="w-1.5 h-1.5 bg-orange-400 rounded-full" /> Mission-Critical
+              </span>
+            </div>
           </div>
         </div>
       </section>

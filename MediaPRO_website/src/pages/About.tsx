@@ -1,4 +1,19 @@
-import { Calendar, Users, BookOpen, Shield, Building2, Bot, TrendingUp, User } from 'lucide-react';
+import {
+  Calendar,
+  Users,
+  BookOpen,
+  Shield,
+  Building2,
+  Bot,
+  TrendingUp,
+  User,
+  Globe,
+  ClipboardList,
+  Activity,
+  CheckCircle2,
+  Languages,
+  Briefcase,
+} from 'lucide-react';
 
 const milestones = [
   { year: '2013', event: 'Mediapro LLC founded' },
@@ -55,10 +70,52 @@ const values = [
 ];
 
 const stats = [
-  { value: '11+', label: 'Years of Experience' },
-  { value: '24K+', label: 'Daily Active Users' },
+  { value: '10+', label: 'Years of Proven Excellence' },
+  { value: '30+', label: 'Dedicated Specialists' },
   { value: '99.9%', label: 'System Uptime' },
-  { value: '13', label: 'Team Members' },
+  { value: '1M+', label: 'Monthly Users Served' },
+];
+
+const internationalCapabilities = [
+  {
+    title: 'PMP — Project Management Professional',
+    description: 'Structured delivery with defined milestones, risk management, and stakeholder alignment — ensuring predictable outcomes for mission-critical enterprise deployments.',
+    icon: <ClipboardList className="h-5 w-5" />,
+    color: 'icon-blue',
+  },
+  {
+    title: 'Scrum — Agile Development Framework',
+    description: 'Sprint-based iterative delivery with continuous feedback loops — enabling rapid adaptation and transparent reporting across international teams.',
+    icon: <Activity className="h-5 w-5" />,
+    color: 'icon-green',
+  },
+];
+
+const localPartnerStrengths = [
+  {
+    title: 'Cross-Cultural Fluency',
+    description: 'Extensive experience bridging international and Mongolian teams — seamless communication, aligned expectations, and cultural rapport built over 10+ years.',
+    icon: <Languages className="h-5 w-5" />,
+    color: 'icon-purple',
+  },
+  {
+    title: 'Deep Local Regulatory Knowledge',
+    description: 'Navigating Mongolian regulatory frameworks, enterprise procurement cycles, and government relations — removing barriers for foreign investors and partners.',
+    icon: <Briefcase className="h-5 w-5" />,
+    color: 'icon-blue',
+  },
+  {
+    title: '30+ Dedicated Specialists',
+    description: 'A full-stack team across system architecture, backend, mobile, and AI — ready to execute multi-phase international projects to international-grade quality.',
+    icon: <Users className="h-5 w-5" />,
+    color: 'icon-green',
+  },
+  {
+    title: 'Proven Completion Rate',
+    description: 'A consistently high project delivery record across government, telecom, and mining sectors — demonstrating reliability for complex, high-stakes deployments.',
+    icon: <CheckCircle2 className="h-5 w-5" />,
+    color: 'icon-orange',
+  },
 ];
 
 type TeamMember = { name: string; role: string; image: string; description?: string; };
@@ -105,19 +162,30 @@ const MemberCard = ({ member, size = 'md' }: { member: TeamMember; size?: 'sm' |
 const About = () => (
   <div className="bg-white min-h-screen">
     {/* Hero */}
-    <section className="bg-slate-900 section-padding text-white">
-      <div className="container-custom">
+    <section className="bg-slate-900 section-padding text-white relative overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
+        <svg className="w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="about-hex" width="60" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+              <polygon points="30,2 56,17 56,46 30,60 4,46 4,17" fill="none" stroke="#60a5fa" strokeWidth="0.6" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#about-hex)" />
+        </svg>
+      </div>
+      <div className="container-custom relative z-10">
         <div className="max-w-3xl">
-          <div className="section-label text-blue-400">About Us</div>
+          <div className="section-label text-blue-400">About Us · A Decade of Driving Innovation</div>
           <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight">
-            Stability,{' '}
+            Mongolia's strategic{' '}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              experience & innovation
+              technology partner
             </span>
           </h1>
-          <p className="text-slate-400 text-lg leading-relaxed">
-            For over a decade, we've been connecting complex business processes with
-            intuitive digital solutions trusted by some of the world's largest companies.
+          <p className="text-slate-300 text-lg leading-relaxed">
+            For over a decade, we've connected complex business processes with mission-critical
+            digital solutions — trusted by Mongolia's largest enterprises and global leaders
+            like Rio Tinto. <strong className="text-white">Reliable. Innovative. Local Experts.</strong>
           </p>
         </div>
       </div>
@@ -244,6 +312,82 @@ const About = () => (
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {devTeam.map((m) => <MemberCard key={m.name} member={m} size="md" />)}
+        </div>
+      </div>
+    </section>
+
+    {/* International Standards & Collaboration */}
+    <section className="section-padding bg-white">
+      <div className="container-custom">
+        <div className="text-center mb-12 max-w-3xl mx-auto">
+          <div className="section-label"><span>International Standards & Collaboration</span></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            A real local partner for international implementers
+          </h2>
+          <p className="text-gray-500 text-lg">
+            Global frameworks. Cross-cultural expertise. End-to-end execution on the ground in
+            Mongolia — optimized for foreign investors, joint ventures, and multi-phase
+            enterprise deployments.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {internationalCapabilities.map((c) => (
+            <div key={c.title} className="feature-card">
+              <div className="flex items-start gap-4">
+                <div className={`${c.color} shrink-0`}>{c.icon}</div>
+                <div>
+                  <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                    Global Framework Adopted
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{c.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{c.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 md:p-10 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
+            <svg className="w-full h-full" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+              <g stroke="#60a5fa" strokeWidth="0.5" fill="none">
+                <circle cx="700" cy="100" r="80" />
+                <circle cx="700" cy="100" r="140" />
+                <circle cx="700" cy="100" r="200" />
+              </g>
+            </svg>
+          </div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-2 mb-4">
+              <Globe className="h-5 w-5 text-blue-400" />
+              <span className="text-xs uppercase tracking-widest text-blue-300 font-semibold">
+                Why we're the right local partner
+              </span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-8 max-w-2xl">
+              Optimized for foreign investors entering Mongolia
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+              {localPartnerStrengths.map((s) => (
+                <div key={s.title} className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 text-blue-300 flex items-center justify-center shrink-0">
+                    {s.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1.5">{s.title}</h4>
+                    <p className="text-sm text-slate-400 leading-relaxed">{s.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 pt-6 border-t border-white/10 text-sm text-slate-300 leading-relaxed max-w-3xl">
+              MediaPRO serves as your <strong className="text-white">end-to-end local execution partner</strong> —
+              combining deep cross-cultural collaboration with technical deployment to ensure
+              your investment succeeds in Mongolia. Trusted by long-term partners in government,
+              telecom, mining, and multi-sector enterprises.
+            </div>
+          </div>
         </div>
       </div>
     </section>
