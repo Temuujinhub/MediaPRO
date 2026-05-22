@@ -12,9 +12,12 @@ const Footer = () => (
             <img src="./images/media PRO logo NOTEXT.png" alt="MediaPRO" className="h-8 w-auto brightness-0 invert" />
             <span className="text-xl font-bold">Media<span className="text-blue-400">PRO</span></span>
           </div>
-          <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
-            Since 2013, delivering high-availability software systems, strategic marketing,
-            and workforce automation for enterprise clients.
+          <p className="text-slate-400 text-sm leading-relaxed mb-2 max-w-sm">
+            Mongolia's Premier Tech Partner — powering mission-critical digital infrastructure
+            for the country's leading enterprises and global partners since 2013.
+          </p>
+          <p className="text-blue-300 text-xs font-medium uppercase tracking-wider mb-6">
+            Reliable · Innovative · Local Experts
           </p>
           <div className="space-y-3">
             <div className="flex items-start gap-2.5 text-sm text-slate-400">
@@ -52,11 +55,13 @@ const Footer = () => (
 
         {/* Companies */}
         <div>
-          <h3 className="text-sm font-semibold text-white mb-4">Our Companies</h3>
+          <h3 className="text-sm font-semibold text-white mb-4">Our Platforms</h3>
           <ul className="space-y-3 text-slate-400 text-sm">
             <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>Megun Media</li>
             <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>Chatbot.mn</li>
             <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>OnlineHR.mn</li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-sky-400 rounded-full"></span>Fleex.mn</li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>Flux.mn</li>
           </ul>
         </div>
       </div>

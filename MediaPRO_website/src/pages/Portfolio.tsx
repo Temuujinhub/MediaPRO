@@ -113,22 +113,50 @@ const FALLBACK_PROJECTS: Project[] = [
   },
   {
     id: '6',
-    title: 'CLIX.mn',
-    client: 'Fleet Management Platform — clix.mn',
-    domain: 'GPS Tracking & Fleet Management',
-    description: 'A full-scale real-time fleet intelligence platform monitoring 2,800+ vehicles across 20+ organizations in Mongolia. CLIX.mn gives fleet managers complete visibility into vehicle location, driver behavior, fuel consumption, and route efficiency — enabling data-driven decisions that reduce costs and improve operational safety.',
+    title: 'Fleex.mn',
+    client: 'Enterprise Fleet Management — fleex.mn',
+    domain: 'Mining · Urban Delivery · Public Transport · Rental Fleets',
+    description: 'An enterprise fleet management platform engineered to improve safety, efficiency, and control across mining operations, urban delivery, public transport, and rental fleets. Fleex.mn combines real-time telematics, AI-driven driver analytics, and life-safety automation — purpose-built for Mongolia\'s harsh operating environment with Mongolian-language UI, in-country hosting, and ERP/1C API connectivity out of the box.',
     keyImpacts: [
-      'Live GPS tracking of 2,800+ active vehicles across 20+ organizations — all visible on a single real-time map',
-      'Continuous route monitoring with geofencing alerts — instant notifications when vehicles deviate from assigned routes or enter restricted zones',
-      'Driver behavior analytics — scoring system tracking harsh braking, rapid acceleration, speeding, and idle time',
-      'Automated fuel consumption reports — identify inefficiencies, detect fuel theft, and benchmark consumption across fleet',
-      'Scheduled maintenance alerts based on mileage and engine hours — reducing unexpected breakdowns and downtime',
-      'Multi-organization architecture — each client manages their own fleet independently with role-based access control',
+      'Lone-worker auto-protection — automatically detects driver risk when no response is received for 2 hours and escalates to dispatch',
+      'PANIC alert — SOS button broadcasts an SMS with a Google Maps location link to every driver within a 5 km radius in under 30 seconds',
+      'Fuel-probe & CAN-bus integration — real-time fuel-level and engine telemetry from the vehicle bus, exposing theft and leakage the moment they happen',
+      'Dispatcher live Kanban — all vehicles on a single board; idle time × tariff is auto-computed and exported to Excel for billing',
+      'AI-driven driver behavior analytics — per-driver scoring of harsh braking, rapid acceleration, speeding, idle time, and an eco-driving leaderboard',
+      'Remote vehicle control — engine block/unblock, geofence-based billing zones, and dash-cam video evidence for incidents and audits',
+      'Live GPS tracking, geofencing, and route-deviation alerts across thousands of vehicles on a single mission-critical map',
+      'Predictive maintenance — mileage and engine-hour driven alerts that prevent unplanned downtime',
+      'Multi-organization architecture with role-based access — enterprise groups manage subsidiaries independently',
+      'Mongolian-language UI, hosted in Mongolia, engineered to operate reliably in −40 °C winter conditions',
+      'Open API for ERP and 1C integration — fleet data flows directly into corporate finance and operations systems',
     ],
-    tags: ['GPS', 'Fleet', 'IoT', 'Real-time', 'Enterprise'],
+    tags: ['Fleet', 'Telematics', 'CAN-bus', 'PANIC/SOS', 'AI', 'ERP/1C', 'Enterprise'],
     category: 'Enterprise',
     accentColor: 'blue',
-    url: 'https://clix.mn',
+    url: 'https://fleex.mn',
+  },
+  {
+    id: '8',
+    title: 'Flux.mn',
+    client: 'Flux Monitor — flux.mn',
+    domain: 'Fuel Station & Depot Monitoring Platform',
+    description: 'A unified monitoring and automation platform for fuel stations (ШТС) and fuel depots — bringing every device, transaction, and report under one mission-critical roof. Flux Monitor automates the full station lifecycle from tank intake to point-of-sale, integrating ATG tank gauges, dispensers, POS terminals, eBarimt VAT receipts, NFC cards, and RFID readers through a single IoT controller.',
+    keyImpacts: [
+      'Unified IoT controller — integrates ATG tank gauges, dispensers, POS terminals, eBarimt VAT printers, NFC cards, and RFID readers into one platform',
+      'Real-time monitoring — dispenser status, fuel consumption, revenue, and financial reconciliation visible the moment a transaction completes',
+      'Safety & loss prevention — automated detection of tank integrity issues, leakage, and theft, with instant alert escalation',
+      'Financial integration — POS, eBarimt, and VAT receipt issued together in one flow; reports generated automatically without Excel',
+      'Role-based UI — purpose-built views for super admin, station manager, finance officer, and pump operator',
+      'Sub-5 second transaction latency — fast enough to keep the pump queue moving even during peak hours',
+      '24/7 online monitoring across multi-station and depot networks — central command for distributed fuel operations',
+      '100% audit log retention — every transaction, configuration change, and alarm is recorded for compliance and forensics',
+      'Native integration with Fleex.mn — fleet operators see fuel-card transactions, consumption per vehicle, and station data inside one unified dashboard',
+      'Regulatory and tax compliance reporting built for the Mongolian energy sector',
+    ],
+    tags: ['ATG', 'POS', 'eBarimt', 'NFC', 'RFID', 'IoT', 'Energy'],
+    category: 'IoT',
+    accentColor: 'orange',
+    url: 'https://flux.mn',
   },
   {
     id: '7',
@@ -230,21 +258,51 @@ const Portfolio = () => {
   return (
     <div className="bg-white min-h-screen">
       {/* Header */}
-      <section className="bg-slate-900 section-padding text-white">
-        <div className="container-custom">
+      <section className="bg-slate-900 section-padding text-white relative overflow-hidden">
+        {/* Abstract decorative pattern */}
+        <div className="absolute inset-0 opacity-[0.07] pointer-events-none" aria-hidden="true">
+          <svg className="w-full h-full" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="portfolio-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+                <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" strokeWidth="0.5" />
+              </pattern>
+              <radialGradient id="portfolio-glow" cx="80%" cy="20%" r="60%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#portfolio-grid)" />
+            <rect width="100%" height="100%" fill="url(#portfolio-glow)" />
+          </svg>
+        </div>
+        <div className="container-custom relative z-10">
           <div className="max-w-3xl">
-            <div className="section-label text-blue-400"><span>Our Work</span></div>
+            <div className="section-label text-blue-400"><span>Our Work · Mission-Critical Portfolio</span></div>
             <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight">
-              Built together with{' '}
+              Powering Mongolia's{' '}
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                industry leaders
+                most critical digital infrastructure
               </span>
             </h1>
-            <p className="text-slate-400 text-lg leading-relaxed">
-              From powering Rio Tinto's 24,000-strong mine workforce to serving 3,500+ businesses
-              with AI automation — our portfolio proves what's possible when deep engineering
-              meets real-world complexity.
+            <p className="text-slate-300 text-lg leading-relaxed mb-6">
+              From national airlines and railways to the country's largest telecom, mining, and
+              multi-sector enterprises — we design, build, and maintain high-load systems that
+              keep mission-critical services online <strong className="text-white">24/7, 365 days a year</strong>.
             </p>
+            <div className="flex flex-wrap gap-2.5">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-500/10 border border-blue-400/30 text-blue-300">
+                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full" /> 10+ Years
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-400/30 text-emerald-300">
+                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" /> 30+ Specialists
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-purple-500/10 border border-purple-400/30 text-purple-300">
+                <span className="w-1.5 h-1.5 bg-purple-400 rounded-full" /> 99.9% Uptime
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-orange-500/10 border border-orange-400/30 text-orange-300">
+                <span className="w-1.5 h-1.5 bg-orange-400 rounded-full" /> Mission-Critical
+              </span>
+            </div>
           </div>
         </div>
       </section>

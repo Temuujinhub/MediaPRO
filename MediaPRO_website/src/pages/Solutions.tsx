@@ -1,15 +1,18 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { 
-  Server, 
-  Users, 
-  Bot, 
-  TrendingUp, 
-  Database, 
-  Shield, 
-  Clock, 
-  Zap 
+import {
+  Server,
+  Users,
+  Bot,
+  TrendingUp,
+  Database,
+  Shield,
+  Clock,
+  Zap,
+  Truck,
+  Fuel,
+  Activity,
 } from 'lucide-react';
 
 const Solutions = () => {
@@ -67,6 +70,26 @@ const Solutions = () => {
     },
     {
       id: 4,
+      title: 'Fleet, Transport & Fuel Operations',
+      description: 'Two platforms, one operational layer for Mongolia\'s most demanding fleet and energy environments. Fleex.mn covers driver safety, AI-driven telematics, and dispatcher operations across mining, urban delivery, public transport, and rental fleets. Flux Monitor unifies every device on a fuel station — ATG tank gauges, dispensers, POS, eBarimt — into a single command platform with sub-5-second transactions and 100% audit logging.',
+      icon: <Truck className="h-8 w-8" />,
+      features: [
+        'Fleex.mn — Lone-worker auto-protection, PANIC alert with 5 km / 30-second SMS escalation, dispatcher live Kanban',
+        'Fleex.mn — CAN-bus and fuel-probe integration, AI driver scoring, eco-driving leaderboard, dash-cam evidence',
+        'Fleex.mn — Engine remote block/unblock, geofence billing, ERP/1C API connectivity, Mongolian-language UI hosted in Mongolia, −40 °C operational',
+        'Flux Monitor — Unified IoT controller integrating ATG tank gauges, dispensers, POS, eBarimt VAT, NFC cards, RFID readers',
+        'Flux Monitor — Real-time tank integrity, leakage, and theft detection with automated alerting',
+        'Flux Monitor — Role-based UI for super admin, manager, finance, and operator with 100% audit-log retention',
+        'Flux Monitor — Sub-5-second transaction latency and 24/7 online monitoring across multi-station networks',
+      ],
+      examples: [
+        'Fleex.mn — Enterprise fleet management for mining, delivery, public transport, and rental operations',
+        'Flux.mn — Flux Monitor platform for fuel stations and depots, end-to-end station automation',
+      ],
+      color: 'blue',
+    },
+    {
+      id: 5,
       title: 'Strategic Consulting & Data Intelligence',
       description: 'Powered by Megun Media and our INTELLEXI data platform, we deliver digital transformation strategy, brand management, and AI-driven analytics. We bridge technology and business objectives — helping organizations move from instinct-based decisions to data-driven growth strategies.',
       icon: <TrendingUp className="h-8 w-8" />,
@@ -122,17 +145,37 @@ const Solutions = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-white section-padding border-b">
-        <div className="container-custom">
+      <section className="bg-white section-padding border-b relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" aria-hidden="true">
+          <svg className="w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="solutions-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#1e40af" strokeWidth="0.6" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#solutions-grid)" />
+          </svg>
+        </div>
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
+            <div className="section-label justify-center"><span>High-Load System Capabilities</span></div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Digital Innovation & Technologies
+              Mission-critical infrastructure for{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                national-scale services
+              </span>
             </h1>
             <p className="text-xl text-gray-600">
-              MediaPRO is at the leading edge of digital immersion — from enterprise systems
-              powering the world's largest copper mines to AI platforms serving 3,500+ businesses.
-              We help our customers achieve their best performance through technology that actually works.
+              From enterprise systems powering the world's largest copper mines to AI platforms
+              serving 3,500+ businesses — we engineer scalable, secure, and uncompromisingly
+              reliable solutions for Mongolia's leading enterprises and global investors.
             </p>
+            <div className="flex flex-wrap justify-center gap-2.5 mt-8">
+              <span className="tech-badge">Architectural Scalability</span>
+              <span className="tech-badge">24/7 Availability</span>
+              <span className="tech-badge">Enterprise Security</span>
+              <span className="tech-badge">DevOps Excellence</span>
+            </div>
           </div>
         </div>
       </section>
@@ -193,46 +236,103 @@ const Solutions = () => {
       </section>
 
       {/* Technology Stack */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
+      <section className="section-padding bg-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none" aria-hidden="true">
+          <svg className="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="tech-dots" width="28" height="28" patternUnits="userSpaceOnUse">
+                <circle cx="14" cy="14" r="1.2" fill="#1e40af" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#tech-dots)" />
+          </svg>
+        </div>
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-14 max-w-3xl mx-auto">
+            <div className="section-label justify-center"><span>Comprehensive Technical Excellence</span></div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Built on Proven Technologies
+              Modern stack & scalable infrastructure for enterprise-grade systems
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We leverage industry-leading technologies and frameworks to ensure 
-              reliability, scalability, and future-proof solutions.
+            <p className="text-lg text-gray-500">
+              Reliability, scalability, and future-proof architecture — built on proven
+              enterprise-grade technologies trusted by Mongolia's largest groups and global
+              partners.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Database className="h-8 w-8" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {[
+              {
+                title: 'Backend & Systems',
+                items: ['.NET Core / C#', 'Java Enterprise', 'Oracle / MSSQL Database', 'Node.js & PHP'],
+                icon: <Database className="h-6 w-6" />,
+                color: 'bg-blue-50 text-blue-600 border-blue-100',
+              },
+              {
+                title: 'Mobile Development',
+                items: ['React Native (Cross Platform)', 'Swift (iOS) & Kotlin (Android)', 'Java Enterprise Mobile'],
+                icon: <Zap className="h-6 w-6" />,
+                color: 'bg-emerald-50 text-emerald-600 border-emerald-100',
+              },
+              {
+                title: 'AI & Automation',
+                items: ['Python-based AI Development', 'Automated Testing (Selenium)', 'Performance Optimization'],
+                icon: <Bot className="h-6 w-6" />,
+                color: 'bg-purple-50 text-purple-600 border-purple-100',
+              },
+              {
+                title: 'Cloud & DevOps',
+                items: ['Docker & Kubernetes', 'AWS Infrastructure', 'High-Security Server Mgmt', 'CI/CD Pipelines'],
+                icon: <Server className="h-6 w-6" />,
+                color: 'bg-orange-50 text-orange-600 border-orange-100',
+              },
+            ].map((stack) => (
+              <div key={stack.title} className={`rounded-2xl border ${stack.color} p-6`}>
+                <div className={`w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-5`}>
+                  {stack.icon}
+                </div>
+                <h3 className="font-bold text-gray-900 mb-3">{stack.title}</h3>
+                <ul className="space-y-1.5">
+                  {stack.items.map((item) => (
+                    <li key={item} className="text-sm text-gray-600 flex items-center gap-2">
+                      <span className="w-1 h-1 rounded-full bg-gray-400" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="font-semibold text-gray-900">Enterprise Databases</h3>
-              <p className="text-gray-600 text-sm mt-1">PostgreSQL, MongoDB, Redis</p>
+            ))}
+          </div>
+
+          <div className="rounded-2xl bg-slate-900 text-white p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-2 mb-3 text-xs uppercase tracking-widest text-blue-300 font-semibold">
+                <Shield className="h-4 w-4" /> Operational Standards
+              </div>
+              <h3 className="text-xl font-bold mb-3">Engineered for international-grade reliability</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                We adhere to global methodologies including <strong className="text-white">PMP</strong> and{' '}
+                <strong className="text-white">Scrum</strong> — ensuring cross-cultural project engagement
+                and mission-critical reliability for international partners.
+              </p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8" />
+            <div className="grid grid-cols-2 gap-3">
+              <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                <div className="text-xs text-slate-400 mb-0.5">Approach</div>
+                <div className="font-semibold text-sm">Security First</div>
               </div>
-              <h3 className="font-semibold text-gray-900">Security First</h3>
-              <p className="text-gray-600 text-sm mt-1">OAuth, JWT, Encryption</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8" />
+              <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                <div className="text-xs text-slate-400 mb-0.5">Design</div>
+                <div className="font-semibold text-sm">Scalable Architecture</div>
               </div>
-              <h3 className="font-semibold text-gray-900">Real-time Systems</h3>
-              <p className="text-gray-600 text-sm mt-1">WebSockets, Event Streaming</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Zap className="h-8 w-8" />
+              <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                <div className="text-xs text-slate-400 mb-0.5">Process</div>
+                <div className="font-semibold text-sm">CI/CD Automation</div>
               </div>
-              <h3 className="font-semibold text-gray-900">High Performance</h3>
-              <p className="text-gray-600 text-sm mt-1">Microservices, CDN, Caching</p>
+              <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                <div className="text-xs text-slate-400 mb-0.5">Track Record</div>
+                <div className="font-semibold text-sm">10+ Years</div>
+              </div>
             </div>
           </div>
         </div>

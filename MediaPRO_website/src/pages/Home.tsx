@@ -1,12 +1,74 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Bot, Users, Shield, Zap, TrendingUp, CheckCircle2, ChevronRight } from 'lucide-react';
+import {
+  ArrowRight,
+  Bot,
+  Users,
+  Shield,
+  Zap,
+  TrendingUp,
+  CheckCircle2,
+  ChevronRight,
+  Radio,
+  Mountain,
+  Building2,
+  Plane,
+  Train,
+  Landmark,
+  Globe2,
+} from 'lucide-react';
 
 const stats = [
-  { value: '11+', label: 'Years of Experience' },
-  { value: '24K+', label: 'Daily Active Users' },
+  { value: '10+', label: 'Years of Proven Excellence' },
+  { value: '30+', label: 'Specialists' },
   { value: '99.9%', label: 'System Uptime' },
-  { value: '7+', label: 'Enterprise Projects' },
+  { value: '1M+', label: 'Monthly Users Served' },
+];
+
+const enterprisePartners = [
+  {
+    sector: 'Telecommunications',
+    name: 'Mobicom Corporation',
+    note: "Mongolia's largest telecom",
+    icon: <Radio className="h-5 w-5" />,
+    color: 'icon-blue',
+    impacts: [
+      'Large-scale enterprise system integration & management',
+      'High-traffic digital platform architecture & support',
+      'Mission-critical infrastructure continuity',
+    ],
+  },
+  {
+    sector: 'Mining & Resources',
+    name: 'Oyu Tolgoi LLC',
+    note: 'Major mining enterprise',
+    icon: <Mountain className="h-5 w-5" />,
+    color: 'icon-green',
+    impacts: [
+      'Logistics & transport management systems',
+      'E-procurement platform development & deployment',
+      'Complex operational data processing at industrial scale',
+    ],
+  },
+  {
+    sector: 'Multi-Sector Conglomerate',
+    name: 'Monnis Group',
+    note: 'Leading multi-sector group',
+    icon: <Building2 className="h-5 w-5" />,
+    color: 'icon-orange',
+    impacts: [
+      'Large-scale retail management systems',
+      'Cross-sector enterprise digital transformation',
+      'Enterprise-grade architecture across business verticals',
+    ],
+  },
+];
+
+const publicSector = [
+  { name: 'MIAT.com', desc: 'National airline portal — high-volume bookings & real-time flight data with zero downtime', icon: <Plane className="h-4 w-4" /> },
+  { name: 'MTZ.mn', desc: 'Mongolian Railway portal — integrating complex schedules into a unified digital interface', icon: <Train className="h-4 w-4" /> },
+  { name: 'MECC.gov.mn', desc: 'Ministry of Environment & Climate Change portal — secure government citizen services', icon: <Landmark className="h-4 w-4" /> },
+  { name: 'Aero Mongolia', desc: 'Advanced airline management systems ensuring excellence in private aviation', icon: <Plane className="h-4 w-4" /> },
 ];
 
 const pillars = [
@@ -44,22 +106,40 @@ const Home = () => {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="hero-gradient text-white relative">
+      <section className="hero-gradient text-white relative overflow-hidden">
+        {/* Abstract circuit / network pattern */}
+        <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
+          <svg className="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="hero-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <circle cx="30" cy="30" r="1.2" fill="#60a5fa" />
+                <path d="M 60 30 L 0 30 M 30 0 L 30 60" stroke="#60a5fa" strokeWidth="0.3" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hero-grid)" />
+            <g stroke="#a78bfa" strokeWidth="0.6" fill="none" opacity="0.55">
+              <path d="M 0 120 Q 300 80 600 160 T 1200 200" />
+              <path d="M 0 300 Q 400 250 700 320 T 1200 380" />
+              <path d="M 0 460 Q 350 420 650 480 T 1200 500" />
+            </g>
+          </svg>
+        </div>
         <div className="container-custom section-padding relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm text-blue-200 mb-8">
               <span className="w-2 h-2 bg-emerald-400 rounded-full pulse-glow"></span>
-              Serving Mongolia's enterprise sector since 2013
+              Mongolia's Premier Tech Partner — Since 2013
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-[1.1] tracking-tight">
-              Technology solutions for{' '}
+              Powering Mongolia's{' '}
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                the digital future
+                mission-critical digital infrastructure
               </span>
             </h1>
             <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
-              From high-availability enterprise systems to AI automation —
-              we ensure uninterrupted operations for your business.
+              From national airlines and railways to the country's largest telecom and mining
+              operations — we design, build, and maintain high-load enterprise systems that keep
+              mission-critical services online <strong className="text-white">24/7, 365 days a year</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/portfolio">
@@ -151,10 +231,10 @@ const Home = () => {
                 </div>
                 <div className="space-y-3">
                   {[
-                    { label: 'MACTR System — Rio Tinto', status: '🟢 Online', sub: '24,000+ users' },
-                    { label: 'OnlineHR.mn', status: '🟢 Online', sub: 'Multi-organization' },
-                    { label: 'CLIX Fleet Management', status: '🟢 Online', sub: '2,800+ vehicles' },
-                    { label: 'Chatbot.mn', status: '🟢 Online', sub: '24/7 AI service' },
+                    { label: 'MACTR — Oyu Tolgoi (Rio Tinto)', status: '🟢 Online', sub: '24,000+ workforce' },
+                    { label: 'MIAT.com — National Airline', status: '🟢 Online', sub: 'Zero-downtime portal' },
+                    { label: 'Fleex.mn — Fleet Intelligence', status: '🟢 Online', sub: 'Real-time telematics' },
+                    { label: 'Chatbot.mn', status: '🟢 Online', sub: '3,500+ organizations' },
                   ].map((item) => (
                     <div key={item.label} className="flex items-center justify-between bg-white/5 rounded-xl px-4 py-3 border border-white/10">
                       <div>
@@ -174,15 +254,147 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-padding bg-slate-900 text-white">
+      {/* Trusted Enterprise Partnerships */}
+      <section className="section-padding bg-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none" aria-hidden="true">
+          <svg className="w-full h-full" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="partners-dots" width="32" height="32" patternUnits="userSpaceOnUse">
+                <circle cx="16" cy="16" r="1.3" fill="#1e3a8a" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#partners-dots)" />
+          </svg>
+        </div>
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-14 max-w-3xl mx-auto">
+            <div className="section-label"><span>Trusted Enterprise Partnerships</span></div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Long-term collaborations with Mongolia's most influential corporate groups
+            </h2>
+            <p className="text-gray-500 text-lg">
+              We maintain sustained, mission-critical partnerships with Mongolia's leading
+              enterprises — delivering high-load systems for telecom, mining, and multi-sector
+              operations that demand <strong className="text-gray-700">uncompromising reliability</strong>.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {enterprisePartners.map((p) => (
+              <div key={p.name} className="feature-card flex flex-col">
+                <div className={`${p.color} mb-4`}>{p.icon}</div>
+                <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">
+                  {p.sector}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">{p.name}</h3>
+                <div className="text-sm text-blue-600 font-medium mb-4">★ {p.note}</div>
+                <ul className="space-y-2.5">
+                  {p.impacts.map((impact) => (
+                    <li key={impact} className="flex items-start gap-2.5 text-sm text-gray-600">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 shrink-0" />
+                      <span>{impact}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            {[
+              { v: 'Telecom', l: 'Sector' },
+              { v: 'Mining', l: 'Sector' },
+              { v: 'Multi-Sector', l: 'Sector' },
+              { v: 'Retail', l: 'Sector' },
+            ].map((s) => (
+              <div key={s.v} className="bg-white rounded-xl border border-gray-100 py-4 px-3">
+                <div className="text-xs uppercase tracking-wider text-gray-400 mb-1">{s.l}</div>
+                <div className="text-base font-bold text-gray-900">{s.v}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Public Sector Digital Transformation */}
+      <section className="section-padding bg-white">
         <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            <div className="lg:col-span-1">
+              <div className="section-label"><span>Public Sector</span></div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight">
+                Secure, high-reliability portals for{' '}
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  national infrastructure
+                </span>
+              </h2>
+              <p className="text-gray-500 leading-relaxed mb-8">
+                A trusted partner for state-owned enterprises and government bodies — delivering
+                mission-critical web portals that demand the highest standards of security,
+                availability, and user capacity.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 px-4 py-3 bg-blue-50 border border-blue-100 rounded-xl">
+                  <Shield className="h-5 w-5 text-blue-600 shrink-0" />
+                  <div>
+                    <div className="text-xs uppercase tracking-wider text-blue-600 font-semibold">Service Reliability</div>
+                    <div className="text-lg font-bold text-gray-900">99.9% Uptime</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 px-4 py-3 bg-emerald-50 border border-emerald-100 rounded-xl">
+                  <Users className="h-5 w-5 text-emerald-600 shrink-0" />
+                  <div>
+                    <div className="text-xs uppercase tracking-wider text-emerald-600 font-semibold">Public Users Impacted</div>
+                    <div className="text-lg font-bold text-gray-900">1M+ Monthly</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {publicSector.map((p) => (
+                <div key={p.name} className="rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-gray-50 p-5 hover:border-blue-200 hover:shadow-md transition-all">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+                      {p.icon}
+                    </div>
+                    <div className="font-bold text-gray-900">{p.name}</div>
+                  </div>
+                  <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-padding bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
+          <svg className="w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="cta-glow" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#cta-glow)" />
+            <g stroke="#60a5fa" strokeWidth="0.4" fill="none" opacity="0.6">
+              <circle cx="400" cy="150" r="60" />
+              <circle cx="400" cy="150" r="110" />
+              <circle cx="400" cy="150" r="160" />
+            </g>
+          </svg>
+        </div>
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-blue-200 mb-5">
+              <Globe2 className="h-3.5 w-3.5" />
+              Ready to power your next project in Mongolia
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Let's take your business to the next level
+              Reliable. Innovative. Local Experts.
             </h2>
             <p className="text-slate-400 mb-8 text-lg">
-              Apply the same expertise trusted by global companies like Rio Tinto to your project.
+              Apply the same expertise trusted by Rio Tinto, MIAT, Mobicom, Oyu Tolgoi, and Monnis
+              Group to your most ambitious project.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/portfolio">
