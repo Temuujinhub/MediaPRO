@@ -278,11 +278,9 @@ const Portfolio = () => {
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
             <div className="section-label text-blue-400"><span>Our Work · Mission-Critical Portfolio</span></div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight text-balance">
               Powering Mongolia's{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                most critical digital infrastructure
-              </span>
+              <span className="text-blue-400">most critical digital infrastructure</span>
             </h1>
             <p className="text-slate-300 text-lg leading-relaxed mb-6">
               From national airlines and railways to the country's largest telecom, mining, and

@@ -130,16 +130,15 @@ const Home = () => {
               <span className="w-2 h-2 bg-emerald-400 rounded-full pulse-glow"></span>
               Mongolia's Premier Tech Partner — Since 2013
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-[1.1] tracking-tight">
+            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-[1.08] tracking-tight text-balance">
               Powering Mongolia's{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                mission-critical digital infrastructure
-              </span>
+              <span className="text-blue-400">mission-critical digital infrastructure</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
-              From national airlines and railways to the country's largest telecom and mining
-              operations — we design, build, and maintain high-load enterprise systems that keep
-              mission-critical services online <strong className="text-white">24/7, 365 days a year</strong>.
+              From the national airline and railway to the country's largest telecom and its
+              biggest mining operations, we design, build, and operate the high-load enterprise
+              systems behind them — keeping mission-critical services online{' '}
+              <strong className="text-white">24/7, 365 days a year</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/portfolio">
@@ -177,7 +176,9 @@ const Home = () => {
               One partner, three strategic pillars
             </h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-              MediaPRO is a strategic holding company empowering three specialized subsidiaries
+              MediaPRO operates as a strategic holding company, channeling a decade of shared
+              engineering depth into three specialized subsidiaries — each a focused leader in
+              its own field.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -203,8 +204,9 @@ const Home = () => {
                 Trusted by industry leaders like Rio Tinto
               </h2>
               <p className="text-gray-500 mb-8 leading-relaxed">
-                We don't just write code — we are the reliable partner that ensures
-                your most critical enterprise systems run without interruption, long-term.
+                We don't just ship code and walk away. We stay on as the long-term engineering
+                partner that keeps your most critical enterprise systems running without
+                interruption — through every release, every scale-up, and every edge case.
               </p>
               <div className="flex flex-col gap-4">
                 {features.map((f) => (
@@ -322,9 +324,7 @@ const Home = () => {
               <div className="section-label"><span>Public Sector</span></div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight">
                 Secure, high-reliability portals for{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  national infrastructure
-                </span>
+                <span className="text-blue-600">national infrastructure</span>
               </h2>
               <p className="text-gray-500 leading-relaxed mb-8">
                 A trusted partner for state-owned enterprises and government bodies — delivering

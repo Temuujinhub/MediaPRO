@@ -176,11 +176,9 @@ const About = () => (
       <div className="container-custom relative z-10">
         <div className="max-w-3xl">
           <div className="section-label text-blue-400">About Us · A Decade of Driving Innovation</div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight text-balance">
             Mongolia's strategic{' '}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              technology partner
-            </span>
+            <span className="text-blue-400">technology partner</span>
           </h1>
           <p className="text-slate-300 text-lg leading-relaxed">
             For over a decade, we've connected complex business processes with mission-critical

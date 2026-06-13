@@ -159,11 +159,9 @@ const Solutions = () => {
         <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <div className="section-label justify-center"><span>High-Load System Capabilities</span></div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">
               Mission-critical infrastructure for{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                national-scale services
-              </span>
+              <span className="text-blue-600">national-scale services</span>
             </h1>
             <p className="text-xl text-gray-600">
               From enterprise systems powering the world's largest copper mines to AI platforms
