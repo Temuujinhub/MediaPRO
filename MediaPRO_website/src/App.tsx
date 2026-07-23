@@ -17,7 +17,7 @@ import AdminTeam from '@/pages/AdminTeam';
 const AdminLayout = ({ children }: { children: React.ReactNode }) => <>{children}</>;
 
 const PublicLayout = ({ children }: { children: React.ReactNode }) => (
-  <div className="min-h-screen bg-background flex flex-col">
+  <div className="min-h-screen bg-[#0a0714] flex flex-col">
     <Navigation />
     <main className="flex-1">{children}</main>
     <Footer />

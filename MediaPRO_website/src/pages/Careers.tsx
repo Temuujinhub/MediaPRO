@@ -1,13 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { 
-  MapPin, 
-  Clock, 
-  DollarSign, 
-  Users, 
-  Code, 
-  Palette, 
+import {
+  MapPin,
+  Clock,
+  DollarSign,
+  Users,
+  Code,
+  Palette,
   BarChart3,
   Mail
 } from 'lucide-react';
@@ -108,28 +105,31 @@ const Careers = () => {
   const getDepartmentColor = (department: string) => {
     switch (department) {
       case 'Engineering':
-        return 'bg-blue-100 text-blue-700 border-blue-200';
+        return 'bg-[#ff2e9a]/10 text-[#ff7cc0] border-[#ff2e9a]/30';
       case 'Design':
-        return 'bg-purple-100 text-purple-700 border-purple-200';
+        return 'bg-[#7b2ff7]/10 text-[#a97bff] border-[#7b2ff7]/30';
       case 'Strategy':
-        return 'bg-green-100 text-green-700 border-green-200';
+        return 'bg-cyan-400/10 text-cyan-300 border-cyan-400/30';
       default:
-        return 'bg-gray-100 text-gray-700 border-gray-200';
+        return 'bg-white/5 text-white/60 border-white/15';
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="pg-page">
       {/* Header */}
-      <section className="bg-white section-padding border-b">
-        <div className="container-custom">
+      <section className="hero-gradient section-padding relative overflow-hidden">
+        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] -top-40 right-0" aria-hidden="true"></div>
+        <div className="pg-orb pg-orb-violet w-[360px] h-[360px] -bottom-40 -left-24" aria-hidden="true"></div>
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Join Our Team
+            <div className="section-label justify-center">Work With Us</div>
+            <h1 className="pg-heading text-4xl md:text-5xl text-white mb-6">
+              Join Our <span className="gradient-text">Team</span>
             </h1>
-            <p className="text-xl text-gray-600">
-              Build your career with a company that values stability, innovation, 
-              and professional growth. Help us deliver mission-critical solutions 
+            <p className="text-xl text-white/60">
+              Build your career with a company that values stability, innovation,
+              and professional growth. Help us deliver mission-critical solutions
               for industry leaders.
             </p>
           </div>
@@ -137,192 +137,171 @@ const Careers = () => {
       </section>
 
       {/* Why Work With Us */}
-      <section className="section-padding">
+      <section className="section-padding pg-section">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">
               Why Choose Mediapro?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join a stable, growing company with over a decade of success 
+            <p className="text-xl text-white/50 max-w-3xl mx-auto">
+              Join a stable, growing company with over a decade of success
               and a commitment to employee development.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="corporate-shadow hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    {benefit.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    {benefit.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <div key={index} className="feature-card text-center">
+                <div className="icon-blue mx-auto mb-4">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {benefit.title}
+                </h3>
+                <p className="text-white/50 text-sm">
+                  {benefit.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Open Positions */}
-      <section className="section-padding bg-white">
+      <section className="section-padding pg-section-deep">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">
               Open Positions
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-white/50">
               Explore opportunities to grow your career with us
             </p>
           </div>
 
           <div className="space-y-8">
             {openPositions.map((position) => (
-              <Card key={position.id} className="corporate-shadow hover:shadow-xl transition-shadow duration-300">
-                <CardHeader className="pb-4">
+              <div key={position.id} className="feature-card !p-0 overflow-hidden">
+                <div className="p-7 pb-4">
                   <div className="flex items-start justify-between">
                     <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center">
+                      <div className="icon-blue">
                         {position.icon}
                       </div>
                       <div>
-                        <CardTitle className="text-2xl text-gray-900 mb-2">
+                        <h3 className="text-2xl font-bold text-white mb-2">
                           {position.title}
-                        </CardTitle>
+                        </h3>
                         <div className="flex flex-wrap gap-2">
-                          <Badge className={getDepartmentColor(position.department)}>
+                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${getDepartmentColor(position.department)}`}>
                             {position.department}
-                          </Badge>
-                          <Badge variant="outline">{position.type}</Badge>
-                          <Badge variant="outline">{position.experience}</Badge>
+                          </span>
+                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border border-white/15 text-white/60">{position.type}</span>
+                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border border-white/15 text-white/60">{position.experience}</span>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4 text-gray-600 mt-4">
+                  <div className="flex items-center space-x-4 text-white/50 mt-4">
                     <div className="flex items-center space-x-1">
-                      <MapPin className="h-4 w-4" />
+                      <MapPin className="h-4 w-4 text-[#ff2e9a]" />
                       <span className="text-sm">{position.location}</span>
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <p className="text-gray-700 text-lg">
+                </div>
+                <div className="px-7 pb-7 space-y-6">
+                  <p className="text-white/60 text-lg">
                     {position.description}
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-3">Requirements:</h4>
+                      <h4 className="text-lg font-semibold text-white mb-3">Requirements:</h4>
                       <ul className="space-y-2">
                         {position.requirements.map((req, index) => (
                           <li key={index} className="flex items-start space-x-2">
-                            <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-gray-700 text-sm">{req}</span>
+                            <div className="w-2 h-2 bg-[#ff2e9a] rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-white/55 text-sm">{req}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-3">Responsibilities:</h4>
+                      <h4 className="text-lg font-semibold text-white mb-3">Responsibilities:</h4>
                       <ul className="space-y-2">
                         {position.responsibilities.map((resp, index) => (
                           <li key={index} className="flex items-start space-x-2">
-                            <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-gray-700 text-sm">{resp}</span>
+                            <div className="w-2 h-2 bg-[#a97bff] rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-white/55 text-sm">{resp}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t">
-                    <a href={`mailto:info@mediapro.mn?subject=Application: ${position.title}`}>
-                      <Button className="bg-blue-600 hover:bg-blue-700">
-                        Apply for this Position
-                      </Button>
+                  <div className="pt-4 border-t border-white/10">
+                    <a href={`mailto:info@mediapro.mn?subject=Application: ${position.title}`} className="btn-pg !py-2.5 !px-6">
+                      Apply for this Position
                     </a>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Application Process */}
-      <section className="section-padding">
+      <section className="section-padding pg-section-alt">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">
               Application Process
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-white/50">
               Our streamlined hiring process ensures we find the right fit for both you and our team
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                1
+            {[
+              { step: '1', title: 'Apply', desc: 'Submit your application and resume' },
+              { step: '2', title: 'Review', desc: 'Initial screening and portfolio review' },
+              { step: '3', title: 'Interview', desc: 'Technical and cultural fit interviews' },
+              { step: '4', title: 'Welcome', desc: 'Onboarding and team integration' },
+            ].map((s) => (
+              <div key={s.step} className="text-center">
+                <div className="w-16 h-16 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold" style={{ background: 'var(--pg-gradient)', boxShadow: '0 10px 30px -10px rgba(230,0,126,0.55)' }}>
+                  {s.step}
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">{s.title}</h3>
+                <p className="text-white/50 text-sm">{s.desc}</p>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Apply</h3>
-              <p className="text-gray-600 text-sm">Submit your application and resume</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                2
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Review</h3>
-              <p className="text-gray-600 text-sm">Initial screening and portfolio review</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                3
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Interview</h3>
-              <p className="text-gray-600 text-sm">Technical and cultural fit interviews</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                4
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Welcome</h3>
-              <p className="text-gray-600 text-sm">Onboarding and team integration</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-blue-900 text-white">
-        <div className="container-custom">
+      <section className="section-padding pg-section-deep relative overflow-hidden">
+        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="pg-heading text-3xl md:text-4xl text-white mb-6">
               Ready to Make an Impact?
             </h2>
-            <p className="text-xl mb-8 text-blue-100">
-              Don't see a position that fits? We're always looking for talented 
+            <p className="text-xl mb-8 text-white/50">
+              Don't see a position that fits? We're always looking for talented
               individuals to join our growing team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:info@mediapro.mn?subject=Resume Submission">
-                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-900">
-                  <Mail className="mr-2 h-5 w-5" />
-                  Send Your Resume
-                </Button>
+              <a href="mailto:info@mediapro.mn?subject=Resume Submission" className="btn-pg-ghost">
+                <Mail className="h-5 w-5" />
+                Send Your Resume
               </a>
-              <a href="/#/contact">
-                <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50">
-                  Contact HR Team
-                </Button>
+              <a href="/#/contact" className="btn-pg">
+                Contact HR Team
               </a>
             </div>
           </div>
