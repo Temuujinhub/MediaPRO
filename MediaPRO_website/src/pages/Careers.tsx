@@ -105,11 +105,11 @@ const Careers = () => {
   const getDepartmentColor = (department: string) => {
     switch (department) {
       case 'Engineering':
-        return 'bg-[#ff2e9a]/10 text-[#ff7cc0] border-[#ff2e9a]/30';
+        return 'bg-[#38bdf8]/10 text-[#7dd3fc] border-[#38bdf8]/30';
       case 'Design':
-        return 'bg-[#7b2ff7]/10 text-[#a97bff] border-[#7b2ff7]/30';
+        return 'bg-[#6366f1]/10 text-[#a5b4fc] border-[#6366f1]/30';
       case 'Strategy':
-        return 'bg-cyan-400/10 text-cyan-300 border-cyan-400/30';
+        return 'bg-emerald-400/10 text-emerald-300 border-emerald-400/30';
       default:
         return 'bg-white/5 text-white/60 border-white/15';
     }
@@ -119,8 +119,8 @@ const Careers = () => {
     <div className="pg-page">
       {/* Header */}
       <section className="hero-gradient section-padding relative overflow-hidden">
-        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] -top-40 right-0" aria-hidden="true"></div>
-        <div className="pg-orb pg-orb-violet w-[360px] h-[360px] -bottom-40 -left-24" aria-hidden="true"></div>
+        <div className="pg-orb pg-orb-cyan orb-drift-1 w-[420px] h-[420px] -top-40 right-0" aria-hidden="true"></div>
+        <div className="pg-orb pg-orb-indigo orb-drift-2 w-[360px] h-[360px] -bottom-40 -left-24" aria-hidden="true"></div>
         <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <div className="section-label justify-center">Work With Us</div>
@@ -137,7 +137,7 @@ const Careers = () => {
       </section>
 
       {/* Why Work With Us */}
-      <section className="section-padding pg-section">
+      <section className="reveal section-padding pg-section">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">
@@ -168,7 +168,7 @@ const Careers = () => {
       </section>
 
       {/* Open Positions */}
-      <section className="section-padding pg-section-deep">
+      <section className="reveal section-padding pg-section-deep">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">
@@ -204,7 +204,7 @@ const Careers = () => {
                   </div>
                   <div className="flex items-center space-x-4 text-white/50 mt-4">
                     <div className="flex items-center space-x-1">
-                      <MapPin className="h-4 w-4 text-[#ff2e9a]" />
+                      <MapPin className="h-4 w-4 text-[#38bdf8]" />
                       <span className="text-sm">{position.location}</span>
                     </div>
                   </div>
@@ -220,7 +220,7 @@ const Careers = () => {
                       <ul className="space-y-2">
                         {position.requirements.map((req, index) => (
                           <li key={index} className="flex items-start space-x-2">
-                            <div className="w-2 h-2 bg-[#ff2e9a] rounded-full mt-2 flex-shrink-0"></div>
+                            <div className="w-2 h-2 bg-[#38bdf8] rounded-full mt-2 flex-shrink-0"></div>
                             <span className="text-white/55 text-sm">{req}</span>
                           </li>
                         ))}
@@ -232,7 +232,7 @@ const Careers = () => {
                       <ul className="space-y-2">
                         {position.responsibilities.map((resp, index) => (
                           <li key={index} className="flex items-start space-x-2">
-                            <div className="w-2 h-2 bg-[#a97bff] rounded-full mt-2 flex-shrink-0"></div>
+                            <div className="w-2 h-2 bg-[#a5b4fc] rounded-full mt-2 flex-shrink-0"></div>
                             <span className="text-white/55 text-sm">{resp}</span>
                           </li>
                         ))}
@@ -253,7 +253,7 @@ const Careers = () => {
       </section>
 
       {/* Application Process */}
-      <section className="section-padding pg-section-alt">
+      <section className="reveal section-padding pg-section-alt">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">
@@ -284,8 +284,8 @@ const Careers = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding pg-section-deep relative overflow-hidden">
-        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
+      <section className="reveal section-padding pg-section-deep relative overflow-hidden">
+        <div className="pg-orb pg-orb-cyan orb-drift-1 w-[420px] h-[420px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
         <div className="container-custom relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="pg-heading text-3xl md:text-4xl text-white mb-6">

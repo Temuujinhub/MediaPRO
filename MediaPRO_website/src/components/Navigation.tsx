@@ -28,10 +28,10 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#0a0714]/90 backdrop-blur-md shadow-lg shadow-black/30 border-b border-white/10'
-          : 'bg-[#0a0714] border-b border-white/5'
+          ? 'bg-[#04070f]/85 backdrop-blur-xl shadow-lg shadow-black/30 border-b border-white/10'
+          : 'bg-transparent border-b border-transparent'
       }`}
     >
       <div className="container-custom px-4 sm:px-6 lg:px-8">
@@ -56,7 +56,7 @@ const Navigation = () => {
                 to={item.path}
                 className={`px-3 py-2 rounded-lg text-sm font-semibold uppercase tracking-wider transition-all duration-150 ${
                   isActive(item.path)
-                    ? 'text-[#ff2e9a] bg-[#ff2e9a]/10'
+                    ? 'text-[#38bdf8] bg-[#38bdf8]/10'
                     : 'text-white/70 hover:text-white hover:bg-white/5'
                 }`}
               >
@@ -77,7 +77,7 @@ const Navigation = () => {
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] p-0 bg-[#100b1d] border-white/10 text-white">
+              <SheetContent side="right" className="w-[280px] p-0 bg-[#081120] border-white/10 text-white">
                 <div className="flex flex-col h-full">
                   <div className="flex items-center gap-3 px-5 py-4 border-b border-white/10">
                     <img src="./images/media PRO logo NOTEXT.png" alt="Mediapro" className="h-10 w-auto brightness-0 invert" />
@@ -91,7 +91,7 @@ const Navigation = () => {
                         onClick={() => setIsOpen(false)}
                         className={`flex items-center px-4 py-2.5 rounded-lg text-sm font-semibold uppercase tracking-wider transition-colors ${
                           isActive(item.path)
-                            ? 'text-[#ff2e9a] bg-[#ff2e9a]/10'
+                            ? 'text-[#38bdf8] bg-[#38bdf8]/10'
                             : 'text-white/70 hover:text-white hover:bg-white/5'
                         }`}
                       >

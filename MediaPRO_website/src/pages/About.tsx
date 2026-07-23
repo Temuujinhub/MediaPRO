@@ -143,7 +143,7 @@ const MemberCard = ({ member, size = 'md' }: { member: TeamMember; size?: 'sm' |
   const avatarSize = size === 'lg' ? 'w-28 h-28' : size === 'md' ? 'w-20 h-20' : 'w-16 h-16';
   return (
     <div className="team-card p-5">
-      <div className={`${avatarSize} mx-auto mb-4 rounded-full overflow-hidden team-avatar ring-2 ring-[#ff2e9a]/30`}>
+      <div className={`${avatarSize} mx-auto mb-4 rounded-full overflow-hidden team-avatar ring-2 ring-[#38bdf8]/30`}>
         {member.image ? (
           <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
         ) : (
@@ -153,7 +153,7 @@ const MemberCard = ({ member, size = 'md' }: { member: TeamMember; size?: 'sm' |
         )}
       </div>
       <h4 className="font-bold text-white text-sm mb-0.5">{member.name}</h4>
-      <p className="text-[#ff2e9a] text-xs font-medium mb-2">{member.role}</p>
+      <p className="text-[#38bdf8] text-xs font-medium mb-2">{member.role}</p>
       {member.description && <p className="text-white/40 text-xs leading-relaxed">{member.description}</p>}
     </div>
   );
@@ -163,12 +163,12 @@ const About = () => (
   <div className="pg-page">
     {/* Hero */}
     <section className="hero-gradient section-padding text-white relative overflow-hidden">
-      <div className="pg-orb pg-orb-pink w-[420px] h-[420px] -top-32 -right-24" aria-hidden="true"></div>
+      <div className="pg-orb pg-orb-cyan orb-drift-1 w-[420px] h-[420px] -top-32 -right-24" aria-hidden="true"></div>
       <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
         <svg className="w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
           <defs>
             <pattern id="about-hex" width="60" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
-              <polygon points="30,2 56,17 56,46 30,60 4,46 4,17" fill="none" stroke="#ff2e9a" strokeWidth="0.6" />
+              <polygon points="30,2 56,17 56,46 30,60 4,46 4,17" fill="none" stroke="#38bdf8" strokeWidth="0.6" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#about-hex)" />
@@ -191,7 +191,7 @@ const About = () => (
     </section>
 
     {/* Story + Timeline */}
-    <section className="section-padding pg-section">
+    <section className="reveal section-padding pg-section">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
           <div>
@@ -217,13 +217,13 @@ const About = () => (
 
           <div className="feature-card !p-7">
             <h3 className="font-bold text-white mb-6 flex items-center gap-2">
-              <Calendar className="h-4 w-4 text-[#ff2e9a]" />
+              <Calendar className="h-4 w-4 text-[#38bdf8]" />
               Company Timeline
             </h3>
             <div className="space-y-5">
               {milestones.map((m, i) => (
                 <div key={i} className="flex items-start gap-4">
-                  <div className="shrink-0 w-14 h-7 bg-[#ff2e9a]/10 text-[#ff2e9a] rounded-lg flex items-center justify-center text-xs font-bold border border-[#ff2e9a]/25">
+                  <div className="shrink-0 w-14 h-7 bg-[#38bdf8]/10 text-[#38bdf8] rounded-lg flex items-center justify-center text-xs font-bold border border-[#38bdf8]/25">
                     {m.year}
                   </div>
                   <div className="text-sm text-white/55 pt-1">{m.event}</div>
@@ -236,7 +236,7 @@ const About = () => (
     </section>
 
     {/* Structure */}
-    <section className="section-padding pg-section-deep">
+    <section className="reveal section-padding pg-section-deep">
       <div className="container-custom">
         <div className="text-center mb-12">
           <div className="section-label justify-center">Our Structure</div>
@@ -260,7 +260,7 @@ const About = () => (
     </section>
 
     {/* Values */}
-    <section className="section-padding pg-section-alt">
+    <section className="reveal section-padding pg-section-alt">
       <div className="container-custom">
         <div className="text-center mb-12">
           <div className="section-label justify-center">Our Values</div>
@@ -283,7 +283,7 @@ const About = () => (
     </section>
 
     {/* Leadership */}
-    <section className="section-padding pg-section-deep">
+    <section className="reveal section-padding pg-section-deep">
       <div className="container-custom">
         <div className="text-center mb-12">
           <div className="section-label justify-center">Leadership</div>
@@ -300,7 +300,7 @@ const About = () => (
     </section>
 
     {/* Dev team */}
-    <section className="section-padding pg-section">
+    <section className="reveal section-padding pg-section">
       <div className="container-custom">
         <div className="text-center mb-12">
           <div className="section-label justify-center">Engineering Team</div>
@@ -316,7 +316,7 @@ const About = () => (
     </section>
 
     {/* International Standards & Collaboration */}
-    <section className="section-padding pg-section-deep">
+    <section className="reveal section-padding pg-section-deep">
       <div className="container-custom">
         <div className="text-center mb-12 max-w-3xl mx-auto">
           <div className="section-label justify-center"><span>International Standards & Collaboration</span></div>
@@ -348,10 +348,10 @@ const About = () => (
         </div>
 
         <div className="rounded-3xl glass-card text-white p-8 md:p-10 relative overflow-hidden">
-          <div className="pg-orb pg-orb-violet w-[320px] h-[320px] -top-32 -right-24 opacity-40" aria-hidden="true"></div>
+          <div className="pg-orb pg-orb-indigo orb-drift-2 w-[320px] h-[320px] -top-32 -right-24 opacity-40" aria-hidden="true"></div>
           <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
             <svg className="w-full h-full" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
-              <g stroke="#ff2e9a" strokeWidth="0.5" fill="none">
+              <g stroke="#38bdf8" strokeWidth="0.5" fill="none">
                 <circle cx="700" cy="100" r="80" />
                 <circle cx="700" cy="100" r="140" />
                 <circle cx="700" cy="100" r="200" />
@@ -360,8 +360,8 @@ const About = () => (
           </div>
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-4">
-              <Globe className="h-5 w-5 text-[#ff2e9a]" />
-              <span className="text-xs uppercase tracking-widest text-[#ff7cc0] font-semibold">
+              <Globe className="h-5 w-5 text-[#38bdf8]" />
+              <span className="text-xs uppercase tracking-widest text-[#7dd3fc] font-semibold">
                 Why we're the right local partner
               </span>
             </div>
@@ -371,7 +371,7 @@ const About = () => (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
               {localPartnerStrengths.map((s) => (
                 <div key={s.title} className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-white/10 text-[#ff7cc0] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 text-[#7dd3fc] flex items-center justify-center shrink-0">
                     {s.icon}
                   </div>
                   <div>
@@ -393,7 +393,7 @@ const About = () => (
     </section>
 
     {/* Stats */}
-    <section className="section-padding pg-section-alt text-white">
+    <section className="reveal section-padding pg-section-alt text-white">
       <div className="container-custom">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((s) => (
@@ -407,8 +407,8 @@ const About = () => (
     </section>
 
     {/* CTA */}
-    <section className="section-padding pg-section-deep relative overflow-hidden">
-      <div className="pg-orb pg-orb-pink w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
+    <section className="reveal section-padding pg-section-deep relative overflow-hidden">
+      <div className="pg-orb pg-orb-cyan orb-drift-1 w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
       <div className="container-custom relative z-10">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">

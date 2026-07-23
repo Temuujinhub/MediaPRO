@@ -181,9 +181,9 @@ const FALLBACK_PROJECTS: Project[] = [
 const categories = ['All', 'Enterprise', 'SaaS', 'AI', 'IoT'];
 
 const accentMap = {
-  blue:   { bg: 'bg-[#ff2e9a]/10',   text: 'text-[#ff2e9a]',   border: 'border-[#ff2e9a]/30',   dot: 'bg-[#ff2e9a]' },
-  green:  { bg: 'bg-cyan-400/10',    text: 'text-cyan-300',    border: 'border-cyan-400/30',    dot: 'bg-cyan-400' },
-  purple: { bg: 'bg-[#7b2ff7]/10',   text: 'text-[#a97bff]',   border: 'border-[#7b2ff7]/30',   dot: 'bg-[#a97bff]' },
+  blue:   { bg: 'bg-[#38bdf8]/10',   text: 'text-[#38bdf8]',   border: 'border-[#38bdf8]/30',   dot: 'bg-[#38bdf8]' },
+  green:  { bg: 'bg-emerald-400/10',    text: 'text-emerald-300',    border: 'border-emerald-400/30',    dot: 'bg-emerald-400' },
+  purple: { bg: 'bg-[#6366f1]/10',   text: 'text-[#a5b4fc]',   border: 'border-[#6366f1]/30',   dot: 'bg-[#a5b4fc]' },
   orange: { bg: 'bg-orange-400/10',  text: 'text-orange-300',  border: 'border-orange-400/30',  dot: 'bg-orange-400' },
 };
 
@@ -259,7 +259,7 @@ const Portfolio = () => {
     <div className="pg-page">
       {/* Header */}
       <section className="hero-gradient section-padding text-white relative overflow-hidden">
-        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] -top-32 -right-24" aria-hidden="true"></div>
+        <div className="pg-orb pg-orb-cyan orb-drift-1 w-[420px] h-[420px] -top-32 -right-24" aria-hidden="true"></div>
         {/* Abstract decorative pattern */}
         <div className="absolute inset-0 opacity-[0.07] pointer-events-none" aria-hidden="true">
           <svg className="w-full h-full" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
@@ -268,8 +268,8 @@ const Portfolio = () => {
                 <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" strokeWidth="0.5" />
               </pattern>
               <radialGradient id="portfolio-glow" cx="80%" cy="20%" r="60%">
-                <stop offset="0%" stopColor="#ff2e9a" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#ff2e9a" stopOpacity="0" />
+                <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
               </radialGradient>
             </defs>
             <rect width="100%" height="100%" fill="url(#portfolio-grid)" />
@@ -289,11 +289,11 @@ const Portfolio = () => {
               keep mission-critical services online <strong className="text-white">24/7, 365 days a year</strong>.
             </p>
             <div className="flex flex-wrap gap-2.5">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#ff2e9a]/10 border border-[#ff2e9a]/30 text-[#ff7cc0]">
-                <span className="w-1.5 h-1.5 bg-[#ff2e9a] rounded-full" /> 10+ Years
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#38bdf8]/10 border border-[#38bdf8]/30 text-[#7dd3fc]">
+                <span className="w-1.5 h-1.5 bg-[#38bdf8] rounded-full" /> 10+ Years
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 border border-cyan-400/30 text-cyan-300">
-                <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full" /> 30+ Specialists
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-400/30 text-emerald-300">
+                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" /> 30+ Specialists
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-purple-500/10 border border-purple-400/30 text-purple-300">
                 <span className="w-1.5 h-1.5 bg-purple-400 rounded-full" /> 99.9% Uptime
@@ -307,7 +307,7 @@ const Portfolio = () => {
       </section>
 
       {/* Filter tabs */}
-      <div className="sticky top-16 z-40 bg-[#0a0714]/95 backdrop-blur-md border-b border-white/10">
+      <div className="sticky top-16 z-40 bg-[#04070f]/95 backdrop-blur-md border-b border-white/10">
         <div className="container-custom">
           <div className="flex gap-1 py-3 overflow-x-auto">
             {categories.map((cat) => (
@@ -322,11 +322,11 @@ const Portfolio = () => {
       </div>
 
       {/* Projects grid */}
-      <section className="section-padding pg-section">
+      <section className="reveal section-padding pg-section">
         <div className="container-custom">
           {loading ? (
             <div className="flex justify-center py-20">
-              <Loader2 className="h-8 w-8 animate-spin text-[#ff2e9a]" />
+              <Loader2 className="h-8 w-8 animate-spin text-[#38bdf8]" />
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -335,7 +335,7 @@ const Portfolio = () => {
                 const isExpanded = expanded === project.id;
                 return (
                   <div key={project.id}
-                    className={`feature-card !p-0 overflow-hidden transition-all duration-300 ${isExpanded ? '!border-[#ff2e9a]/50 shadow-2xl' : ''}`}>
+                    className={`feature-card !p-0 overflow-hidden transition-all duration-300 ${isExpanded ? '!border-[#38bdf8]/50 shadow-2xl' : ''}`}>
 
                     {project.screenshot ? (
                       <div className="screenshot-container">
@@ -399,8 +399,8 @@ const Portfolio = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding pg-section-alt text-white relative overflow-hidden">
-        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
+      <section className="reveal section-padding pg-section-alt text-white relative overflow-hidden">
+        <div className="pg-orb pg-orb-cyan orb-drift-1 w-[420px] h-[420px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
         <div className="container-custom relative z-10">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="pg-heading text-3xl md:text-4xl mb-4">Let's build your next big project together</h2>
