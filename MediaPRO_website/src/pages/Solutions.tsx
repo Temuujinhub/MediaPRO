@@ -1,5 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import {
   Server,
@@ -111,46 +109,52 @@ const Solutions = () => {
     switch (color) {
       case 'blue':
         return {
-          bg: 'bg-blue-100',
-          text: 'text-blue-600',
-          border: 'border-blue-200'
+          bg: 'bg-[#ff2e9a]/10',
+          text: 'text-[#ff2e9a]',
+          border: 'border-[#ff2e9a]/30',
+          dot: 'bg-[#ff2e9a]'
         };
       case 'green':
         return {
-          bg: 'bg-green-100',
-          text: 'text-green-600',
-          border: 'border-green-200'
+          bg: 'bg-cyan-400/10',
+          text: 'text-cyan-300',
+          border: 'border-cyan-400/30',
+          dot: 'bg-cyan-400'
         };
       case 'purple':
         return {
-          bg: 'bg-purple-100',
-          text: 'text-purple-600',
-          border: 'border-purple-200'
+          bg: 'bg-[#7b2ff7]/10',
+          text: 'text-[#a97bff]',
+          border: 'border-[#7b2ff7]/30',
+          dot: 'bg-[#a97bff]'
         };
       case 'orange':
         return {
-          bg: 'bg-orange-100',
-          text: 'text-orange-600',
-          border: 'border-orange-200'
+          bg: 'bg-orange-400/10',
+          text: 'text-orange-300',
+          border: 'border-orange-400/30',
+          dot: 'bg-orange-400'
         };
       default:
         return {
-          bg: 'bg-gray-100',
-          text: 'text-gray-600',
-          border: 'border-gray-200'
+          bg: 'bg-white/5',
+          text: 'text-white/60',
+          border: 'border-white/15',
+          dot: 'bg-white/60'
         };
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="pg-page">
       {/* Header */}
-      <section className="bg-white section-padding border-b relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" aria-hidden="true">
+      <section className="hero-gradient section-padding relative overflow-hidden">
+        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] -top-32 -right-24" aria-hidden="true"></div>
+        <div className="absolute inset-0 opacity-[0.06] pointer-events-none" aria-hidden="true">
           <svg className="w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
             <defs>
               <pattern id="solutions-grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#1e40af" strokeWidth="0.6" />
+                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ff2e9a" strokeWidth="0.6" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#solutions-grid)" />
@@ -159,11 +163,11 @@ const Solutions = () => {
         <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <div className="section-label justify-center"><span>High-Load System Capabilities</span></div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">
+            <h1 className="pg-heading text-4xl md:text-5xl text-white mb-6 text-balance">
               Mission-critical infrastructure for{' '}
-              <span className="text-blue-600">national-scale services</span>
+              <span className="gradient-text">national-scale services</span>
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-white/60">
               From enterprise systems powering the world's largest copper mines to AI platforms
               serving 3,500+ businesses — we engineer scalable, secure, and uncompromisingly
               reliable solutions for Mongolia's leading enterprises and global investors.
@@ -179,36 +183,36 @@ const Solutions = () => {
       </section>
 
       {/* Solutions Grid */}
-      <section className="section-padding">
+      <section className="section-padding pg-section">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {solutions.map((solution) => {
               const colors = getColorClasses(solution.color);
               return (
-                <Card key={solution.id} className="corporate-shadow hover:shadow-xl transition-shadow duration-300 h-full">
-                  <CardHeader className="pb-4">
+                <div key={solution.id} className="feature-card h-full">
+                  <div className="pb-4">
                     <div className="flex items-center space-x-4 mb-4">
-                      <div className={`w-16 h-16 ${colors.bg} ${colors.text} rounded-lg flex items-center justify-center`}>
+                      <div className={`w-16 h-16 ${colors.bg} ${colors.text} rounded-lg flex items-center justify-center shrink-0`}>
                         {solution.icon}
                       </div>
-                      <CardTitle className="text-2xl text-gray-900 leading-tight">
+                      <h3 className="text-2xl font-bold text-white leading-tight">
                         {solution.title}
-                      </CardTitle>
+                      </h3>
                     </div>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <p className="text-gray-700 text-lg leading-relaxed">
+                  </div>
+                  <div className="space-y-6">
+                    <p className="text-white/60 text-lg leading-relaxed">
                       {solution.description}
                     </p>
 
                     {/* Features */}
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-3">Key Capabilities:</h4>
+                      <h4 className="text-lg font-semibold text-white mb-3">Key Capabilities:</h4>
                       <ul className="space-y-2">
                         {solution.features.map((feature, index) => (
                           <li key={index} className="flex items-start space-x-3">
-                            <div className={`w-2 h-2 ${colors.text.replace('text-', 'bg-')} rounded-full mt-2 flex-shrink-0`}></div>
-                            <span className="text-gray-700">{feature}</span>
+                            <div className={`w-2 h-2 ${colors.dot} rounded-full mt-2 flex-shrink-0`}></div>
+                            <span className="text-white/55">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -216,17 +220,17 @@ const Solutions = () => {
 
                     {/* Examples */}
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-3">Real-World Applications:</h4>
+                      <h4 className="text-lg font-semibold text-white mb-3">Real-World Applications:</h4>
                       <div className="space-y-2">
                         {solution.examples.map((example, index) => (
                           <div key={index} className={`p-3 ${colors.bg} ${colors.border} border rounded-lg`}>
-                            <span className="text-gray-700 font-medium">{example}</span>
+                            <span className="text-white/70 font-medium">{example}</span>
                           </div>
                         ))}
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               );
             })}
           </div>
@@ -234,12 +238,12 @@ const Solutions = () => {
       </section>
 
       {/* Technology Stack */}
-      <section className="section-padding bg-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none" aria-hidden="true">
+      <section className="section-padding pg-section-deep relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" aria-hidden="true">
           <svg className="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
             <defs>
               <pattern id="tech-dots" width="28" height="28" patternUnits="userSpaceOnUse">
-                <circle cx="14" cy="14" r="1.2" fill="#1e40af" />
+                <circle cx="14" cy="14" r="1.2" fill="#ff2e9a" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#tech-dots)" />
@@ -248,10 +252,10 @@ const Solutions = () => {
         <div className="container-custom relative z-10">
           <div className="text-center mb-14 max-w-3xl mx-auto">
             <div className="section-label justify-center"><span>Comprehensive Technical Excellence</span></div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">
               Modern stack & scalable infrastructure for enterprise-grade systems
             </h2>
-            <p className="text-lg text-gray-500">
+            <p className="text-lg text-white/50">
               Reliability, scalability, and future-proof architecture — built on proven
               enterprise-grade technologies trusted by Mongolia's largest groups and global
               partners.
@@ -264,36 +268,36 @@ const Solutions = () => {
                 title: 'Backend & Systems',
                 items: ['.NET Core / C#', 'Java Enterprise', 'Oracle / MSSQL Database', 'Node.js & PHP'],
                 icon: <Database className="h-6 w-6" />,
-                color: 'bg-blue-50 text-blue-600 border-blue-100',
+                color: 'bg-[#ff2e9a]/10 text-[#ff2e9a] border-[#ff2e9a]/25',
               },
               {
                 title: 'Mobile Development',
                 items: ['React Native (Cross Platform)', 'Swift (iOS) & Kotlin (Android)', 'Java Enterprise Mobile'],
                 icon: <Zap className="h-6 w-6" />,
-                color: 'bg-emerald-50 text-emerald-600 border-emerald-100',
+                color: 'bg-cyan-400/10 text-cyan-300 border-cyan-400/25',
               },
               {
                 title: 'AI & Automation',
                 items: ['Python-based AI Development', 'Automated Testing (Selenium)', 'Performance Optimization'],
                 icon: <Bot className="h-6 w-6" />,
-                color: 'bg-purple-50 text-purple-600 border-purple-100',
+                color: 'bg-[#7b2ff7]/10 text-[#a97bff] border-[#7b2ff7]/25',
               },
               {
                 title: 'Cloud & DevOps',
                 items: ['Docker & Kubernetes', 'AWS Infrastructure', 'High-Security Server Mgmt', 'CI/CD Pipelines'],
                 icon: <Server className="h-6 w-6" />,
-                color: 'bg-orange-50 text-orange-600 border-orange-100',
+                color: 'bg-orange-400/10 text-orange-300 border-orange-400/25',
               },
             ].map((stack) => (
               <div key={stack.title} className={`rounded-2xl border ${stack.color} p-6`}>
-                <div className={`w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-5`}>
+                <div className={`w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5`}>
                   {stack.icon}
                 </div>
-                <h3 className="font-bold text-gray-900 mb-3">{stack.title}</h3>
+                <h3 className="font-bold text-white mb-3">{stack.title}</h3>
                 <ul className="space-y-1.5">
                   {stack.items.map((item) => (
-                    <li key={item} className="text-sm text-gray-600 flex items-center gap-2">
-                      <span className="w-1 h-1 rounded-full bg-gray-400" />
+                    <li key={item} className="text-sm text-white/55 flex items-center gap-2">
+                      <span className="w-1 h-1 rounded-full bg-white/40" />
                       {item}
                     </li>
                   ))}
@@ -302,13 +306,13 @@ const Solutions = () => {
             ))}
           </div>
 
-          <div className="rounded-2xl bg-slate-900 text-white p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="rounded-2xl glass-card text-white p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-3 text-xs uppercase tracking-widest text-blue-300 font-semibold">
+              <div className="flex items-center gap-2 mb-3 text-xs uppercase tracking-widest text-[#ff7cc0] font-semibold">
                 <Shield className="h-4 w-4" /> Operational Standards
               </div>
               <h3 className="text-xl font-bold mb-3">Engineered for international-grade reliability</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-white/50 leading-relaxed">
                 We adhere to global methodologies including <strong className="text-white">PMP</strong> and{' '}
                 <strong className="text-white">Scrum</strong> — ensuring cross-cultural project engagement
                 and mission-critical reliability for international partners.
@@ -316,19 +320,19 @@ const Solutions = () => {
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3">
-                <div className="text-xs text-slate-400 mb-0.5">Approach</div>
+                <div className="text-xs text-white/40 mb-0.5">Approach</div>
                 <div className="font-semibold text-sm">Security First</div>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3">
-                <div className="text-xs text-slate-400 mb-0.5">Design</div>
+                <div className="text-xs text-white/40 mb-0.5">Design</div>
                 <div className="font-semibold text-sm">Scalable Architecture</div>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3">
-                <div className="text-xs text-slate-400 mb-0.5">Process</div>
+                <div className="text-xs text-white/40 mb-0.5">Process</div>
                 <div className="font-semibold text-sm">CI/CD Automation</div>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3">
-                <div className="text-xs text-slate-400 mb-0.5">Track Record</div>
+                <div className="text-xs text-white/40 mb-0.5">Track Record</div>
                 <div className="font-semibold text-sm">10+ Years</div>
               </div>
             </div>
@@ -337,26 +341,23 @@ const Solutions = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-blue-900 text-white">
-        <div className="container-custom">
+      <section className="section-padding pg-section-alt text-white relative overflow-hidden">
+        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="pg-heading text-3xl md:text-4xl mb-6">
               Ready to Build Something Mission-Critical?
             </h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-xl mb-8 text-white/50">
               We've built systems that power mines, automate HR for hundreds of companies,
               and run AI for 3,500+ organizations. Let's talk about what we can build for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/portfolio">
-                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-900">
-                  See Our Work
-                </Button>
+              <Link to="/portfolio" className="btn-pg-ghost">
+                See Our Work
               </Link>
-              <Link to="/contact">
-                <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50">
-                  Schedule Consultation
-                </Button>
+              <Link to="/contact" className="btn-pg">
+                Schedule Consultation
               </Link>
             </div>
           </div>

@@ -181,10 +181,10 @@ const FALLBACK_PROJECTS: Project[] = [
 const categories = ['All', 'Enterprise', 'SaaS', 'AI', 'IoT'];
 
 const accentMap = {
-  blue:   { bg: 'bg-blue-50',    text: 'text-blue-600',    border: 'border-blue-100',    dot: 'bg-blue-500' },
-  green:  { bg: 'bg-emerald-50', text: 'text-emerald-600', border: 'border-emerald-100', dot: 'bg-emerald-500' },
-  purple: { bg: 'bg-purple-50',  text: 'text-purple-600',  border: 'border-purple-100',  dot: 'bg-purple-500' },
-  orange: { bg: 'bg-orange-50',  text: 'text-orange-600',  border: 'border-orange-100',  dot: 'bg-orange-500' },
+  blue:   { bg: 'bg-[#ff2e9a]/10',   text: 'text-[#ff2e9a]',   border: 'border-[#ff2e9a]/30',   dot: 'bg-[#ff2e9a]' },
+  green:  { bg: 'bg-cyan-400/10',    text: 'text-cyan-300',    border: 'border-cyan-400/30',    dot: 'bg-cyan-400' },
+  purple: { bg: 'bg-[#7b2ff7]/10',   text: 'text-[#a97bff]',   border: 'border-[#7b2ff7]/30',   dot: 'bg-[#a97bff]' },
+  orange: { bg: 'bg-orange-400/10',  text: 'text-orange-300',  border: 'border-orange-400/30',  dot: 'bg-orange-400' },
 };
 
 const Portfolio = () => {
@@ -256,9 +256,10 @@ const Portfolio = () => {
     : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="pg-page">
       {/* Header */}
-      <section className="bg-slate-900 section-padding text-white relative overflow-hidden">
+      <section className="hero-gradient section-padding text-white relative overflow-hidden">
+        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] -top-32 -right-24" aria-hidden="true"></div>
         {/* Abstract decorative pattern */}
         <div className="absolute inset-0 opacity-[0.07] pointer-events-none" aria-hidden="true">
           <svg className="w-full h-full" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
@@ -267,8 +268,8 @@ const Portfolio = () => {
                 <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" strokeWidth="0.5" />
               </pattern>
               <radialGradient id="portfolio-glow" cx="80%" cy="20%" r="60%">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                <stop offset="0%" stopColor="#ff2e9a" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#ff2e9a" stopOpacity="0" />
               </radialGradient>
             </defs>
             <rect width="100%" height="100%" fill="url(#portfolio-grid)" />
@@ -277,22 +278,22 @@ const Portfolio = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
-            <div className="section-label text-blue-400"><span>Our Work · Mission-Critical Portfolio</span></div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight text-balance">
+            <div className="section-label"><span>Our Work · Mission-Critical Portfolio</span></div>
+            <h1 className="pg-heading text-4xl md:text-5xl mb-5 leading-tight text-balance">
               Powering Mongolia's{' '}
-              <span className="text-blue-400">most critical digital infrastructure</span>
+              <span className="gradient-text">most critical digital infrastructure</span>
             </h1>
-            <p className="text-slate-300 text-lg leading-relaxed mb-6">
+            <p className="text-white/60 text-lg leading-relaxed mb-6">
               From national airlines and railways to the country's largest telecom, mining, and
               multi-sector enterprises — we design, build, and maintain high-load systems that
               keep mission-critical services online <strong className="text-white">24/7, 365 days a year</strong>.
             </p>
             <div className="flex flex-wrap gap-2.5">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-500/10 border border-blue-400/30 text-blue-300">
-                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full" /> 10+ Years
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#ff2e9a]/10 border border-[#ff2e9a]/30 text-[#ff7cc0]">
+                <span className="w-1.5 h-1.5 bg-[#ff2e9a] rounded-full" /> 10+ Years
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-400/30 text-emerald-300">
-                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" /> 30+ Specialists
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 border border-cyan-400/30 text-cyan-300">
+                <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full" /> 30+ Specialists
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-purple-500/10 border border-purple-400/30 text-purple-300">
                 <span className="w-1.5 h-1.5 bg-purple-400 rounded-full" /> 99.9% Uptime
@@ -306,12 +307,13 @@ const Portfolio = () => {
       </section>
 
       {/* Filter tabs */}
-      <div className="sticky top-16 z-40 bg-white border-b border-gray-100">
+      <div className="sticky top-16 z-40 bg-[#0a0714]/95 backdrop-blur-md border-b border-white/10">
         <div className="container-custom">
           <div className="flex gap-1 py-3 overflow-x-auto">
             {categories.map((cat) => (
               <button key={cat} onClick={() => setActiveCategory(cat)}
-                className={`shrink-0 px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeCategory === cat ? 'bg-blue-600 text-white' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>
+                className={`shrink-0 px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide transition-all ${activeCategory === cat ? 'text-white' : 'text-white/50 hover:text-white hover:bg-white/5'}`}
+                style={activeCategory === cat ? { background: 'var(--pg-gradient)' } : undefined}>
                 {cat}
               </button>
             ))}
@@ -320,11 +322,11 @@ const Portfolio = () => {
       </div>
 
       {/* Projects grid */}
-      <section className="section-padding">
+      <section className="section-padding pg-section">
         <div className="container-custom">
           {loading ? (
             <div className="flex justify-center py-20">
-              <Loader2 className="h-8 w-8 animate-spin text-blue-400" />
+              <Loader2 className="h-8 w-8 animate-spin text-[#ff2e9a]" />
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -333,7 +335,7 @@ const Portfolio = () => {
                 const isExpanded = expanded === project.id;
                 return (
                   <div key={project.id}
-                    className={`bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 ${isExpanded ? 'shadow-xl' : 'shadow-sm hover:shadow-md'}`}>
+                    className={`feature-card !p-0 overflow-hidden transition-all duration-300 ${isExpanded ? '!border-[#ff2e9a]/50 shadow-2xl' : ''}`}>
 
                     {project.screenshot ? (
                       <div className="screenshot-container">
@@ -344,7 +346,7 @@ const Portfolio = () => {
                         <div className="flex items-start justify-between mb-3">
                           <div>
                             <h3 className={`text-2xl font-bold ${accent.text} mb-1`}>{project.title}</h3>
-                            <p className="text-gray-500 text-sm">{project.domain}</p>
+                            <p className="text-white/50 text-sm">{project.domain}</p>
                           </div>
                           {project.url && (
                             <a href={project.url} target="_blank" rel="noopener noreferrer"
@@ -355,7 +357,7 @@ const Portfolio = () => {
                         </div>
                         <div className="flex flex-wrap gap-1.5">
                           {project.tags.map((tag) => (
-                            <span key={tag} className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${accent.text} bg-white/70 border ${accent.border}`}>
+                            <span key={tag} className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${accent.text} bg-white/5 border ${accent.border}`}>
                               {tag}
                             </span>
                           ))}
@@ -366,17 +368,17 @@ const Portfolio = () => {
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-3">
                         <span className={`w-2 h-2 rounded-full ${accent.dot}`}></span>
-                        <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{project.client}</span>
+                        <span className="text-xs font-semibold text-white/40 uppercase tracking-wider">{project.client}</span>
                       </div>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">{project.description}</p>
+                      <p className="text-white/55 text-sm leading-relaxed mb-4">{project.description}</p>
 
                       {isExpanded && (
                         <div className="mt-4 space-y-2.5">
-                          <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Key Impacts</div>
+                          <div className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3">Key Impacts</div>
                           {project.keyImpacts.map((impact, i) => (
                             <div key={i} className="flex items-start gap-3">
                               <span className={`w-1.5 h-1.5 rounded-full ${accent.dot} mt-1.5 shrink-0`}></span>
-                              <span className="text-sm text-gray-600">{impact}</span>
+                              <span className="text-sm text-white/55">{impact}</span>
                             </div>
                           ))}
                         </div>
@@ -397,15 +399,14 @@ const Portfolio = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-slate-900 text-white">
-        <div className="container-custom">
+      <section className="section-padding pg-section-alt text-white relative overflow-hidden">
+        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's build your next big project together</h2>
-            <p className="text-slate-400 text-lg mb-8">From 24,000-worker logistics systems to AI platforms powering 3,500+ businesses — we engineer solutions that scale with your ambitions.</p>
-            <Link to="/contact">
-              <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-3 rounded-xl transition-colors">
-                Start a Project <ArrowRight className="h-4 w-4" />
-              </button>
+            <h2 className="pg-heading text-3xl md:text-4xl mb-4">Let's build your next big project together</h2>
+            <p className="text-white/50 text-lg mb-8">From 24,000-worker logistics systems to AI platforms powering 3,500+ businesses — we engineer solutions that scale with your ambitions.</p>
+            <Link to="/contact" className="btn-pg">
+              Start a Project <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>

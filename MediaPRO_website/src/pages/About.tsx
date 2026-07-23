@@ -143,31 +143,32 @@ const MemberCard = ({ member, size = 'md' }: { member: TeamMember; size?: 'sm' |
   const avatarSize = size === 'lg' ? 'w-28 h-28' : size === 'md' ? 'w-20 h-20' : 'w-16 h-16';
   return (
     <div className="team-card p-5">
-      <div className={`${avatarSize} mx-auto mb-4 rounded-full overflow-hidden team-avatar`}>
+      <div className={`${avatarSize} mx-auto mb-4 rounded-full overflow-hidden team-avatar ring-2 ring-[#ff2e9a]/30`}>
         {member.image ? (
           <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gray-100">
-            <User className="h-8 w-8 text-gray-300" />
+          <div className="w-full h-full flex items-center justify-center bg-white/5">
+            <User className="h-8 w-8 text-white/25" />
           </div>
         )}
       </div>
-      <h4 className="font-bold text-gray-900 text-sm mb-0.5">{member.name}</h4>
-      <p className="text-blue-600 text-xs font-medium mb-2">{member.role}</p>
-      {member.description && <p className="text-gray-400 text-xs leading-relaxed">{member.description}</p>}
+      <h4 className="font-bold text-white text-sm mb-0.5">{member.name}</h4>
+      <p className="text-[#ff2e9a] text-xs font-medium mb-2">{member.role}</p>
+      {member.description && <p className="text-white/40 text-xs leading-relaxed">{member.description}</p>}
     </div>
   );
 };
 
 const About = () => (
-  <div className="bg-white min-h-screen">
+  <div className="pg-page">
     {/* Hero */}
-    <section className="bg-slate-900 section-padding text-white relative overflow-hidden">
+    <section className="hero-gradient section-padding text-white relative overflow-hidden">
+      <div className="pg-orb pg-orb-pink w-[420px] h-[420px] -top-32 -right-24" aria-hidden="true"></div>
       <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
         <svg className="w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
           <defs>
             <pattern id="about-hex" width="60" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
-              <polygon points="30,2 56,17 56,46 30,60 4,46 4,17" fill="none" stroke="#60a5fa" strokeWidth="0.6" />
+              <polygon points="30,2 56,17 56,46 30,60 4,46 4,17" fill="none" stroke="#ff2e9a" strokeWidth="0.6" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#about-hex)" />
@@ -175,12 +176,12 @@ const About = () => (
       </div>
       <div className="container-custom relative z-10">
         <div className="max-w-3xl">
-          <div className="section-label text-blue-400">About Us · A Decade of Driving Innovation</div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight text-balance">
+          <div className="section-label">About Us · A Decade of Driving Innovation</div>
+          <h1 className="pg-heading text-4xl md:text-5xl mb-5 leading-tight text-balance">
             Mongolia's strategic{' '}
-            <span className="text-blue-400">technology partner</span>
+            <span className="gradient-text">technology partner</span>
           </h1>
-          <p className="text-slate-300 text-lg leading-relaxed">
+          <p className="text-white/60 text-lg leading-relaxed">
             For over a decade, we've connected complex business processes with mission-critical
             digital solutions — trusted by Mongolia's largest enterprises and global leaders
             like Rio Tinto. <strong className="text-white">Reliable. Innovative. Local Experts.</strong>
@@ -190,13 +191,13 @@ const About = () => (
     </section>
 
     {/* Story + Timeline */}
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding pg-section">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
           <div>
             <div className="section-label">Our Story</div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">From 2013 to today</h2>
-            <div className="space-y-5 text-gray-600 leading-relaxed">
+            <h2 className="pg-heading text-3xl text-white mb-6">From 2013 to today</h2>
+            <div className="space-y-5 text-white/55 leading-relaxed">
               <p>
                 Founded in 2013, Mediapro LLC has grown from a small agency into a comprehensive
                 technology and media holding company. We bridge complex business processes with
@@ -214,18 +215,18 @@ const About = () => (
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-sm">
-            <h3 className="font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <Calendar className="h-4 w-4 text-blue-500" />
+          <div className="feature-card !p-7">
+            <h3 className="font-bold text-white mb-6 flex items-center gap-2">
+              <Calendar className="h-4 w-4 text-[#ff2e9a]" />
               Company Timeline
             </h3>
             <div className="space-y-5">
               {milestones.map((m, i) => (
                 <div key={i} className="flex items-start gap-4">
-                  <div className="shrink-0 w-14 h-7 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-xs font-bold border border-blue-100">
+                  <div className="shrink-0 w-14 h-7 bg-[#ff2e9a]/10 text-[#ff2e9a] rounded-lg flex items-center justify-center text-xs font-bold border border-[#ff2e9a]/25">
                     {m.year}
                   </div>
-                  <div className="text-sm text-gray-600 pt-1">{m.event}</div>
+                  <div className="text-sm text-white/55 pt-1">{m.event}</div>
                 </div>
               ))}
             </div>
@@ -235,12 +236,12 @@ const About = () => (
     </section>
 
     {/* Structure */}
-    <section className="section-padding bg-white">
+    <section className="section-padding pg-section-deep">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <div className="section-label">Our Structure</div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">One holding, three specialized companies</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <div className="section-label justify-center">Our Structure</div>
+          <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">One holding, three specialized companies</h2>
+          <p className="text-white/50 max-w-2xl mx-auto">
             We are the strategic investor behind three specialized subsidiaries.
             This ecosystem enables us to offer end-to-end solutions from backend development to marketing.
           </p>
@@ -249,9 +250,9 @@ const About = () => (
           {subsidiaries.map((s) => (
             <div key={s.name} className="feature-card">
               <div className={`${s.color} mb-4`}>{s.icon}</div>
-              <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">{s.focus}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{s.name}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{s.description}</p>
+              <div className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">{s.focus}</div>
+              <h3 className="text-xl font-bold text-white mb-3">{s.name}</h3>
+              <p className="text-white/55 text-sm leading-relaxed">{s.description}</p>
             </div>
           ))}
         </div>
@@ -259,12 +260,12 @@ const About = () => (
     </section>
 
     {/* Values */}
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding pg-section-alt">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <div className="section-label">Our Values</div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our team & capabilities</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <div className="section-label justify-center">Our Values</div>
+          <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">Our team & capabilities</h2>
+          <p className="text-white/50 max-w-2xl mx-auto">
             Built on professionals who deeply understand the importance of reliability
             and long-term quality in enterprise systems.
           </p>
@@ -273,8 +274,8 @@ const About = () => (
           {values.map((v) => (
             <div key={v.title} className="feature-card">
               <div className={`${v.color} mb-4`}>{v.icon}</div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">{v.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{v.description}</p>
+              <h3 className="text-lg font-bold text-white mb-3">{v.title}</h3>
+              <p className="text-white/55 text-sm leading-relaxed">{v.description}</p>
             </div>
           ))}
         </div>
@@ -282,12 +283,12 @@ const About = () => (
     </section>
 
     {/* Leadership */}
-    <section className="section-padding bg-white">
+    <section className="section-padding pg-section-deep">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <div className="section-label">Leadership</div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our leadership team</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <div className="section-label justify-center">Leadership</div>
+          <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">Our leadership team</h2>
+          <p className="text-white/50 max-w-2xl mx-auto">
             Experienced professionals guiding the company's strategic direction,
             technology decisions, and operational excellence.
           </p>
@@ -299,12 +300,12 @@ const About = () => (
     </section>
 
     {/* Dev team */}
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding pg-section">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <div className="section-label">Engineering Team</div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our developers</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <div className="section-label justify-center">Engineering Team</div>
+          <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">Our developers</h2>
+          <p className="text-white/50 max-w-2xl mx-auto">
             Specialized engineers in backend, frontend, and business analytics.
           </p>
         </div>
@@ -315,14 +316,14 @@ const About = () => (
     </section>
 
     {/* International Standards & Collaboration */}
-    <section className="section-padding bg-white">
+    <section className="section-padding pg-section-deep">
       <div className="container-custom">
         <div className="text-center mb-12 max-w-3xl mx-auto">
-          <div className="section-label"><span>International Standards & Collaboration</span></div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="section-label justify-center"><span>International Standards & Collaboration</span></div>
+          <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">
             A real local partner for international implementers
           </h2>
-          <p className="text-gray-500 text-lg">
+          <p className="text-white/50 text-lg">
             Global frameworks. Cross-cultural expertise. End-to-end execution on the ground in
             Mongolia — optimized for foreign investors, joint ventures, and multi-phase
             enterprise deployments.
@@ -335,21 +336,22 @@ const About = () => (
               <div className="flex items-start gap-4">
                 <div className={`${c.color} shrink-0`}>{c.icon}</div>
                 <div>
-                  <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                  <div className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">
                     Global Framework Adopted
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{c.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{c.description}</p>
+                  <h3 className="text-lg font-bold text-white mb-2">{c.title}</h3>
+                  <p className="text-sm text-white/55 leading-relaxed">{c.description}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 md:p-10 relative overflow-hidden">
+        <div className="rounded-3xl glass-card text-white p-8 md:p-10 relative overflow-hidden">
+          <div className="pg-orb pg-orb-violet w-[320px] h-[320px] -top-32 -right-24 opacity-40" aria-hidden="true"></div>
           <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
             <svg className="w-full h-full" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
-              <g stroke="#60a5fa" strokeWidth="0.5" fill="none">
+              <g stroke="#ff2e9a" strokeWidth="0.5" fill="none">
                 <circle cx="700" cy="100" r="80" />
                 <circle cx="700" cy="100" r="140" />
                 <circle cx="700" cy="100" r="200" />
@@ -358,28 +360,28 @@ const About = () => (
           </div>
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-4">
-              <Globe className="h-5 w-5 text-blue-400" />
-              <span className="text-xs uppercase tracking-widest text-blue-300 font-semibold">
+              <Globe className="h-5 w-5 text-[#ff2e9a]" />
+              <span className="text-xs uppercase tracking-widest text-[#ff7cc0] font-semibold">
                 Why we're the right local partner
               </span>
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-8 max-w-2xl">
+            <h3 className="pg-heading text-2xl md:text-3xl mb-8 max-w-2xl">
               Optimized for foreign investors entering Mongolia
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
               {localPartnerStrengths.map((s) => (
                 <div key={s.title} className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-white/10 text-blue-300 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 text-[#ff7cc0] flex items-center justify-center shrink-0">
                     {s.icon}
                   </div>
                   <div>
                     <h4 className="font-semibold text-white mb-1.5">{s.title}</h4>
-                    <p className="text-sm text-slate-400 leading-relaxed">{s.description}</p>
+                    <p className="text-sm text-white/50 leading-relaxed">{s.description}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-8 pt-6 border-t border-white/10 text-sm text-slate-300 leading-relaxed max-w-3xl">
+            <div className="mt-8 pt-6 border-t border-white/10 text-sm text-white/60 leading-relaxed max-w-3xl">
               MediaPRO serves as your <strong className="text-white">end-to-end local execution partner</strong> —
               combining deep cross-cultural collaboration with technical deployment to ensure
               your investment succeeds in Mongolia. Trusted by long-term partners in government,
@@ -391,13 +393,13 @@ const About = () => (
     </section>
 
     {/* Stats */}
-    <section className="section-padding bg-slate-900 text-white">
+    <section className="section-padding pg-section-alt text-white">
       <div className="container-custom">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((s) => (
             <div key={s.label}>
               <div className="stat-number mb-2">{s.value}</div>
-              <div className="text-slate-400 text-sm">{s.label}</div>
+              <div className="text-white/50 text-sm">{s.label}</div>
             </div>
           ))}
         </div>
@@ -405,17 +407,18 @@ const About = () => (
     </section>
 
     {/* CTA */}
-    <section className="section-padding bg-white">
-      <div className="container-custom">
+    <section className="section-padding pg-section-deep relative overflow-hidden">
+      <div className="pg-orb pg-orb-pink w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
+      <div className="container-custom relative z-10">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">
             Let's work together with confidence
           </h2>
-          <p className="text-gray-500 mb-8 text-lg">
+          <p className="text-white/50 mb-8 text-lg">
             Apply over a decade of experience to your most critical operations
             and digital transformation initiatives.
           </p>
-          <a href="/#/contact" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition-colors">
+          <a href="/#/contact" className="btn-pg">
             Start a Conversation
           </a>
         </div>
