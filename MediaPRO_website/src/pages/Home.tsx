@@ -104,17 +104,18 @@ const features = [
 const Home = () => {
   return (
     <div className="pg-page">
-      {/* Hero */}
-      <section className="hero-gradient text-white relative overflow-hidden">
-        <div className="pg-orb pg-orb-pink w-[500px] h-[500px] -top-40 -right-32" aria-hidden="true"></div>
-        <div className="pg-orb pg-orb-violet w-[420px] h-[420px] -bottom-52 -left-32" aria-hidden="true"></div>
+      {/* Hero — full-viewport cinematic opening */}
+      <section className="hero-gradient pg-vignette text-white relative overflow-hidden min-h-[92vh] flex flex-col justify-center">
+        <div className="pg-grain" aria-hidden="true"></div>
+        <div className="pg-orb pg-orb-cyan orb-drift-1 w-[560px] h-[560px] -top-40 -right-32" aria-hidden="true"></div>
+        <div className="pg-orb pg-orb-indigo orb-drift-2 w-[480px] h-[480px] -bottom-52 -left-32" aria-hidden="true"></div>
         {/* Abstract circuit / network pattern */}
         <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
           <svg className="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
             <defs>
               <pattern id="hero-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                <circle cx="30" cy="30" r="1.2" fill="#ff2e9a" />
-                <path d="M 60 30 L 0 30 M 30 0 L 30 60" stroke="#ff2e9a" strokeWidth="0.3" />
+                <circle cx="30" cy="30" r="1.2" fill="#38bdf8" />
+                <path d="M 60 30 L 0 30 M 30 0 L 30 60" stroke="#38bdf8" strokeWidth="0.3" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#hero-grid)" />
@@ -127,21 +128,21 @@ const Home = () => {
         </div>
         <div className="container-custom section-padding relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-white/5 border border-[#ff2e9a]/30 rounded-full px-4 py-1.5 text-sm text-[#ff7cc0] mb-8">
-              <span className="w-2 h-2 bg-[#ff2e9a] rounded-full pulse-glow"></span>
+            <div className="hero-enter hero-enter-1 inline-flex items-center gap-2 bg-white/5 border border-[#38bdf8]/30 rounded-full px-4 py-1.5 text-sm text-[#7dd3fc] mb-8">
+              <span className="w-2 h-2 bg-[#38bdf8] rounded-full pulse-glow"></span>
               Mongolia's Premier Tech Partner — Since 2013
             </div>
-            <h1 className="pg-heading text-4xl md:text-6xl mb-6 leading-[1.08] text-balance">
+            <h1 className="hero-enter hero-enter-2 pg-heading text-4xl md:text-6xl mb-6 text-balance">
               Powering Mongolia's{' '}
               <span className="gradient-text">mission-critical digital infrastructure</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/60 mb-10 leading-relaxed">
+            <p className="hero-enter hero-enter-3 text-lg md:text-xl text-white/60 mb-10 leading-relaxed">
               From the national airline and railway to the country's largest telecom and its
               biggest mining operations, we design, build, and operate the high-load enterprise
               systems behind them — keeping mission-critical services online{' '}
               <strong className="text-white">24/7, 365 days a year</strong>.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="hero-enter hero-enter-4 flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/portfolio" className="btn-pg">
                 View Our Portfolio
                 <ArrowRight className="h-4 w-4" />
@@ -153,7 +154,7 @@ const Home = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-4xl mx-auto">
+          <div className="hero-enter hero-enter-5 grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-4xl mx-auto">
             {stats.map((s) => (
               <div key={s.label} className="text-center glass-card rounded-2xl p-5">
                 <div className="stat-number">{s.value}</div>
@@ -161,11 +162,20 @@ const Home = () => {
               </div>
             ))}
           </div>
+
+          {/* Scroll cue */}
+          <div className="hero-enter hero-enter-5 flex justify-center mt-14">
+            <div className="scroll-indicator" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Three Pillars */}
-      <section className="section-padding pg-section">
+      <section className="reveal section-padding pg-section">
         <div className="container-custom">
           <div className="text-center mb-14">
             <div className="section-label justify-center"><span>Our Ecosystem</span></div>
@@ -192,7 +202,7 @@ const Home = () => {
       </section>
 
       {/* Why Us */}
-      <section className="section-padding pg-section-deep">
+      <section className="reveal section-padding pg-section-deep">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -216,7 +226,7 @@ const Home = () => {
                   </div>
                 ))}
               </div>
-              <Link to="/solutions" className="mt-8 inline-flex items-center gap-1 text-[#ff2e9a] font-semibold text-sm hover:gap-2 transition-all uppercase tracking-wide">
+              <Link to="/solutions" className="mt-8 inline-flex items-center gap-1 text-[#38bdf8] font-semibold text-sm hover:gap-2 transition-all uppercase tracking-wide">
                 Explore our solutions <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
@@ -224,7 +234,7 @@ const Home = () => {
             {/* Live systems panel */}
             <div className="relative">
               <div className="rounded-3xl p-8 text-white glass-card relative overflow-hidden">
-                <div className="pg-orb pg-orb-pink w-[260px] h-[260px] -top-24 -right-24 opacity-30" aria-hidden="true"></div>
+                <div className="pg-orb pg-orb-cyan w-[260px] h-[260px] -top-24 -right-24 opacity-30" aria-hidden="true"></div>
                 <div className="flex items-center gap-3 mb-6 relative z-10">
                   <img src="./images/media PRO logo NOTEXT.png" alt="Logo" className="h-8 w-auto brightness-0 invert" />
                   <span className="font-bold text-lg uppercase">MediaPRO</span>
@@ -255,12 +265,12 @@ const Home = () => {
       </section>
 
       {/* Trusted Enterprise Partnerships */}
-      <section className="section-padding pg-section-alt relative overflow-hidden">
+      <section className="reveal section-padding pg-section-alt relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" aria-hidden="true">
           <svg className="w-full h-full" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
             <defs>
               <pattern id="partners-dots" width="32" height="32" patternUnits="userSpaceOnUse">
-                <circle cx="16" cy="16" r="1.3" fill="#ff2e9a" />
+                <circle cx="16" cy="16" r="1.3" fill="#38bdf8" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#partners-dots)" />
@@ -286,11 +296,11 @@ const Home = () => {
                   {p.sector}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-1">{p.name}</h3>
-                <div className="text-sm text-[#ff2e9a] font-medium mb-4">★ {p.note}</div>
+                <div className="text-sm text-[#38bdf8] font-medium mb-4">★ {p.note}</div>
                 <ul className="space-y-2.5">
                   {p.impacts.map((impact) => (
                     <li key={impact} className="flex items-start gap-2.5 text-sm text-white/55">
-                      <CheckCircle2 className="h-4 w-4 text-[#ff2e9a] mt-0.5 shrink-0" />
+                      <CheckCircle2 className="h-4 w-4 text-[#38bdf8] mt-0.5 shrink-0" />
                       <span>{impact}</span>
                     </li>
                   ))}
@@ -315,7 +325,7 @@ const Home = () => {
       </section>
 
       {/* Public Sector Digital Transformation */}
-      <section className="section-padding pg-section-deep">
+      <section className="reveal section-padding pg-section-deep">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             <div className="lg:col-span-1">
@@ -330,17 +340,17 @@ const Home = () => {
                 availability, and user capacity.
               </p>
               <div className="space-y-3">
-                <div className="flex items-center gap-3 px-4 py-3 bg-[#ff2e9a]/10 border border-[#ff2e9a]/25 rounded-xl">
-                  <Shield className="h-5 w-5 text-[#ff2e9a] shrink-0" />
+                <div className="flex items-center gap-3 px-4 py-3 bg-[#38bdf8]/10 border border-[#38bdf8]/25 rounded-xl">
+                  <Shield className="h-5 w-5 text-[#38bdf8] shrink-0" />
                   <div>
-                    <div className="text-xs uppercase tracking-wider text-[#ff7cc0] font-semibold">Service Reliability</div>
+                    <div className="text-xs uppercase tracking-wider text-[#7dd3fc] font-semibold">Service Reliability</div>
                     <div className="text-lg font-bold text-white">99.9% Uptime</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 px-4 py-3 bg-[#7b2ff7]/10 border border-[#7b2ff7]/25 rounded-xl">
-                  <Users className="h-5 w-5 text-[#a97bff] shrink-0" />
+                <div className="flex items-center gap-3 px-4 py-3 bg-[#6366f1]/10 border border-[#6366f1]/25 rounded-xl">
+                  <Users className="h-5 w-5 text-[#a5b4fc] shrink-0" />
                   <div>
-                    <div className="text-xs uppercase tracking-wider text-[#a97bff] font-semibold">Public Users Impacted</div>
+                    <div className="text-xs uppercase tracking-wider text-[#a5b4fc] font-semibold">Public Users Impacted</div>
                     <div className="text-lg font-bold text-white">1M+ Monthly</div>
                   </div>
                 </div>
@@ -350,7 +360,7 @@ const Home = () => {
               {publicSector.map((p) => (
                 <div key={p.name} className="feature-card !p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-[#ff2e9a]/12 text-[#ff2e9a] flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-[#38bdf8]/12 text-[#38bdf8] flex items-center justify-center">
                       {p.icon}
                     </div>
                     <div className="font-bold text-white">{p.name}</div>
@@ -364,11 +374,11 @@ const Home = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding pg-section text-white relative overflow-hidden">
-        <div className="pg-orb pg-orb-pink w-[480px] h-[480px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30" aria-hidden="true"></div>
+      <section className="reveal section-padding pg-section text-white relative overflow-hidden">
+        <div className="pg-orb pg-orb-cyan w-[480px] h-[480px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30" aria-hidden="true"></div>
         <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
           <svg className="w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice">
-            <g stroke="#ff2e9a" strokeWidth="0.4" fill="none" opacity="0.6">
+            <g stroke="#38bdf8" strokeWidth="0.4" fill="none" opacity="0.6">
               <circle cx="400" cy="150" r="60" />
               <circle cx="400" cy="150" r="110" />
               <circle cx="400" cy="150" r="160" />
@@ -377,7 +387,7 @@ const Home = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-[#ff2e9a]/30 text-[#ff7cc0] mb-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-[#38bdf8]/30 text-[#7dd3fc] mb-5">
               <Globe2 className="h-3.5 w-3.5" />
               Ready to power your next project in Mongolia
             </div>

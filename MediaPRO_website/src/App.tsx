@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from "@/components/ui/sonner";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -16,13 +17,52 @@ import AdminTeam from '@/pages/AdminTeam';
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => <>{children}</>;
 
-const PublicLayout = ({ children }: { children: React.ReactNode }) => (
-  <div className="min-h-screen bg-[#0a0714] flex flex-col">
-    <Navigation />
-    <main className="flex-1">{children}</main>
-    <Footer />
-  </div>
-);
+/* Cinematic scroll reveal — elements with .reveal rise into view once as they
+   enter the viewport. A MutationObserver picks up nodes rendered after data
+   loads (e.g. the portfolio grid). Reduced-motion users see content instantly
+   via the CSS override. */
+const useScrollReveal = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+    );
+
+    const observeAll = () =>
+      document.querySelectorAll('.reveal:not(.in-view)').forEach((el) => io.observe(el));
+
+    observeAll();
+    const mo = new MutationObserver(observeAll);
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      mo.disconnect();
+      io.disconnect();
+    };
+  }, [location.pathname]);
+};
+
+const PublicLayout = ({ children }: { children: React.ReactNode }) => {
+  useScrollReveal();
+  return (
+    <div className="min-h-screen bg-[#04070f] flex flex-col">
+      <Navigation />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
+  );
+};
 
 function App() {
   return (

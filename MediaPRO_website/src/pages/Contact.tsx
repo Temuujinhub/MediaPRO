@@ -83,7 +83,7 @@ ${form.message}`;
     <div className="pg-page">
       {/* Header */}
       <section className="hero-gradient section-padding relative overflow-hidden">
-        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] -top-40 -right-24" aria-hidden="true"></div>
+        <div className="pg-orb pg-orb-cyan orb-drift-1 w-[420px] h-[420px] -top-40 -right-24" aria-hidden="true"></div>
         <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <div className="section-label justify-center">Contact</div>
@@ -99,7 +99,7 @@ ${form.message}`;
       </section>
 
       {/* Contact Form & Info */}
-      <section className="section-padding pg-section">
+      <section className="reveal section-padding pg-section">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -191,7 +191,7 @@ ${form.message}`;
               {/* Business Hours */}
               <div className="feature-card !p-7">
                 <h3 className="text-xl font-bold text-white flex items-center mb-5">
-                  <Clock className="h-5 w-5 mr-2 text-[#ff2e9a]" />
+                  <Clock className="h-5 w-5 mr-2 text-[#38bdf8]" />
                   Business Hours
                 </h3>
                 <div className="space-y-3">
@@ -212,7 +212,7 @@ ${form.message}`;
                 <div className="space-y-4">
                   {services.map((service, index) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#ff2e9a]/12 text-[#ff2e9a] flex items-center justify-center flex-shrink-0">
+                      <div className="w-8 h-8 rounded-lg bg-[#38bdf8]/12 text-[#38bdf8] flex items-center justify-center flex-shrink-0">
                         {service.icon}
                       </div>
                       <div>
@@ -233,7 +233,7 @@ ${form.message}`;
       </section>
 
       {/* Map Section */}
-      <section className="section-padding pg-section-deep">
+      <section className="reveal section-padding pg-section-deep">
         <div className="container-custom">
           <div className="text-center mb-8">
             <h2 className="pg-heading text-3xl text-white mb-4">
@@ -246,9 +246,9 @@ ${form.message}`;
 
           <div className="feature-card !p-0 overflow-hidden">
             <div className="h-96 flex items-center justify-center relative overflow-hidden">
-              <div className="pg-orb pg-orb-violet w-[380px] h-[380px] -bottom-40 -right-24 opacity-40" aria-hidden="true"></div>
+              <div className="pg-orb pg-orb-indigo orb-drift-2 w-[380px] h-[380px] -bottom-40 -right-24 opacity-40" aria-hidden="true"></div>
               <div className="text-center relative z-10">
-                <MapPin className="h-16 w-16 text-[#ff2e9a] mx-auto mb-4" />
+                <MapPin className="h-16 w-16 text-[#38bdf8] mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">
                   Interactive Map
                 </h3>
@@ -264,8 +264,8 @@ ${form.message}`;
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding pg-section-alt relative overflow-hidden">
-        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
+      <section className="reveal section-padding pg-section-alt relative overflow-hidden">
+        <div className="pg-orb pg-orb-cyan orb-drift-1 w-[420px] h-[420px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
         <div className="container-custom relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="pg-heading text-3xl md:text-4xl text-white mb-6">

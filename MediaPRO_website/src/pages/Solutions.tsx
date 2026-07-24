@@ -109,24 +109,24 @@ const Solutions = () => {
     switch (color) {
       case 'blue':
         return {
-          bg: 'bg-[#ff2e9a]/10',
-          text: 'text-[#ff2e9a]',
-          border: 'border-[#ff2e9a]/30',
-          dot: 'bg-[#ff2e9a]'
+          bg: 'bg-[#38bdf8]/10',
+          text: 'text-[#38bdf8]',
+          border: 'border-[#38bdf8]/30',
+          dot: 'bg-[#38bdf8]'
         };
       case 'green':
         return {
-          bg: 'bg-cyan-400/10',
-          text: 'text-cyan-300',
-          border: 'border-cyan-400/30',
-          dot: 'bg-cyan-400'
+          bg: 'bg-emerald-400/10',
+          text: 'text-emerald-300',
+          border: 'border-emerald-400/30',
+          dot: 'bg-emerald-400'
         };
       case 'purple':
         return {
-          bg: 'bg-[#7b2ff7]/10',
-          text: 'text-[#a97bff]',
-          border: 'border-[#7b2ff7]/30',
-          dot: 'bg-[#a97bff]'
+          bg: 'bg-[#6366f1]/10',
+          text: 'text-[#a5b4fc]',
+          border: 'border-[#6366f1]/30',
+          dot: 'bg-[#a5b4fc]'
         };
       case 'orange':
         return {
@@ -149,12 +149,12 @@ const Solutions = () => {
     <div className="pg-page">
       {/* Header */}
       <section className="hero-gradient section-padding relative overflow-hidden">
-        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] -top-32 -right-24" aria-hidden="true"></div>
+        <div className="pg-orb pg-orb-cyan orb-drift-1 w-[420px] h-[420px] -top-32 -right-24" aria-hidden="true"></div>
         <div className="absolute inset-0 opacity-[0.06] pointer-events-none" aria-hidden="true">
           <svg className="w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
             <defs>
               <pattern id="solutions-grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ff2e9a" strokeWidth="0.6" />
+                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#38bdf8" strokeWidth="0.6" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#solutions-grid)" />
@@ -183,7 +183,7 @@ const Solutions = () => {
       </section>
 
       {/* Solutions Grid */}
-      <section className="section-padding pg-section">
+      <section className="reveal section-padding pg-section">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {solutions.map((solution) => {
@@ -238,12 +238,12 @@ const Solutions = () => {
       </section>
 
       {/* Technology Stack */}
-      <section className="section-padding pg-section-deep relative overflow-hidden">
+      <section className="reveal section-padding pg-section-deep relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" aria-hidden="true">
           <svg className="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
             <defs>
               <pattern id="tech-dots" width="28" height="28" patternUnits="userSpaceOnUse">
-                <circle cx="14" cy="14" r="1.2" fill="#ff2e9a" />
+                <circle cx="14" cy="14" r="1.2" fill="#38bdf8" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#tech-dots)" />
@@ -268,19 +268,19 @@ const Solutions = () => {
                 title: 'Backend & Systems',
                 items: ['.NET Core / C#', 'Java Enterprise', 'Oracle / MSSQL Database', 'Node.js & PHP'],
                 icon: <Database className="h-6 w-6" />,
-                color: 'bg-[#ff2e9a]/10 text-[#ff2e9a] border-[#ff2e9a]/25',
+                color: 'bg-[#38bdf8]/10 text-[#38bdf8] border-[#38bdf8]/25',
               },
               {
                 title: 'Mobile Development',
                 items: ['React Native (Cross Platform)', 'Swift (iOS) & Kotlin (Android)', 'Java Enterprise Mobile'],
                 icon: <Zap className="h-6 w-6" />,
-                color: 'bg-cyan-400/10 text-cyan-300 border-cyan-400/25',
+                color: 'bg-emerald-400/10 text-emerald-300 border-emerald-400/25',
               },
               {
                 title: 'AI & Automation',
                 items: ['Python-based AI Development', 'Automated Testing (Selenium)', 'Performance Optimization'],
                 icon: <Bot className="h-6 w-6" />,
-                color: 'bg-[#7b2ff7]/10 text-[#a97bff] border-[#7b2ff7]/25',
+                color: 'bg-[#6366f1]/10 text-[#a5b4fc] border-[#6366f1]/25',
               },
               {
                 title: 'Cloud & DevOps',
@@ -308,7 +308,7 @@ const Solutions = () => {
 
           <div className="rounded-2xl glass-card text-white p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-3 text-xs uppercase tracking-widest text-[#ff7cc0] font-semibold">
+              <div className="flex items-center gap-2 mb-3 text-xs uppercase tracking-widest text-[#7dd3fc] font-semibold">
                 <Shield className="h-4 w-4" /> Operational Standards
               </div>
               <h3 className="text-xl font-bold mb-3">Engineered for international-grade reliability</h3>
@@ -341,8 +341,8 @@ const Solutions = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding pg-section-alt text-white relative overflow-hidden">
-        <div className="pg-orb pg-orb-pink w-[420px] h-[420px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
+      <section className="reveal section-padding pg-section-alt text-white relative overflow-hidden">
+        <div className="pg-orb pg-orb-cyan orb-drift-1 w-[420px] h-[420px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25" aria-hidden="true"></div>
         <div className="container-custom relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="pg-heading text-3xl md:text-4xl mb-6">

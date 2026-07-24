@@ -3,8 +3,8 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 
 const Footer = () => (
-  <footer className="bg-[#080510] text-white border-t border-white/5 relative overflow-hidden">
-    <div className="pg-orb pg-orb-violet w-[400px] h-[400px] -bottom-48 -right-24" aria-hidden="true"></div>
+  <footer className="bg-[#030610] text-white border-t border-white/5 relative overflow-hidden">
+    <div className="pg-orb pg-orb-indigo orb-drift-2 w-[400px] h-[400px] -bottom-48 -right-24" aria-hidden="true"></div>
     <div className="container-custom px-4 sm:px-6 lg:px-8 py-14 relative z-10">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand */}
@@ -17,20 +17,20 @@ const Footer = () => (
             Mongolia's Premier Tech Partner — powering mission-critical digital infrastructure
             for the country's leading enterprises and global partners since 2013.
           </p>
-          <p className="text-[#ff7cc0] text-xs font-medium uppercase tracking-wider mb-6">
+          <p className="text-[#7dd3fc] text-xs font-medium uppercase tracking-wider mb-6">
             Reliable · Innovative · Local Experts
           </p>
           <div className="space-y-3">
             <div className="flex items-start gap-2.5 text-sm text-white/50">
-              <MapPin className="h-4 w-4 text-[#ff2e9a] mt-0.5 shrink-0" />
+              <MapPin className="h-4 w-4 text-[#38bdf8] mt-0.5 shrink-0" />
               <span>#204, Arig Center, Building 10, Jamyan Gun Street 5/2, Ulaanbaatar</span>
             </div>
             <div className="flex items-center gap-2.5 text-sm text-white/50">
-              <Phone className="h-4 w-4 text-[#ff2e9a] shrink-0" />
+              <Phone className="h-4 w-4 text-[#38bdf8] shrink-0" />
               <span>+976 99091911</span>
             </div>
             <div className="flex items-center gap-2.5 text-sm text-white/50">
-              <Mail className="h-4 w-4 text-[#ff2e9a] shrink-0" />
+              <Mail className="h-4 w-4 text-[#38bdf8] shrink-0" />
               <span>info@mediapro.mn</span>
             </div>
           </div>
@@ -48,7 +48,7 @@ const Footer = () => (
               { label: 'Careers', to: '/careers' },
             ].map((item) => (
               <li key={item.to}>
-                <Link to={item.to} className="text-white/50 hover:text-[#ff2e9a] text-sm transition-colors">{item.label}</Link>
+                <Link to={item.to} className="text-white/50 hover:text-[#38bdf8] text-sm transition-colors">{item.label}</Link>
               </li>
             ))}
           </ul>
@@ -58,7 +58,7 @@ const Footer = () => (
         <div>
           <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Our Platforms</h3>
           <ul className="space-y-3 text-white/50 text-sm">
-            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#ff2e9a] rounded-full"></span>Megun Media</li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-[#38bdf8] rounded-full"></span>Megun Media</li>
             <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>Chatbot.mn</li>
             <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>OnlineHR.mn</li>
             <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-sky-400 rounded-full"></span>Fleex.mn</li>

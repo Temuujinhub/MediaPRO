@@ -10,7 +10,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 322 100% 45%;
+    --primary: 199 89% 48%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96%;
     --secondary-foreground: 222.2 84% 4.9%;
@@ -22,7 +22,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 322 100% 45%;
+    --ring: 199 89% 48%;
     --radius: 0.75rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
@@ -30,42 +30,45 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
 
-    /* ProNet-inspired dark theme — deep space purple + signature magenta */
-    --pg-bg: #0a0714;
-    --pg-surface: #100b1d;
-    --pg-surface-alt: #140e24;
-    --pg-card: #171029;
-    --pg-pink: #e6007e;
-    --pg-pink-bright: #ff2e9a;
-    --pg-violet: #7b2ff7;
-    --pg-gradient: linear-gradient(100deg, #ff2e9a 0%, #a02bf0 100%);
-    --gradient-hero: radial-gradient(90% 80% at 80% 0%, rgba(123, 47, 247, 0.28) 0%, transparent 55%),
-      radial-gradient(70% 70% at 10% 100%, rgba(230, 0, 126, 0.18) 0%, transparent 55%),
-      linear-gradient(160deg, #0e0819 0%, #0a0714 60%, #120a20 100%);
+    /* Cinematic deep-blue theme — trusted enterprise, ProNet-style motion */
+    --pg-bg: #04070f;
+    --pg-surface: #081120;
+    --pg-surface-alt: #0a1526;
+    --pg-card: #0d1830;
+    --pg-accent: #0ea5e9;
+    --pg-accent-bright: #38bdf8;
+    --pg-indigo: #6366f1;
+    --pg-gradient: linear-gradient(100deg, #38bdf8 0%, #6366f1 100%);
+    --gradient-hero: radial-gradient(90% 80% at 80% 0%, rgba(37, 99, 235, 0.30) 0%, transparent 55%),
+      radial-gradient(70% 70% at 10% 100%, rgba(14, 165, 233, 0.16) 0%, transparent 55%),
+      linear-gradient(160deg, #071022 0%, #04070f 60%, #081228 100%);
     --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.35);
-    --shadow-card-hover: 0 18px 40px -18px rgb(230 0 126 / 0.35);
+    --shadow-card-hover: 0 18px 40px -18px rgb(56 189 248 / 0.30);
+    /* Cinematic motion tokens — fluid, unhurried */
+    --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-reveal: 850ms;
   }
 
   .dark {
-    --background: 258 42% 5%;
+    --background: 220 55% 4%;
     --foreground: 210 40% 98%;
-    --card: 259 40% 9%;
+    --card: 218 50% 10%;
     --card-foreground: 210 40% 98%;
-    --popover: 259 40% 9%;
+    --popover: 218 50% 10%;
     --popover-foreground: 210 40% 98%;
-    --primary: 328 100% 59%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 259 30% 15%;
+    --primary: 199 89% 60%;
+    --primary-foreground: 220 55% 4%;
+    --secondary: 218 40% 15%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 259 30% 15%;
-    --muted-foreground: 255 15% 65%;
-    --accent: 259 30% 15%;
+    --muted: 218 40% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 218 40% 15%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 259 30% 18%;
-    --input: 259 30% 18%;
-    --ring: 328 100% 59%;
+    --border: 218 40% 18%;
+    --input: 218 40% 18%;
+    --ring: 199 89% 60%;
   }
 }
 
@@ -77,6 +80,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground font-sans;
@@ -86,12 +90,12 @@
     @apply font-display tracking-tight;
   }
   ::selection {
-    background: rgba(230, 0, 126, 0.35);
+    background: rgba(56, 189, 248, 0.35);
     color: #fff;
   }
 }
 
-/* ============ DESIGN SYSTEM — ProNet-style dark ============ */
+/* ============ DESIGN SYSTEM — Cinematic deep blue ============ */
 
 /* Page canvas — every public page sits on this */
 .pg-page {
@@ -105,7 +109,7 @@
 .pg-section-alt   { background: var(--pg-surface-alt); }
 .pg-section-deep  { background: var(--pg-bg); }
 
-/* Hero gradient — deep purple-black with magenta / violet glow */
+/* Hero gradient — deep blue night with slow-breathing glow */
 .hero-gradient {
   background: var(--gradient-hero);
   position: relative;
@@ -117,26 +121,115 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(60% 45% at 50% -10%, rgba(255, 46, 154, 0.14) 0%, transparent 60%),
+    radial-gradient(60% 45% at 50% -10%, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03), transparent 20%);
   pointer-events: none;
 }
 
-/* Signature glow orbs */
+/* Cinematic vignette — draws the eye to center like a film frame */
+.pg-vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(2, 4, 10, 0.55) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Film grain — subtle animated noise for a cinematic texture */
+.pg-grain {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  animation: grain-shift 9s steps(10) infinite;
+}
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-3%, -5%); }
+  30% { transform: translate(4%, 2%); }
+  50% { transform: translate(-2%, 4%); }
+  70% { transform: translate(5%, -3%); }
+  90% { transform: translate(-4%, 1%); }
+}
+
+/* Signature glow orbs — drift slowly like light through water */
 .pg-orb {
   position: absolute;
   border-radius: 9999px;
   filter: blur(90px);
   pointer-events: none;
   opacity: 0.5;
+  will-change: transform;
 }
-.pg-orb-pink   { background: radial-gradient(circle, rgba(230,0,126,0.55) 0%, transparent 70%); }
-.pg-orb-violet { background: radial-gradient(circle, rgba(123,47,247,0.5) 0%, transparent 70%); }
+.pg-orb-cyan   { background: radial-gradient(circle, rgba(14, 165, 233, 0.50) 0%, transparent 70%); }
+.pg-orb-indigo { background: radial-gradient(circle, rgba(99, 102, 241, 0.45) 0%, transparent 70%); }
+
+.orb-drift-1 { animation: orb-drift-1 26s ease-in-out infinite alternate; }
+.orb-drift-2 { animation: orb-drift-2 32s ease-in-out infinite alternate; }
+
+@keyframes orb-drift-1 {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-6%, 8%, 0) scale(1.12); }
+  to   { transform: translate3d(5%, -6%, 0) scale(0.95); }
+}
+
+@keyframes orb-drift-2 {
+  from { transform: translate3d(0, 0, 0) scale(1.05); }
+  50%  { transform: translate3d(7%, -5%, 0) scale(0.92); }
+  to   { transform: translate3d(-5%, 6%, 0) scale(1.1); }
+}
+
+/* ── Cinematic entrance: hero content fades up in sequence ── */
+.hero-enter {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: hero-fade-up var(--dur-reveal) var(--ease-cinematic) forwards;
+}
+.hero-enter-1 { animation-delay: 80ms; }
+.hero-enter-2 { animation-delay: 220ms; }
+.hero-enter-3 { animation-delay: 380ms; }
+.hero-enter-4 { animation-delay: 540ms; }
+.hero-enter-5 { animation-delay: 700ms; }
+
+@keyframes hero-fade-up {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll reveal: sections rise into view as you scroll ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity var(--dur-reveal) var(--ease-cinematic),
+    transform var(--dur-reveal) var(--ease-cinematic);
+  will-change: opacity, transform;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll indicator — Pronet-style circle with drifting arrow */
+.scroll-indicator {
+  @apply w-12 h-12 rounded-full border border-white/25 flex items-center justify-center text-white/70;
+  animation: scroll-hint 2.4s ease-in-out infinite;
+}
+
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
 
 /* Card shadow system */
 .corporate-shadow {
   box-shadow: var(--shadow-card);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.3s var(--ease-cinematic), transform 0.3s var(--ease-cinematic);
 }
 
 .corporate-shadow:hover {
@@ -157,52 +250,54 @@
   @apply max-w-7xl mx-auto;
 }
 
-/* Uppercase display heading — the ProNet typographic signature */
+/* Cinematic display heading — airy uppercase, generous tracking */
 .pg-heading {
-  @apply font-display font-bold uppercase tracking-tight;
+  @apply font-display font-semibold uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.12;
 }
 
-/* Gradient CTA button */
+/* Gradient CTA button — fluid, glowing, unhurried */
 .btn-pg {
-  @apply inline-flex items-center justify-center gap-2 font-semibold text-white uppercase tracking-wide text-sm;
+  @apply inline-flex items-center justify-center gap-2 font-semibold text-white uppercase tracking-wide text-sm cursor-pointer;
   background: var(--pg-gradient);
   border-radius: 9999px;
   padding: 0.85rem 2.1rem;
-  box-shadow: 0 10px 30px -10px rgba(230, 0, 126, 0.55);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.55);
+  transition: transform 0.3s var(--ease-cinematic), box-shadow 0.3s var(--ease-cinematic), filter 0.3s var(--ease-cinematic);
 }
 
 .btn-pg:hover {
   transform: translateY(-2px);
   filter: brightness(1.08);
-  box-shadow: 0 16px 40px -12px rgba(230, 0, 126, 0.65);
+  box-shadow: 0 16px 40px -12px rgba(56, 189, 248, 0.6);
 }
 
 /* Ghost / outline button on dark */
 .btn-pg-ghost {
-  @apply inline-flex items-center justify-center gap-2 font-semibold text-white uppercase tracking-wide text-sm;
+  @apply inline-flex items-center justify-center gap-2 font-semibold text-white uppercase tracking-wide text-sm cursor-pointer;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 9999px;
   padding: 0.85rem 2.1rem;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.3s var(--ease-cinematic), background 0.3s var(--ease-cinematic), transform 0.3s var(--ease-cinematic);
 }
 
 .btn-pg-ghost:hover {
-  border-color: var(--pg-pink-bright);
-  background: rgba(230, 0, 126, 0.08);
+  border-color: var(--pg-accent-bright);
+  background: rgba(56, 189, 248, 0.08);
   transform: translateY(-2px);
 }
 
-/* Tech badge — neon bordered pill */
+/* Tech badge — cool bordered pill */
 .tech-badge {
   @apply inline-flex items-center px-3.5 py-1.5 rounded-full font-mono text-xs font-medium tracking-wide;
-  background: rgba(230, 0, 126, 0.08);
-  border: 1px solid rgba(255, 46, 154, 0.35);
-  color: #ff7cc0;
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #7dd3fc;
 }
 
-/* Accent text — magenta→violet gradient */
+/* Accent text — cyan→indigo gradient */
 .gradient-text {
   background: var(--pg-gradient);
   -webkit-background-clip: text;
@@ -229,37 +324,37 @@
   backdrop-filter: blur(10px);
 }
 
-/* Feature card — dark surface, magenta glow on hover */
+/* Feature card — dark surface, cool glow on hover */
 .feature-card {
   @apply rounded-2xl p-7;
   background: var(--pg-card);
   border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.4);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.3s var(--ease-cinematic), box-shadow 0.3s var(--ease-cinematic), border-color 0.3s var(--ease-cinematic);
 }
 
 .feature-card:hover {
-  box-shadow: 0 18px 40px -20px rgb(230 0 126 / 0.45);
+  box-shadow: 0 18px 40px -20px rgb(56 189 248 / 0.35);
   transform: translateY(-3px);
-  border-color: rgba(255, 46, 154, 0.45);
+  border-color: rgba(56, 189, 248, 0.4);
 }
 
-/* Icon container variants — neon chips on dark */
-.icon-blue   { @apply w-12 h-12 rounded-xl flex items-center justify-center; background: rgba(255,46,154,0.12); color: #ff2e9a; }
-.icon-purple { @apply w-12 h-12 rounded-xl flex items-center justify-center; background: rgba(123,47,247,0.16); color: #a97bff; }
-.icon-green  { @apply w-12 h-12 rounded-xl flex items-center justify-center; background: rgba(34,211,238,0.12); color: #22d3ee; }
+/* Icon container variants — cool chips on dark */
+.icon-blue   { @apply w-12 h-12 rounded-xl flex items-center justify-center; background: rgba(56,189,248,0.12); color: #38bdf8; }
+.icon-purple { @apply w-12 h-12 rounded-xl flex items-center justify-center; background: rgba(99,102,241,0.16); color: #a5b4fc; }
+.icon-green  { @apply w-12 h-12 rounded-xl flex items-center justify-center; background: rgba(52,211,153,0.12); color: #34d399; }
 .icon-orange { @apply w-12 h-12 rounded-xl flex items-center justify-center; background: rgba(251,146,60,0.14); color: #fb923c; }
 .icon-red    { @apply w-12 h-12 rounded-xl flex items-center justify-center; background: rgba(248,113,113,0.14); color: #f87171; }
 
 /* Section label — monospace editorial kicker with a leading rule */
 .section-label {
   @apply inline-flex items-center gap-3 font-mono text-xs font-medium uppercase tracking-[0.22em] mb-5;
-  color: #ff2e9a;
+  color: #38bdf8;
 }
 .section-label::before {
   content: '';
   @apply h-px w-7;
-  background: rgba(255, 46, 154, 0.7);
+  background: rgba(56, 189, 248, 0.7);
 }
 
 /* Divider with dot */
@@ -276,16 +371,17 @@
 /* Portfolio screenshot preview */
 .screenshot-container {
   @apply relative overflow-hidden rounded-xl;
-  background: #0a0714;
+  background: #04070f;
   aspect-ratio: 16/9;
 }
 
 .screenshot-container img {
-  @apply w-full h-full object-cover object-top transition-transform duration-500;
+  @apply w-full h-full object-cover object-top;
+  transition: transform 0.6s var(--ease-cinematic);
 }
 
 .screenshot-container:hover img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 /* Team member card */
@@ -294,18 +390,18 @@
   background: var(--pg-card);
   border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.4);
-  transition: all 0.25s ease;
+  transition: transform 0.3s var(--ease-cinematic), box-shadow 0.3s var(--ease-cinematic), border-color 0.3s var(--ease-cinematic);
 }
 
 .team-card:hover {
-  box-shadow: 0 8px 25px -8px rgb(230 0 126 / 0.4);
+  box-shadow: 0 8px 25px -8px rgb(56 189 248 / 0.35);
   transform: translateY(-3px);
-  border-color: rgba(255, 46, 154, 0.4);
+  border-color: rgba(56, 189, 248, 0.35);
 }
 
 .team-avatar {
   @apply relative overflow-hidden;
-  background: linear-gradient(135deg, #1d1433 0%, #241640 100%);
+  background: linear-gradient(135deg, #0c1830 0%, #101f3f 100%);
 }
 
 .team-avatar img {
@@ -321,7 +417,7 @@
   content: '';
   @apply absolute bottom-0 left-0 w-0 h-0.5 rounded-full;
   background: var(--pg-gradient);
-  transition: width 0.2s ease;
+  transition: width 0.25s var(--ease-cinematic);
 }
 
 .nav-link:hover::after,
@@ -334,13 +430,13 @@
   @apply w-full rounded-lg px-3.5 py-2.5 text-sm text-white placeholder:text-white/30;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.25s var(--ease-cinematic), box-shadow 0.25s var(--ease-cinematic);
 }
 
 .pg-input:focus {
   outline: none;
-  border-color: rgba(255, 46, 154, 0.7);
-  box-shadow: 0 0 0 3px rgba(230, 0, 126, 0.18);
+  border-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.18);
 }
 
 /* Admin panel */
@@ -371,12 +467,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a1f45;
+  background: #14243f;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b2b60;
+  background: #1d3358;
 }
 
 /* Smooth animations */
@@ -396,10 +492,29 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 46, 154, 0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(255, 46, 154, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(56, 189, 248, 0); }
 }
 
 .pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ── Accessibility: honor reduced-motion preferences ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-enter,
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+  .pg-grain,
+  .orb-drift-1,
+  .orb-drift-2,
+  .scroll-indicator,
+  .pulse-glow {
+    animation: none;
+  }
 }
