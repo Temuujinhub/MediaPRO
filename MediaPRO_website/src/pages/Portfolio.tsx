@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ArrowRight, ExternalLink, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
-import ProductPreview, { PreviewScene } from '@/components/ProductPreview';
+import ProductArt, { ArtScene } from '@/components/ProductArt';
 
 type Project = {
   id: string;
@@ -16,7 +16,7 @@ type Project = {
   accentColor: string;
   screenshot?: string | null;
   url?: string | null;
-  preview?: PreviewScene;
+  preview?: ArtScene;
 };
 
 // Fallback hardcoded data (shown when Supabase is not configured)
@@ -373,21 +373,20 @@ const Portfolio = () => {
                   <div key={project.id}
                     className={`feature-card group !p-0 overflow-visible transition-all duration-300 ${isExpanded ? '!border-[#38bdf8]/50 shadow-2xl' : ''}`}>
 
-                    {/* 3D floating product screen — alternates tilt direction per card */}
+                    {/* 3D floating blueprint art — alternates tilt direction per card */}
                     <div className="showcase-3d px-5 pt-6" data-side={index % 2 ? 'right' : 'left'}>
                       <div className="showcase-frame">
-                        <div className="browser-bar">
-                          <span className="browser-dot" style={{ background: '#f87171' }} />
-                          <span className="browser-dot" style={{ background: '#fbbf24' }} />
-                          <span className="browser-dot" style={{ background: '#34d399' }} />
-                          <span className="browser-url">{urlLabel}</span>
-                        </div>
                         {project.screenshot ? (
                           <div className="screenshot-container !rounded-none">
                             <img src={project.screenshot} alt={project.title} />
                           </div>
                         ) : (
-                          <ProductPreview scene={project.preview ?? 'roster'} accentColor={project.accentColor} />
+                          <ProductArt
+                            scene={project.preview ?? 'roster'}
+                            accentColor={project.accentColor}
+                            label={urlLabel}
+                            figure={index + 1}
+                          />
                         )}
                       </div>
                     </div>
