@@ -306,6 +306,15 @@
   color: transparent;
 }
 
+/* Gradient variant for split-word headlines — each word clips its own slice */
+.gradient-text-words .split-word-inner {
+  background: var(--pg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 /* Stats counter */
 .stat-number {
   @apply font-display text-4xl md:text-5xl font-bold tracking-tight;
@@ -500,11 +509,175 @@
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
+/* ============ CINEMATIC MOTION SYSTEM ============ */
+
+/* Scroll progress — thin gradient film-timeline along the top edge */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 60;
+  background: var(--pg-gradient);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.55);
+  pointer-events: none;
+}
+
+/* Split-word headline reveal — words rise out of overflow masks in sequence */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.split-word-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition:
+    transform 900ms var(--ease-cinematic),
+    opacity 700ms var(--ease-cinematic);
+  will-change: transform, opacity;
+}
+
+.split-words.is-in .split-word-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Staggered reveal — children of an in-view .reveal-stagger cascade in */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity var(--dur-reveal) var(--ease-cinematic),
+    transform var(--dur-reveal) var(--ease-cinematic);
+}
+
+.reveal-stagger.in-view > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.in-view > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger.in-view > *:nth-child(2) { transition-delay: 90ms; }
+.reveal-stagger.in-view > *:nth-child(3) { transition-delay: 180ms; }
+.reveal-stagger.in-view > *:nth-child(4) { transition-delay: 270ms; }
+.reveal-stagger.in-view > *:nth-child(5) { transition-delay: 360ms; }
+.reveal-stagger.in-view > *:nth-child(6) { transition-delay: 450ms; }
+.reveal-stagger.in-view > *:nth-child(7) { transition-delay: 540ms; }
+.reveal-stagger.in-view > *:nth-child(8) { transition-delay: 630ms; }
+
+/* Page transition — each route glides up like a scene cut */
+.page-enter {
+  animation: page-enter 650ms var(--ease-cinematic) both;
+}
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Infinite partner marquee with soft edge fades */
+.marquee {
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  padding-right: 2rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  transition: color 0.4s var(--ease-cinematic);
+}
+
+.marquee-item:hover {
+  color: rgba(125, 211, 252, 0.9);
+}
+
+.marquee-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.5);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* 3D tilt card — perspective follows the cursor, glow spot tracks it */
+.tilt-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.35s var(--ease-cinematic);
+  --mx: 50%;
+  --my: 50%;
+}
+
+.tilt-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(320px circle at var(--mx) var(--my), rgba(56, 189, 248, 0.14), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-cinematic);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tilt-card:hover .tilt-glow {
+  opacity: 1;
+}
+
+/* Hero spotlight — a soft light that trails the cursor across the hero */
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(520px circle at var(--hx, 50%) var(--hy, 35%), rgba(56, 189, 248, 0.09), transparent 70%);
+  z-index: 2;
+}
+
 /* ── Accessibility: honor reduced-motion preferences ── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero-enter,
-  .reveal {
+  .reveal,
+  .reveal-stagger > *,
+  .split-word-inner,
+  .page-enter {
     opacity: 1;
     transform: none;
     animation: none;
@@ -514,7 +687,11 @@
   .orb-drift-1,
   .orb-drift-2,
   .scroll-indicator,
-  .pulse-glow {
+  .pulse-glow,
+  .marquee-track {
     animation: none;
+  }
+  .tilt-card {
+    transition: none;
   }
 }

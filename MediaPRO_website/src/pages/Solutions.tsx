@@ -185,7 +185,7 @@ const Solutions = () => {
       {/* Solutions Grid */}
       <section className="reveal section-padding pg-section">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="reveal-stagger grid grid-cols-1 lg:grid-cols-2 gap-8">
             {solutions.map((solution) => {
               const colors = getColorClasses(solution.color);
               return (
@@ -262,7 +262,7 @@ const Solutions = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="reveal-stagger grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
               {
                 title: 'Backend & Systems',

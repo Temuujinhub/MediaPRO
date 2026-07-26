@@ -1,4 +1,10 @@
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import SplitWords from '@/components/motion/SplitWords';
+import CountUp from '@/components/motion/CountUp';
+import Marquee from '@/components/motion/Marquee';
+import TiltCard from '@/components/motion/TiltCard';
+import Parallax from '@/components/motion/Parallax';
 import {
   ArrowRight,
   Bot,
@@ -101,14 +107,47 @@ const features = [
   { icon: <CheckCircle2 className="h-5 w-5" />, title: 'Long-term Partnership', desc: "We don't just deliver and leave — we stay as your growth partner" },
 ];
 
+const marqueeClients = [
+  'Rio Tinto',
+  'Oyu Tolgoi',
+  'MIAT Mongolian Airlines',
+  'Mobicom',
+  'Monnis Group',
+  'Mongolian Railway',
+  'MECC',
+  'Aero Mongolia',
+  'Chatbot.mn',
+  'OnlineHR.mn',
+];
+
 const Home = () => {
+  const heroRef = useRef<HTMLElement>(null);
+
+  /* Soft light spot trails the cursor across the hero */
+  const onHeroMove = (e: React.MouseEvent) => {
+    const el = heroRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty('--hx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+    el.style.setProperty('--hy', `${((e.clientY - rect.top) / rect.height) * 100}%`);
+  };
+
   return (
     <div className="pg-page">
       {/* Hero — full-viewport cinematic opening */}
-      <section className="hero-gradient pg-vignette text-white relative overflow-hidden min-h-[92vh] flex flex-col justify-center">
+      <section
+        ref={heroRef}
+        onMouseMove={onHeroMove}
+        className="hero-gradient pg-vignette text-white relative overflow-hidden min-h-[92vh] flex flex-col justify-center"
+      >
         <div className="pg-grain" aria-hidden="true"></div>
-        <div className="pg-orb pg-orb-cyan orb-drift-1 w-[560px] h-[560px] -top-40 -right-32" aria-hidden="true"></div>
-        <div className="pg-orb pg-orb-indigo orb-drift-2 w-[480px] h-[480px] -bottom-52 -left-32" aria-hidden="true"></div>
+        <div className="hero-spotlight" aria-hidden="true"></div>
+        <Parallax speed={0.12} className="absolute -top-40 -right-32 pointer-events-none">
+          <div className="pg-orb pg-orb-cyan orb-drift-1 w-[560px] h-[560px]" aria-hidden="true"></div>
+        </Parallax>
+        <Parallax speed={-0.1} className="absolute -bottom-52 -left-32 pointer-events-none">
+          <div className="pg-orb pg-orb-indigo orb-drift-2 w-[480px] h-[480px]" aria-hidden="true"></div>
+        </Parallax>
         {/* Abstract circuit / network pattern */}
         <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
           <svg className="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
@@ -132,9 +171,14 @@ const Home = () => {
               <span className="w-2 h-2 bg-[#38bdf8] rounded-full pulse-glow"></span>
               Mongolia's Premier Tech Partner — Since 2013
             </div>
-            <h1 className="hero-enter hero-enter-2 pg-heading text-4xl md:text-6xl mb-6 text-balance">
-              Powering Mongolia's{' '}
-              <span className="gradient-text">mission-critical digital infrastructure</span>
+            <h1 className="pg-heading text-4xl md:text-6xl mb-6 text-balance">
+              <SplitWords text="Powering Mongolia's" delay={200} step={90} />{' '}
+              <SplitWords
+                text="mission-critical digital infrastructure"
+                className="gradient-text-words"
+                delay={480}
+                step={90}
+              />
             </h1>
             <p className="hero-enter hero-enter-3 text-lg md:text-xl text-white/60 mb-10 leading-relaxed">
               From the national airline and railway to the country's largest telecom and its
@@ -153,11 +197,13 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Stats */}
+          {/* Stats — counters run up when they enter view */}
           <div className="hero-enter hero-enter-5 grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-4xl mx-auto">
             {stats.map((s) => (
               <div key={s.label} className="text-center glass-card rounded-2xl p-5">
-                <div className="stat-number">{s.value}</div>
+                <div className="stat-number">
+                  <CountUp value={s.value} />
+                </div>
                 <div className="text-sm text-white/50 mt-1">{s.label}</div>
               </div>
             ))}
@@ -174,13 +220,18 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Client marquee — an endless film strip of the names we power */}
+      <section className="pg-section-deep py-10 border-y border-white/5">
+        <Marquee items={marqueeClients} speed={38} />
+      </section>
+
       {/* Three Pillars */}
       <section className="reveal section-padding pg-section">
         <div className="container-custom">
           <div className="text-center mb-14">
             <div className="section-label justify-center"><span>Our Ecosystem</span></div>
             <h2 className="pg-heading text-3xl md:text-4xl text-white mb-4">
-              One partner, three strategic pillars
+              <SplitWords text="One partner, three strategic pillars" />
             </h2>
             <p className="text-lg text-white/50 max-w-2xl mx-auto">
               MediaPRO operates as a strategic holding company, channeling a decade of shared
@@ -188,14 +239,16 @@ const Home = () => {
               its own field.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-6">
             {pillars.map((p) => (
-              <div key={p.name} className="feature-card group">
-                <div className={`${p.color} mb-5`}>{p.icon}</div>
-                <div className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">{p.tagline}</div>
-                <h3 className="text-xl font-bold text-white mb-3">{p.name}</h3>
-                <p className="text-white/55 text-sm leading-relaxed">{p.description}</p>
-              </div>
+              <TiltCard key={p.name} className="feature-card group">
+                <div className="relative z-[2]">
+                  <div className={`${p.color} mb-5`}>{p.icon}</div>
+                  <div className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">{p.tagline}</div>
+                  <h3 className="text-xl font-bold text-white mb-3">{p.name}</h3>
+                  <p className="text-white/55 text-sm leading-relaxed">{p.description}</p>
+                </div>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -208,7 +261,7 @@ const Home = () => {
             <div>
               <div className="section-label">Why choose us</div>
               <h2 className="pg-heading text-3xl md:text-4xl text-white mb-6">
-                Trusted by industry leaders like Rio Tinto
+                <SplitWords text="Trusted by industry leaders like Rio Tinto" />
               </h2>
               <p className="text-white/50 mb-8 leading-relaxed">
                 We don't just ship code and walk away. We stay on as the long-term engineering
@@ -288,9 +341,9 @@ const Home = () => {
               operations that demand <strong className="text-white">uncompromising reliability</strong>.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-6">
             {enterprisePartners.map((p) => (
-              <div key={p.name} className="feature-card flex flex-col">
+              <TiltCard key={p.name} className="feature-card flex flex-col">
                 <div className={`${p.color} mb-4`}>{p.icon}</div>
                 <div className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-1.5">
                   {p.sector}
@@ -305,10 +358,10 @@ const Home = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </TiltCard>
             ))}
           </div>
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div className="reveal-stagger mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {[
               { v: 'Telecom', l: 'Sector' },
               { v: 'Mining', l: 'Sector' },
@@ -356,7 +409,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="reveal-stagger lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {publicSector.map((p) => (
                 <div key={p.name} className="feature-card !p-5">
                   <div className="flex items-center gap-3 mb-3">
@@ -375,7 +428,9 @@ const Home = () => {
 
       {/* CTA */}
       <section className="reveal section-padding pg-section text-white relative overflow-hidden">
-        <div className="pg-orb pg-orb-cyan w-[480px] h-[480px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30" aria-hidden="true"></div>
+        <Parallax speed={-0.12} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <div className="pg-orb pg-orb-cyan w-[480px] h-[480px] opacity-30" aria-hidden="true"></div>
+        </Parallax>
         <div className="absolute inset-0 opacity-[0.08] pointer-events-none" aria-hidden="true">
           <svg className="w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice">
             <g stroke="#38bdf8" strokeWidth="0.4" fill="none" opacity="0.6">
@@ -392,7 +447,7 @@ const Home = () => {
               Ready to power your next project in Mongolia
             </div>
             <h2 className="pg-heading text-3xl md:text-4xl mb-4">
-              Reliable. Innovative. Local Experts.
+              <SplitWords text="Reliable. Innovative. Local Experts." step={110} />
             </h2>
             <p className="text-white/50 mb-8 text-lg">
               Apply the same expertise trusted by Rio Tinto, MIAT, Mobicom, Oyu Tolgoi, and Monnis

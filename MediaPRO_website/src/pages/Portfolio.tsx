@@ -329,7 +329,7 @@ const Portfolio = () => {
               <Loader2 className="h-8 w-8 animate-spin text-[#38bdf8]" />
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="reveal-stagger grid grid-cols-1 md:grid-cols-2 gap-6">
               {filtered.map((project) => {
                 const accent = accentMap[project.accentColor as keyof typeof accentMap] || accentMap.blue;
                 const isExpanded = expanded === project.id;

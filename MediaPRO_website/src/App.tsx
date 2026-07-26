@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { Toaster } from "@/components/ui/sonner";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import SmoothScroll from '@/components/motion/SmoothScroll';
+import ScrollProgress from '@/components/motion/ScrollProgress';
 import Home from '@/pages/Home';
 import Portfolio from '@/pages/Portfolio';
 import Solutions from '@/pages/Solutions';
@@ -25,7 +27,11 @@ const useScrollReveal = () => {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -40,7 +46,9 @@ const useScrollReveal = () => {
     );
 
     const observeAll = () =>
-      document.querySelectorAll('.reveal:not(.in-view)').forEach((el) => io.observe(el));
+      document
+        .querySelectorAll('.reveal:not(.in-view), .reveal-stagger:not(.in-view)')
+        .forEach((el) => io.observe(el));
 
     observeAll();
     const mo = new MutationObserver(observeAll);
@@ -55,12 +63,19 @@ const useScrollReveal = () => {
 
 const PublicLayout = ({ children }: { children: React.ReactNode }) => {
   useScrollReveal();
+  const location = useLocation();
   return (
-    <div className="min-h-screen bg-[#04070f] flex flex-col">
-      <Navigation />
-      <main className="flex-1">{children}</main>
-      <Footer />
-    </div>
+    <SmoothScroll>
+      <div className="min-h-screen bg-[#04070f] flex flex-col">
+        <ScrollProgress />
+        <Navigation />
+        {/* Keyed by pathname so every route change plays a scene-cut entrance */}
+        <main key={location.pathname} className="flex-1 page-enter">
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </SmoothScroll>
   );
 };
 
