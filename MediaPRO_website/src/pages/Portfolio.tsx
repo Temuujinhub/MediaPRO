@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ArrowRight, ExternalLink, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
+import ProductPreview, { PreviewScene } from '@/components/ProductPreview';
 
 type Project = {
   id: string;
@@ -15,6 +16,7 @@ type Project = {
   accentColor: string;
   screenshot?: string | null;
   url?: string | null;
+  preview?: PreviewScene;
 };
 
 // Fallback hardcoded data (shown when Supabase is not configured)
@@ -35,6 +37,8 @@ const FALLBACK_PROJECTS: Project[] = [
     tags: ['Enterprise', 'Logistics', 'Real-time', '24/7', 'Mining'],
     category: 'Enterprise',
     accentColor: 'blue',
+    url: 'https://mastrsys.com',
+    preview: 'roster',
   },
   {
     id: '2',
@@ -53,6 +57,7 @@ const FALLBACK_PROJECTS: Project[] = [
     category: 'Enterprise',
     accentColor: 'green',
     url: 'https://oasis.ot.mn',
+    preview: 'pipeline',
   },
   {
     id: '3',
@@ -72,6 +77,7 @@ const FALLBACK_PROJECTS: Project[] = [
     category: 'SaaS',
     accentColor: 'purple',
     url: 'https://onlinehr.mn',
+    preview: 'hr',
   },
   {
     id: '4',
@@ -92,6 +98,7 @@ const FALLBACK_PROJECTS: Project[] = [
     category: 'AI',
     accentColor: 'orange',
     url: 'https://chatbot.mn',
+    preview: 'chat',
   },
   {
     id: '5',
@@ -110,6 +117,8 @@ const FALLBACK_PROJECTS: Project[] = [
     tags: ['Smart City', 'IoT', 'Payment', 'QR', 'Infrastructure'],
     category: 'IoT',
     accentColor: 'green',
+    url: 'https://site.easy-parking.mn',
+    preview: 'parking',
   },
   {
     id: '6',
@@ -134,6 +143,7 @@ const FALLBACK_PROJECTS: Project[] = [
     category: 'Enterprise',
     accentColor: 'blue',
     url: 'https://fleex.mn',
+    preview: 'map',
   },
   {
     id: '8',
@@ -157,6 +167,7 @@ const FALLBACK_PROJECTS: Project[] = [
     category: 'IoT',
     accentColor: 'orange',
     url: 'https://flux.mn',
+    preview: 'gauges',
   },
   {
     id: '7',
@@ -175,6 +186,28 @@ const FALLBACK_PROJECTS: Project[] = [
     tags: ['Data Lakehouse', 'AI', 'CRM', 'Analytics', 'Security'],
     category: 'AI',
     accentColor: 'purple',
+    url: 'https://intellexitech.online',
+    preview: 'analytics',
+  },
+  {
+    id: '9',
+    title: 'Voyage',
+    client: 'E-Boarding Platform — voyage.mn',
+    domain: 'Airline E-Boarding & Ground Operations',
+    description: 'A real-time e-boarding platform digitizing airline ground operations from check-in to departure. Voyage gives gate agents and operations staff a single live view of every flight — passenger manifest, seat assignment, baggage entry, and boarding progress — with instant delay notifications and secure, millisecond-latency connectivity to airline systems.',
+    keyImpacts: [
+      'Live boarding progress per flight and gate — agents see boarded/total counts update in real time as passengers are processed',
+      'Digital passenger manifest with instant check-in status, seat assignment, and one-click passenger processing at the gate',
+      'Integrated baggage entry — weight and piece registration captured directly during check-in flow',
+      'Flight delay notifications broadcast instantly to all operations staff with reason and revised departure time',
+      'Role-based access for gate agents, staff users, and administrators, with full reports and audit history',
+      'Secure connection to airline systems with millisecond-level latency, engineered for time-critical departure windows',
+    ],
+    tags: ['Aviation', 'E-Boarding', 'Real-time', 'Operations'],
+    category: 'Enterprise',
+    accentColor: 'blue',
+    url: 'https://voyage.mn',
+    preview: 'boarding',
   },
 ];
 
@@ -330,40 +363,56 @@ const Portfolio = () => {
             </div>
           ) : (
             <div className="reveal-stagger grid grid-cols-1 md:grid-cols-2 gap-6">
-              {filtered.map((project) => {
+              {filtered.map((project, index) => {
                 const accent = accentMap[project.accentColor as keyof typeof accentMap] || accentMap.blue;
                 const isExpanded = expanded === project.id;
+                const urlLabel = project.url
+                  ? project.url.replace(/^https?:\/\//, '')
+                  : `${project.title.toLowerCase().replace(/[^a-z0-9.]/g, '')}.app`;
                 return (
                   <div key={project.id}
-                    className={`feature-card !p-0 overflow-hidden transition-all duration-300 ${isExpanded ? '!border-[#38bdf8]/50 shadow-2xl' : ''}`}>
+                    className={`feature-card group !p-0 overflow-visible transition-all duration-300 ${isExpanded ? '!border-[#38bdf8]/50 shadow-2xl' : ''}`}>
 
-                    {project.screenshot ? (
-                      <div className="screenshot-container">
-                        <img src={project.screenshot} alt={project.title} />
-                      </div>
-                    ) : (
-                      <div className={`${accent.bg} px-6 pt-6 pb-4`}>
-                        <div className="flex items-start justify-between mb-3">
-                          <div>
-                            <h3 className={`text-2xl font-bold ${accent.text} mb-1`}>{project.title}</h3>
-                            <p className="text-white/50 text-sm">{project.domain}</p>
+                    {/* 3D floating product screen — alternates tilt direction per card */}
+                    <div className="showcase-3d px-5 pt-6" data-side={index % 2 ? 'right' : 'left'}>
+                      <div className="showcase-frame">
+                        <div className="browser-bar">
+                          <span className="browser-dot" style={{ background: '#f87171' }} />
+                          <span className="browser-dot" style={{ background: '#fbbf24' }} />
+                          <span className="browser-dot" style={{ background: '#34d399' }} />
+                          <span className="browser-url">{urlLabel}</span>
+                        </div>
+                        {project.screenshot ? (
+                          <div className="screenshot-container !rounded-none">
+                            <img src={project.screenshot} alt={project.title} />
                           </div>
-                          {project.url && (
-                            <a href={project.url} target="_blank" rel="noopener noreferrer"
-                              className={`${accent.text} opacity-60 hover:opacity-100 transition-opacity`}>
-                              <ExternalLink className="h-4 w-4" />
-                            </a>
-                          )}
-                        </div>
-                        <div className="flex flex-wrap gap-1.5">
-                          {project.tags.map((tag) => (
-                            <span key={tag} className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${accent.text} bg-white/5 border ${accent.border}`}>
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
+                        ) : (
+                          <ProductPreview scene={project.preview ?? 'roster'} accentColor={project.accentColor} />
+                        )}
                       </div>
-                    )}
+                    </div>
+
+                    <div className="px-6 pt-5 pb-0">
+                      <div className="flex items-start justify-between gap-3 mb-3">
+                        <div>
+                          <h3 className={`text-2xl font-bold ${accent.text} mb-1`}>{project.title}</h3>
+                          <p className="text-white/50 text-sm">{project.domain}</p>
+                        </div>
+                        {project.url && (
+                          <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title}`}
+                            className={`${accent.text} opacity-60 hover:opacity-100 transition-opacity mt-1.5`}>
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        )}
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.tags.map((tag) => (
+                          <span key={tag} className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${accent.text} bg-white/5 border ${accent.border}`}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-3">
