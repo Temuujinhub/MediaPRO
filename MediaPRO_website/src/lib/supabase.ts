@@ -1,7 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+/* Fall back to a placeholder project so a missing env var degrades to failed
+   requests instead of createClient throwing and white-screening the site. */
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'placeholder-anon-key';
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 

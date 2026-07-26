@@ -246,7 +246,7 @@ const About = () => (
             This ecosystem enables us to offer end-to-end solutions from backend development to marketing.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-6">
           {subsidiaries.map((s) => (
             <div key={s.name} className="feature-card">
               <div className={`${s.color} mb-4`}>{s.icon}</div>
@@ -270,7 +270,7 @@ const About = () => (
             and long-term quality in enterprise systems.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-6">
           {values.map((v) => (
             <div key={v.title} className="feature-card">
               <div className={`${v.color} mb-4`}>{v.icon}</div>
@@ -293,7 +293,7 @@ const About = () => (
             technology decisions, and operational excellence.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div className="reveal-stagger grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {leadership.map((m) => <MemberCard key={m.name} member={m} size="lg" />)}
         </div>
       </div>
@@ -330,7 +330,7 @@ const About = () => (
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="reveal-stagger grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {internationalCapabilities.map((c) => (
             <div key={c.title} className="feature-card">
               <div className="flex items-start gap-4">

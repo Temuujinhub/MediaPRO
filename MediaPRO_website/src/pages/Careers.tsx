@@ -149,7 +149,7 @@ const Careers = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="reveal-stagger grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
               <div key={index} className="feature-card text-center">
                 <div className="icon-blue mx-auto mb-4">
@@ -264,7 +264,7 @@ const Careers = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="reveal-stagger grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               { step: '1', title: 'Apply', desc: 'Submit your application and resume' },
               { step: '2', title: 'Review', desc: 'Initial screening and portfolio review' },
